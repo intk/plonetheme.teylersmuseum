@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<portlets xmlns:i18n="http://namespaces.zope.org/i18n"> 
+ <portletmanager 
+   name="plonetheme.teylersmuseum.footerPortletManager"
+   type="plonetheme.teylersmuseum.browser.interfaces.IFooterPortlet"
+ />
+ <portletmanager 
+   name="plonetheme.teylersmuseum.pagePortletManager"
+   type="plonetheme.teylersmuseum.browser.interfaces.IPagePortlet"
+ />
+
+ <portletmanager 
+   name="plonetheme.teylersmuseum.collectionPortletManager"
+   type="plonetheme.teylersmuseum.browser.interfaces.ICollectionPortletManager"
+ />
+
+ <portlet
+    addview="plonetheme.teylersmuseum.extendedMailchimp"
+    title="Extended mailchimp portlet"
+    description="A portlet that adds a mailchimp subscriber with description"
+    i18n:attributes="title;description"
+    />
+
+</portlets>
