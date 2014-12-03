@@ -11,7 +11,8 @@
     <metal:block define-macro="content-core"
                  tal:define="kssClassesView context/@@kss_field_decorator_view;
                              getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
-                             templateId template/getId">
+                             templateId template/getId;
+                             portal_type context/portal_type">
 
     <div class="tileColumns container-fluid">
       <div class="col-lg-12" id="collectionFilters" tal:define="checkPermission nocall: context/portal_membership/checkPermission;
@@ -69,8 +70,8 @@
               <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" metal:define-macro="listitem">
                 <div class="thumbnail">
                   <div class="thumb-wrapper">
-                      
-                    <a class="thumb-image" tal:condition="python: (item.hasMedia or item.portal_type == 'Image') and not excluded_from_nav and item_img != None" href="" tal:attributes="href python:item_link+'?collection='+collection_id+'&b_start='+str(b_start)"
+                    
+                    <a class="thumb-image" tal:condition="python: (item.hasMedia or item.portal_type == 'Image') and not excluded_from_nav and item_img != None" href="" tal:attributes="href python: item_link+'?collection_id='+collection_id+'&b_start='+str(b_start) if portal_type == 'Collection' else item_link"
                       >
 
                       <img tal:define="images item_img/@@images;
@@ -103,7 +104,7 @@
                   </div>
                   <div class="caption">
                   <h3 tal:condition="not:excluded_from_nav"><a href="#"
-                       tal:attributes="href item_link; class item_wf_state_class"
+                       tal:attributes="href python: item_link+'?collection_id='+collection_id+'&b_start='+str(b_start) if portal_type == 'Collection' else item_link; class item_wf_state_class"
                        tal:content="item/Title"
                        >
                     Title

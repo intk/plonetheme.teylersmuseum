@@ -93,7 +93,7 @@
     <browser:page
         name="collection_view"
         menu="plone_displayviews"
-        title="Collection View"
+        title="Media  View"
         for="*"
         class=".views.FolderListing"
         template="templates/collection_custom.pt"

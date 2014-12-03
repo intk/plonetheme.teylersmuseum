@@ -17,7 +17,6 @@ class get_slideshow_options(BrowserView):
                 (self.context, self.request),
                 name=u'plone_context_state')
 
-
 		# Check view type
 		view_type = state.view_template_id()
 		print view_type
