@@ -8,43 +8,43 @@
     enabled="0" expression=""/>
 
     <stylesheet title=""
-    id="++resource++plonetheme.teylersmuseum.css/enhancements.css"
+    id="++resource++plonetheme.bootstrapModern.css/enhancements.css"
     media="" rel="stylesheet" rendering="link"
     cacheable="True" compression="none" cookable="True"
     enabled="1" expression=""/>
 
     <stylesheet title=""
-    id="++resource++plonetheme.teylersmuseum.css/bootstrap3/bootstrap.css"
+    id="++resource++plonetheme.bootstrapModern.css/bootstrap3/bootstrap.css"
     media="" rel="stylesheet" rendering="link"
     cacheable="True" compression="none" cookable="True"
     enabled="1" expression=""/>
 
     <stylesheet title=""
-    id="++resource++plonetheme.teylersmuseum.css/font-awesome/css/font-awesome.css"
+    id="++resource++plonetheme.bootstrapModern.css/font-awesome/css/font-awesome.css"
     media="" rel="stylesheet" rendering="link"
     cacheable="True" compression="none" cookable="True"
     enabled="1" expression=""/>
 
     <!--<stylesheet title=""
-    id="++resource++plonetheme.teylersmuseum.css/vendor/slick.css"
+    id="++resource++plonetheme.bootstrapModern.css/vendor/slick.css"
     media="" rel="stylesheet" rendering="link"
     cacheable="True" compression="none" cookable="True"
     enabled="1" expression=""/>-->
 
     <stylesheet title=""
-    id="++resource++plonetheme.teylersmuseum.css/theme.css"
+    id="++resource++plonetheme.bootstrapModern.css/theme.css"
     media="" rel="stylesheet" rendering="link"
     cacheable="True" compression="none" cookable="True"
     enabled="1" expression=""/>
 
     <stylesheet title=""
-    id="++resource++plonetheme.teylersmuseum.css/audioslideshow.css"
+    id="++resource++plonetheme.bootstrapModern.css/audioslideshow.css"
     media="" rel="stylesheet" rendering="link"
     cacheable="True" compression="none" cookable="True"
     enabled="1" expression=""/>
 
     <stylesheet title=""
-    id="++resource++plonetheme.teylersmuseum.css/menu.css"
+    id="++resource++plonetheme.bootstrapModern.css/menu.css"
     media="" rel="stylesheet" rendering="link"
     cacheable="True" compression="none" cookable="True"
     enabled="1" expression=""/>

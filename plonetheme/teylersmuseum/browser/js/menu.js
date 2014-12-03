@@ -7,7 +7,7 @@ $(document).ready(function() {
   /* MEDIA SHOW HEIGHT RECALCULATION */
 
   //if (supportsSvg()) {
-  //  $("#portal-logo img").attr('src', '++resource++plonetheme.teylersmuseum.css/logo.svg');
+  //  $("#portal-logo img").attr('src', '++resource++plonetheme.bootstrapModern.css/logo.svg');
   //}
 
   //mediaShow.recalculateHeight($(".embededMediaShow.javascripted"));
@@ -125,7 +125,40 @@ $(document).ready(function() {
       }
     });
   });
+
+  if (slickSlideshow.$obj != undefined) {
+    console.log("slideshow exists");
+    var href = window.location.href;
+    var location = "";
+    if (href[href.length-1] == "?") {
+      location = href.substring(0, str.length - 1);
+    } else {
+      location = href;
+    }
+
+    slickSlideshow.$obj.slickSetOption('arrows', false, true);
+    var new_link = href + "/get_slideshow_options";
+    // Get json with options
+    $.getJSON(new_link, function(data) {
+      console.log(data);
+      if (data != null) {
+        if (data.changes) {
+          if (data.type == "double") {
+            slickSlideshow.$obj.slickSetOption('arrows', data.arrows, true);
+            slickSlideshow.$obj.slickSetOption('slidesToShow', data.slidesToShow, true);
+            slickSlideshow.$obj.addClass('coins');
+          } else if (data.type == "multiple") {
+            slickSlideshow.$obj.slickSetOption('arrows', data.arrows, true);
+            slickSlideshow.$obj.slickSetOption('autoplay', data.autoplay, true);
+            slickSlideshow.$obj.slickSetOption('autoplaySpeed', data.autoplaySpeed, true);
+          }
+        }
+      }
+    });
+  }
 });
+
+
 
 
 

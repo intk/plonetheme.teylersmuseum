@@ -25,12 +25,16 @@
         <viewlet name="plone.manage_portlets_fallback" />
     </hidden>
 
+    <hidden manager="plone.belowcontent" skinname="*">
+        <viewlet name="plone.nextprevious" />
+    </hidden>
+
     <order manager="plone.portalfooter" skinname="*">
-        <viewlet name="plonetheme.teylersmuseum.footer" insert-after="*"/>
+        <viewlet name="plonetheme.bootstrapModern.footer" insert-after="*"/>
     </order>
 
     <order manager="plone.portalheader" skinname="*">
-        <viewlet name="plonetheme.teylersmuseum.sections" insert-before="*"/>
+        <viewlet name="plonetheme.bootstrapModern.sections" insert-before="*"/>
     </order>
 
 </object>

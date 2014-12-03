@@ -13,7 +13,7 @@
 <body>
   <div metal:fill-slot="main">
     <h1 class="documentFirstHeading">Manage Collection Portlets</h1>
-    <span tal:replace="structure provider:plonetheme.teylersmuseum.collectionPortletManager" />
+    <span tal:replace="structure provider:plonetheme.bootstrapModern.collectionPortletManager" />
   </div>
 </body>
 </html>

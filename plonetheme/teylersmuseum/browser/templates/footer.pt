@@ -2,7 +2,7 @@
      i18n:domain="plone" class="container-fluid">
 
     <div class="row">
-        <tal:block replace="structure provider:plonetheme.teylersmuseum.footerPortletManager"/>
+        <tal:block replace="structure provider:plonetheme.bootstrapModern.footerPortletManager"/>
     </div>
 
     <div id="footer-manager-button" class="row"> 

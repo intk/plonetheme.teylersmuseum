@@ -451,12 +451,14 @@ class FolderListing(CommonBrowserView):
     """'
     Override of folder_listing view
     """
-    def results(self, batch=True, b_start = 0, pagesize=10, only_documented=False):
+    def results(self, batch=True, b_start = 0, pagesize=10, sort_on='sortable_title', only_documented=False):
         results = []
         
         #print "FOLDER LISTING"
+        print "sort on:"
+        print sort_on
         if self.context.portal_type  == 'Collection':
-            brains = self.context.queryCatalog(batch=False)
+            brains = self.context.queryCatalog(batch=False, sort_on=sort_on)
             if only_documented:
                 final_res = []
                 for res in brains:

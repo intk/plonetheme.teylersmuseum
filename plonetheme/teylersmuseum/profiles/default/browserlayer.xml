@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <layers> 
     <layer 
-        name="plonetheme.teylersmuseum" 
-        interface="plonetheme.teylersmuseum.browser.interfaces.IThemeSpecific" 
+        name="plonetheme.bootstrapModern" 
+        interface="plonetheme.bootstrapModern.browser.interfaces.IThemeSpecific" 
     /> 
 </layers>

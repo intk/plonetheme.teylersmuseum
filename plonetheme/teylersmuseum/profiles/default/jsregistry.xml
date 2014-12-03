@@ -5,47 +5,47 @@
 <object name="portal_javascripts">
 
   <javascript
-    id="++resource++plonetheme.teylersmuseum.js/respond.min.js"
+    id="++resource++plonetheme.bootstrapModern.js/respond.min.js"
     cacheable="False" compression="safe" cookable="False"
     enabled="True" expression=""  inline="False"/>
 
   <javascript
-    id="++resource++plonetheme.teylersmuseum.js/classie.js"
+    id="++resource++plonetheme.bootstrapModern.js/classie.js"
     cacheable="False" compression="safe" cookable="False"
     enabled="True" expression=""  inline="False"/>
 
   <javascript
-    id="++resource++plonetheme.teylersmuseum.js/modernizr.custom.js"
+    id="++resource++plonetheme.bootstrapModern.js/modernizr.custom.js"
     cacheable="False" compression="safe" cookable="False"
     enabled="True" expression=""  inline="False"/>
 
   <javascript
-    id="++resource++plonetheme.teylersmuseum.js/fastclick.js"
+    id="++resource++plonetheme.bootstrapModern.js/fastclick.js"
     cacheable="False" compression="safe" cookable="False"
     enabled="True" expression=""  inline="False"/>
 
   <javascript
-    id="++resource++plonetheme.teylersmuseum.js/vendor/jplayer/jquery.jplayer.js"
+    id="++resource++plonetheme.bootstrapModern.js/vendor/jplayer/jquery.jplayer.js"
     cacheable="False" compression="safe" cookable="False"
     enabled="True" expression=""  inline="False"/>
 
   <javascript
-    id="++resource++plonetheme.teylersmuseum.js/jquery.audioslideshow.js"
+    id="++resource++plonetheme.bootstrapModern.js/jquery.audioslideshow.js"
     cacheable="False" compression="safe" cookable="False"
     enabled="True" expression=""  inline="False"/>
 
   <javascript
-    id="++resource++plonetheme.teylersmuseum.js/vendor/slick.js"
+    id="++resource++plonetheme.bootstrapModern.js/vendor/slick.js"
     cacheable="False" compression="safe" cookable="False"
     enabled="True" expression=""  inline="False"/>
 
   <javascript
-    id="++resource++plonetheme.teylersmuseum.js/menu.js"
+    id="++resource++plonetheme.bootstrapModern.js/menu.js"
     cacheable="False" compression="safe" cookable="False"
     enabled="True" expression=""  inline="False"/>
 
   <!--<javascript
-    id="++resource++plonetheme.teylersmuseum.js/slideshow.js"
+    id="++resource++plonetheme.bootstrapModern.js/slideshow.js"
     cacheable="False" compression="safe" cookable="False"
     enabled="True" expression=""  inline="False"/>-->
 

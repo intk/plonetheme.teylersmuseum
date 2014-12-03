@@ -16,20 +16,24 @@
     <div class="tileColumns container-fluid">
       <div class="col-lg-12" id="collectionFilters" tal:define="checkPermission nocall: context/portal_membership/checkPermission;
         portal context/@@plone_portal_state/portal;">
-        <tal:block replace="structure provider:plonetheme.teylersmuseum.collectionPortletManager"/>
+        <tal:block replace="structure provider:plonetheme.bootstrapModern.collectionPortletManager"/>
         <a class="managePortletsFallback" tal:attributes="href string:${context/absolute_url}/@@manage-collection-portlets" tal:condition="python:checkPermission('Portlets: Manage portlets', context)">Manage collection portlets</a>
       </div>
 
       <div class="row-fluid">
       
         <metal:listingmacro define-macro="listing">
-        <tal:results define="b_start python:request.get('b_start', 0);
-                 batch python:view.results(b_start=b_start, pagesize=33, only_documented=not showall);
+        <tal:results define="contentFilter contentFilter|request/contentFilter|nothing;
+                 contentFilter python:contentFilter and dict(contentFilter) or {};
+                 b_start python:request.get('b_start', 0);
+                 sort_on python:request.get('sort_on', 'sortable_title');
+                 batch python:view.results(b_start=b_start, pagesize=33, sort_on=sort_on, only_documented=not showall);
                  site_properties context/portal_properties/site_properties;
                  use_view_action site_properties/typesUseViewActionInListings|python:();
                  isAnon context/@@plone_portal_state/anonymous;
                  normalizeString nocall: context/plone_utils/normalizeString;
                  toLocalizedTime nocall: context/@@plone/toLocalizedTime;
+                 collection_id context/UID;
                  show_about python:not isAnon or site_properties.allowAnonymousViewAbout;
                  navigation_root_url context/@@plone_portal_state/navigation_root_url;
                  pas_member context/@@pas_member;">
@@ -65,8 +69,8 @@
               <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" metal:define-macro="listitem">
                 <div class="thumbnail">
                   <div class="thumb-wrapper">
-                    
-                    <a class="thumb-image" tal:condition="python: (item.hasMedia or item.portal_type == 'Image') and not excluded_from_nav and item_img != None" href="" tal:attributes="href item_link"
+                      
+                    <a class="thumb-image" tal:condition="python: (item.hasMedia or item.portal_type == 'Image') and not excluded_from_nav and item_img != None" href="" tal:attributes="href python:item_link+'?collection='+collection_id+'&b_start='+str(b_start)"
                       >
 
                       <img tal:define="images item_img/@@images;

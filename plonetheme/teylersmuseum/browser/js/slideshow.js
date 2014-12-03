@@ -152,8 +152,8 @@ slickSlideshow.initSlick = function() {
 		focusOnSelect: true,
 		onAfterChange: slickSlideshow.afterChange,
 		appendArrows: $(".slideshowWrapper"),
-		nextArrow: "<button type='button' class='slick-next'><img src='++resource++plonetheme.teylersmuseum.css/arr-right.svg'/></button>",
-		prevArrow: "<button type='button' class='slick-prev'><img src='++resource++plonetheme.teylersmuseum.css/arr-left.svg'/></button>"
+		nextArrow: "<button type='button' class='slick-next'><img src='++resource++plonetheme.bootstrapModern.css/arr-right.svg'/></button>",
+		prevArrow: "<button type='button' class='slick-prev'><img src='++resource++plonetheme.bootstrapModern.css/arr-left.svg'/></button>"
 	});
 }
 

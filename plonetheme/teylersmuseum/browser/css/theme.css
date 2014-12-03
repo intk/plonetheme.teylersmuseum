@@ -239,7 +239,7 @@ dl.portlet a:hover {
     margin-top: 0px;
     margin-left: 0px;
     margin-bottom: 0px;
-    content: url('++resource++plonetheme.teylersmuseum.css/teylers_black.png');
+    content: url('++resource++plonetheme.bootstrapModern.css/teylers_black.png');
 }
 
 body.portaltype-portlet-page #parent-fieldname-title, body.portaltype-portlet-page #parent-fieldname-title {
@@ -3635,7 +3635,7 @@ body.portaltype-formthankspage #content blockquote > * {
     height: 22%;
     background-color: red;
     margin: 0 auto;
-    background: url("++resource++plonetheme.teylersmuseum.css/play.svg") no-repeat;
+    background: url("++resource++plonetheme.bootstrapModern.css/play.svg") no-repeat;
     background-size: 100% 100%;
     opacity: 0.75;
 }
@@ -4035,12 +4035,35 @@ dd.portletItem > h3:first-child {
 /* NEW SLIDESHOW */
 
 .slick-prev {
-    background: url("++resource++plonetheme.teylersmuseum.css/arr-left.svg") !important;
+    background: url("++resource++plonetheme.bootstrapModern.css/arr-left.svg") !important;
 }
 
 .slick-next {
-    background: url("++resource++plonetheme.teylersmuseum.css/arr-right.svg") !important;
+    background: url("++resource++plonetheme.bootstrapModern.css/arr-right.svg") !important;
 }
+
+
+
+/* TWEAKS for slideshow */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .slick-slideshow.coins .slick-slide img {
+        height: 480px !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .slick-slideshow.coins .slick-slide img {
+        height: 480px !important;
+    }
+}
+
+@media (min-width: 1439px) { 
+    .slick-slideshow.coins .slick-slide img {
+        height: 640px !important;
+    }
+}
+
+
 
 
 

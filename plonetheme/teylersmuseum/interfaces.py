@@ -1,6 +1,6 @@
 from zope.interface import Interface
 from zope import schema
-from plonetheme.teylersmuseum import MessageFactory as _
+from plonetheme.bootstrapModern import MessageFactory as _
 
 class IMediaTypes(Interface):
     """

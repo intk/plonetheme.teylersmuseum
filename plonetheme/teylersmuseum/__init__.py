@@ -3,7 +3,7 @@
 import permissions
 from zope.i18nmessageid import MessageFactory as BaseMessageFactory
 
-MessageFactory = BaseMessageFactory('plonetheme.teylersmuseum')
+MessageFactory = BaseMessageFactory('plonetheme.bootstrapModern')
 
 def initialize(context):
     """Initializer called when used as a Zope 2 product."""

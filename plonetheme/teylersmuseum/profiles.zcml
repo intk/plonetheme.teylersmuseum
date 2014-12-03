@@ -1,7 +1,7 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
-    i18n_domain="plonetheme.teylersmuseum">
+    i18n_domain="plonetheme.bootstrapModern">
 
   <genericsetup:registerProfile
       name="default"
@@ -12,10 +12,10 @@
       />
 
   <genericsetup:importStep
-      name="plonetheme.teylersmuseum.various"
+      name="plonetheme.bootstrapModern.various"
       title="bootstrapModern Theme: miscellaneous import steps"
       description="Various import steps that are not handled by GS import/export handlers."
-      handler="plonetheme.teylersmuseum.setuphandlers.setupVarious">
+      handler="plonetheme.bootstrapModern.setuphandlers.setupVarious">
     <depends name="skins"/>
   </genericsetup:importStep>
 

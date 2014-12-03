@@ -9,7 +9,7 @@ from Products.PloneTestCase import PloneTestCase as ptc
 from Products.PloneTestCase.layer import PloneSite
 ptc.setupPloneSite()
 
-import plonetheme.teylersmuseum
+import plonetheme.bootstrapModern
 
 
 class TestCase(ptc.PloneTestCase):
