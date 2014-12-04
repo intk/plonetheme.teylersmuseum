@@ -110,6 +110,18 @@
       permission="zope2.View"
     />
 
+    <!-- Navigation feature -->
+    <browser:page
+      name="get_nav_objects"
+      for="*"
+      class=".slideshow.get_nav_objects"
+      template="templates/get_nav_objects.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope2.View"
+    />
+
+    <!-- Slideshow options -->
+
     <browser:page
       name="get_slideshow_options"
       for="collective.leadmedia.behaviors.slideshow.ISlideshow"

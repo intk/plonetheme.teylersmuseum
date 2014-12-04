@@ -136,7 +136,7 @@ $(document).ready(function() {
       location = href;
     }
 
-    slickSlideshow.$obj.slickSetOption('arrows', false, true);
+    //slickSlideshow.$obj.slickSetOption('arrows', false, true);
     var new_link = href + "/get_slideshow_options";
     // Get json with options
     $.getJSON(new_link, function(data) {
@@ -144,11 +144,11 @@ $(document).ready(function() {
       if (data != null) {
         if (data.changes) {
           if (data.type == "double") {
-            slickSlideshow.$obj.slickSetOption('arrows', data.arrows, true);
+            //slickSlideshow.$obj.slickSetOption('arrows', data.arrows, true);
             slickSlideshow.$obj.slickSetOption('slidesToShow', data.slidesToShow, true);
             slickSlideshow.$obj.addClass('coins');
           } else if (data.type == "multiple") {
-            slickSlideshow.$obj.slickSetOption('arrows', data.arrows, true);
+            //slickSlideshow.$obj.slickSetOption('arrows', data.arrows, true);
             slickSlideshow.$obj.slickSetOption('autoplay', data.autoplay, true);
             slickSlideshow.$obj.slickSetOption('autoplaySpeed', data.autoplaySpeed, true);
           }

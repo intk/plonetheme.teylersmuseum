@@ -2,6 +2,88 @@
     S L I D E S H O W - E N H A N C E M E N T S
 --------------------------------------------------------------------------------- */
 
+slickSlideshow.addNavigationSlides = function() {
+	var partial_duration = slickSlideshow.audioduration / slickSlideshow.slides.length;
+	
+	for (var i = 0; i < slickSlideshow.slides.length; i++) {
+		slickSlideshow.$obj.slickAdd("<div><img src='"+slickSlideshow.slides[i].url+"'/></div>");
+	}
+}
+
+slickSlideshow.getNavigationContent = function(query) {
+	var request_url = "get_nav_objects";
+	var URL;
+
+	location_query_split = window.location.href.split('?');
+	current_url = location_query_split[0];
+	// Set request URL
+	URL = current_url + "/" + request_url + query;
+	slickSlideshow.request_url = URL;
+	
+	$.getJSON(URL, function(data) {
+		var data_len = $(data).length;
+
+		$.each(data, function(index, item) {
+			slide_item = {
+				'url': item.url,
+				'object_id': item.object_id
+			}
+			slickSlideshow.slides.push(slide_item);
+		});
+		slickSlideshow.addNavigationSlides();
+		slickSlideshow.$obj.slickGoTo(0);
+	});
+}
+
+slickSlideshow.getContentListing = function() {
+	var URL;	
+	query = location.search;
+
+	if (query != "") {
+		// Slideshow aware of query
+		slickSlideshow.getNavigationContent(query);
+		// Slideshow aware of query
+	} else {
+		var URL, querystring;
+		if (slickSlideshow.url.indexOf("?") != -1) {
+			querystring = slickSlideshow.url.slice(slickSlideshow.url.indexOf("?") + 1);
+			slickSlideshow.url = slickSlideshow.url.slice(0, slickSlideshow.url.indexOf("?"));
+		} else {
+			querystring = "";
+		}
+
+		// Make it non-recursive
+		slickSlideshow.recursive = false;
+		querystring = "";
+
+		if (slickSlideshow.recursive) {
+			if (querystring == "") {
+				URL = slickSlideshow.url + '/slideshowListing';
+			} else {
+				URL = slickSlideshow.url + '/slideshowListing' + '?' + querystring;
+			}
+		} else {
+			if (querystring == "") {
+				URL = slickSlideshow.url + '/slideshowListing?recursive=false';
+			} else {
+				URL = slickSlideshow.url + '/slideshowListing' + '?' + querystring + "&recursive=false";
+			}
+		}
+		
+		$.getJSON(URL, function(data) {
+			var data_len = $(data).length;
+
+			$.each(data, function(index, item) {
+				if (index == data_len - 1) {
+					slickSlideshow.getSlideDetails(item, true)
+				} else {
+					slickSlideshow.getSlideDetails(item, false)
+				}
+			});
+		});
+	}
+}
+
 /*slickSlideshow = {}
 
 slickSlideshow.slides = []

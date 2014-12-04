@@ -44,9 +44,9 @@
     cacheable="False" compression="safe" cookable="False"
     enabled="True" expression=""  inline="False"/>
 
-  <!--<javascript
+  <javascript
     id="++resource++plonetheme.bootstrapModern.js/slideshow.js"
     cacheable="False" compression="safe" cookable="False"
-    enabled="True" expression=""  inline="False"/>-->
+    enabled="True" expression=""  inline="False"/>
 
 </object>
