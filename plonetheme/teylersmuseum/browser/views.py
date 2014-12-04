@@ -24,6 +24,7 @@ try:
 except ImportError:
     GETPAID_EXISTS = False
 
+
 class CommonBrowserView(BrowserView):
     """
     Common utilities for all the other views
@@ -453,7 +454,7 @@ class FolderListing(CommonBrowserView):
     """
     def results(self, batch=True, b_start = 0, pagesize=10, sort_on='sortable_title', only_documented=False):
         results = []
-        
+
         if self.context.portal_type  == 'Collection':
             brains = self.context.queryCatalog(batch=False, sort_on=sort_on)
             if only_documented:
