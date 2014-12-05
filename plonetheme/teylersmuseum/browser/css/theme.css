@@ -4042,7 +4042,13 @@ dd.portletItem > h3:first-child {
     background: url("++resource++plonetheme.bootstrapModern.css/arr-right.svg") !important;
 }
 
+.container.object-container {
+    display: none;
+}
 
+#get_more_info {
+    cursor: pointer;
+}
 
 /* TWEAKS for slideshow */
 @media (min-width: 992px) and (max-width: 1199px) {
