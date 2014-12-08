@@ -119,7 +119,7 @@ class get_nav_objects(BrowserView):
 			if obj != None:
 				obj_media = ICanContainMedia(obj.getObject()).getLeadMedia()
 				if obj_media != None:
-					items['list'].append({'url':obj.getURL(),'image_url': obj_media.absolute_url()+'/@@images/image/large', 'object_id': obj.getId(), 'title':obj.Title(), 'description': obj.Description(), 'body': obj.text.output})
+					items['list'].append({'url':obj.getURL(),'image_url': obj_media.absolute_url()+'/@@images/image/large', 'object_id': obj.getId(), 'title':obj.Title(), 'description': obj.Description(), 'body': ""})
 
 		return items
 
@@ -138,16 +138,82 @@ class get_nav_objects(BrowserView):
 
 		return json.dumps(items)
 
+
+	def build_json_with_list(self, list_items):
+		items = {
+			'list':[],
+			'object_idx':0
+		}
+
+		for obj in list_items:
+			obj_media = ICanContainMedia(obj.getObject()).getLeadMedia()
+			if obj_media != None:
+				items['list'].append({'url':obj.getURL(),'image_url': obj_media.absolute_url()+'/@@images/image/large', 'object_id': obj.getId(), 'title':obj.Title(), 'description': obj.Description(), 'body': ""})
+		
+		return items
+
+	"""
+	Get bulk of prev items
+	"""
+	def get_prev_objects(self):
+		bulk = 30
+		b_start = self.request.get('b_start')
+		collection_id = self.request.get('collection_id')
+		object_id = self.request.get('object_id')
+
+		if b_start != None and collection_id != None and object_id != None:
+			collection_object = self.get_collection_from_catalog(collection_id)
+			results = self.get_all_batch(collection_object)
+			object_idx = self.get_object_idx(results, object_id)
+
+			if object_idx-bulk >= 0:
+				list_of_items = list(results)
+				bulk_of_items = list_of_items[(object_idx-bulk):object_idx]
+				items = self.build_json_with_list(bulk_of_items)
+				items['list'] = list(reversed(items['list']))
+				return json.dumps(items)
+
+		return json.dumps({'list':[], 'object_idx':0})
+
+	"""
+	Get bulk of next items
+	"""
+	def get_next_objects(self):
+		bulk = 30
+		b_start = self.request.get('b_start')
+		collection_id = self.request.get('collection_id')
+		object_id = self.request.get('object_id')
+
+		if b_start != None and collection_id != None and object_id != None:
+			collection_object = self.get_collection_from_catalog(collection_id)
+			results = self.get_all_batch(collection_object)
+			object_idx = self.get_object_idx(results, object_id)
+
+			if object_idx+bulk < len(results):
+				list_of_items = list(results)
+				bulk_of_items = list_of_items[(object_idx+1):(object_idx+bulk+1)]
+				items = self.build_json_with_list(bulk_of_items)
+				return json.dumps(items)
+			
+			elif object_idx+bulk >= len(results):
+				list_of_items = list(results)
+				offset = (object_idx+bulk) - len(results)
+				bulk_of_items = list_of_items[(object_idx+1):] + list_of_items[0:(offset+1)]
+				items = self.build_json_with_list(bulk_of_items)
+				return json.dumps(items)
+
+		return json.dumps({'list':[], 'object_idx':0})
+
 	def getJSON(self):
 		pagesize = 33
-		buffer_size = 5
+		buffer_size = 30
 		b_start = self.request.get('b_start')
 		collection_id = self.request.get('collection_id')
 
 		if b_start != None and collection_id != None:
 			items = {
 				'list':[],
-				'object_idx':5
+				'object_idx':0
 			}
 
 			collection_object = self.get_collection_from_catalog(collection_id)
@@ -161,12 +227,16 @@ class get_nav_objects(BrowserView):
 
 			if object_idx-buffer_size >= 0 and object_idx+buffer_size < len(results):
 				list_of_items = list(results)
-				_buffer = list_of_items[(object_idx-buffer_size):(object_idx+buffer_size+1)]
+				
+				prev_items = list_of_items[(object_idx-buffer_size):object_idx]
+				next_items = list_of_items[object_idx:(object_idx+buffer_size+1)]
+
+				_buffer = next_items + prev_items
 				
 				for obj in _buffer:
 					obj_media = ICanContainMedia(obj.getObject()).getLeadMedia()
 					if obj_media != None:
-						items['list'].append({'url':obj.getURL(),'image_url': obj_media.absolute_url()+'/@@images/image/large', 'object_id': obj.getId(), 'title':obj.Title(), 'description': obj.Description(), 'body': obj.text.output})
+						items['list'].append({'url':obj.getURL(),'image_url': obj_media.absolute_url()+'/@@images/image/large', 'object_id': obj.getId(), 'title':obj.Title(), 'description': obj.Description(), 'body': ""})
 
 				return json.dumps(items)
 			
@@ -175,37 +245,33 @@ class get_nav_objects(BrowserView):
 				offset = object_idx-buffer_size
 				
 				list_of_items = list(results)
-				prev_items = list_of_items[offset:]
-				next_items = list_of_items[0:(object_idx+buffer_size+1)]
+				prev_items = list_of_items[offset:] + list_of_items[0:object_idx]
+				next_items = list_of_items[object_idx:(object_idx+buffer_size+1)]
 
-				_buffer = prev_items + next_items
+				_buffer = next_items + prev_items
 				
 				for obj in _buffer:
 					obj_media = ICanContainMedia(obj.getObject()).getLeadMedia()
 					if obj_media != None:
-						items['list'].append({'url':obj.getURL(),'image_url': obj_media.absolute_url()+'/@@images/image/large', 'object_id': obj.getId(), 'title':obj.Title(), 'description': obj.Description(), 'body': obj.text.output})
+						items['list'].append({'url':obj.getURL(),'image_url': obj_media.absolute_url()+'/@@images/image/large', 'object_id': obj.getId(), 'title':obj.Title(), 'description': obj.Description(), 'body': ""})
 
 				return json.dumps(items)
 
 			elif object_idx+buffer_size >= len(results) and object_idx-buffer_size > 0:
 				list_of_items = list(results)
 
-				offset = len(results) - (object_idx+buffer_size+1)
-				lisf_of_items = list(results)
+				offset = (object_idx+buffer_size) - len(results)
 
-				prev_items = list_of_items[(object_idx-buffer_size):]
-				next_items = list_of_items[0:(abs(offset)+buffer_size+1)]
+				prev_items = list_of_items[(object_idx-buffer_size):object_idx]
+				next_items = list_of_items[object_idx:] + list_of_items[0:(offset+1)]
 
-				_buffer = prev_items + next_items
+				_buffer = next_items + prev_items
 				for obj in _buffer:
 					obj_media = ICanContainMedia(obj.getObject()).getLeadMedia()
 					if obj_media != None:
-						items['list'].append({'url':obj.getURL(), 'image_url': obj_media.absolute_url()+'/@@images/image/large', 'object_id': obj.getId(), 'title':obj.Title(), 'description': obj.Description(), 'body': obj.text.output})
-
+						items['list'].append({'url':obj.getURL(), 'image_url': obj_media.absolute_url()+'/@@images/image/large', 'object_id': obj.getId(), 'title':obj.Title(), 'description': obj.Description(), 'body': ""})
+				
 				return json.dumps(items)
-
-
-
 
 class get_slideshow_options(BrowserView):
 	"""

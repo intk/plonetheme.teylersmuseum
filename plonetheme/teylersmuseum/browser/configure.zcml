@@ -120,6 +120,24 @@
       permission="zope2.View"
     />
 
+    <browser:page
+      name="get_next_objects"
+      for="*"
+      class=".slideshow.get_nav_objects"
+      template="templates/get_next_objects.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope2.View"
+    />
+
+    <browser:page
+      name="get_prev_objects"
+      for="*"
+      class=".slideshow.get_nav_objects"
+      template="templates/get_prev_objects.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope2.View"
+    />
+
     <!-- Slideshow options -->
 
     <browser:page
