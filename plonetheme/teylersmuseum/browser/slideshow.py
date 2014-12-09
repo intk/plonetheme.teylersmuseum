@@ -108,7 +108,8 @@ class get_nav_objects(BrowserView):
 	def get_all_items_from_collection(self, collection_object):
 		items = {
 			"list":[],
-			"object_idx":0
+			"object_idx":0,
+			'total':False
 		}
 
 		results = self.get_all_batch(collection_object)
@@ -138,18 +139,48 @@ class get_nav_objects(BrowserView):
 
 		return json.dumps(items)
 
+	def get_images_for_double_view(self, _object):
+		images = []
+		limit = 2
+		curr = 0
 
-	def build_json_with_list(self, list_items):
+		if hasattr(_object, 'slideshow'):
+			slideshow = _object['slideshow']
+			if slideshow.portal_type == "Folder":
+				for img in slideshow:
+					curr += 1 
+					if slideshow[img].portal_type == 'Image':
+						images.append(slideshow[img].absolute_url()+'/@@images/image/large')
+					if curr >= limit:
+						break
+		return images
+
+	def build_json_with_list(self, list_items, object_idx, total):
 		items = {
 			'list':[],
-			'object_idx':0
+			'object_idx':object_idx,
+			'total': total,
+			'has_list_images':False,
 		}
+
+		state = getMultiAdapter(
+				(self.context, self.request),
+				name=u'plone_context_state')
+
+		# Check view type
+		view_type = state.view_template_id()
+
+		if view_type == "double_view":
+			items["has_list_images"] = True
 
 		for obj in list_items:
 			obj_media = ICanContainMedia(obj.getObject()).getLeadMedia()
 			if obj_media != None:
-				items['list'].append({'url':obj.getURL(),'image_url': obj_media.absolute_url()+'/@@images/image/large', 'object_id': obj.getId(), 'title':obj.Title(), 'description': obj.Description(), 'body': ""})
-		
+				if not items['has_list_images']:
+					items['list'].append({'url':obj.getURL(),'image_url': obj_media.absolute_url()+'/@@images/image/large', 'object_id': obj.getId(), 'title':obj.Title(), 'description': obj.Description(), 'body': self.get_object_body(obj)})
+				else:
+					items['list'].append({'images':self.get_images_for_double_view(obj.getObject()), 'url':obj.getURL(),'image_url': obj_media.absolute_url()+'/@@images/image/large', 'object_id': obj.getId(), 'title':obj.Title(), 'description': obj.Description(), 'body': self.get_object_body(obj)})
+				
 		return items
 
 	"""
@@ -169,7 +200,7 @@ class get_nav_objects(BrowserView):
 			if object_idx-bulk >= 0:
 				list_of_items = list(results)
 				bulk_of_items = list_of_items[(object_idx-bulk):object_idx]
-				items = self.build_json_with_list(bulk_of_items)
+				items = self.build_json_with_list(bulk_of_items, 0, False)
 				items['list'] = list(reversed(items['list']))
 				return json.dumps(items)
 
@@ -192,17 +223,23 @@ class get_nav_objects(BrowserView):
 			if object_idx+bulk < len(results):
 				list_of_items = list(results)
 				bulk_of_items = list_of_items[(object_idx+1):(object_idx+bulk+1)]
-				items = self.build_json_with_list(bulk_of_items)
+				items = self.build_json_with_list(bulk_of_items, 0, False)
 				return json.dumps(items)
 			
 			elif object_idx+bulk >= len(results):
 				list_of_items = list(results)
 				offset = (object_idx+bulk) - len(results)
 				bulk_of_items = list_of_items[(object_idx+1):] + list_of_items[0:(offset+1)]
-				items = self.build_json_with_list(bulk_of_items)
+				items = self.build_json_with_list(bulk_of_items, 0, True)
 				return json.dumps(items)
 
-		return json.dumps({'list':[], 'object_idx':0})
+		return json.dumps({'list':[], 'object_idx':0, 'total':False})
+
+	def get_object_body(self, object):
+		if hasattr(object, 'text') and object.text != None:
+			return object.text.output
+		else:
+			return ""
 
 	def getJSON(self):
 		pagesize = 33
@@ -213,14 +250,12 @@ class get_nav_objects(BrowserView):
 		if b_start != None and collection_id != None:
 			items = {
 				'list':[],
-				'object_idx':0
+				'object_idx':0,
+				'total':False
 			}
 
 			collection_object = self.get_collection_from_catalog(collection_id)
 			current_id = self.context.getId()
-
-			_previous = []
-			_next = []
 
 			results = self.get_all_batch(collection_object)
 			object_idx = self.get_object_idx(results, current_id)
@@ -231,13 +266,9 @@ class get_nav_objects(BrowserView):
 				prev_items = list_of_items[(object_idx-buffer_size):object_idx]
 				next_items = list_of_items[object_idx:(object_idx+buffer_size+1)]
 
-				_buffer = next_items + prev_items
+				bulk_of_items = next_items + prev_items
 				
-				for obj in _buffer:
-					obj_media = ICanContainMedia(obj.getObject()).getLeadMedia()
-					if obj_media != None:
-						items['list'].append({'url':obj.getURL(),'image_url': obj_media.absolute_url()+'/@@images/image/large', 'object_id': obj.getId(), 'title':obj.Title(), 'description': obj.Description(), 'body': ""})
-
+				items = self.build_json_with_list(bulk_of_items, 0, False)
 				return json.dumps(items)
 			
 			elif object_idx-buffer_size < 0 and object_idx+buffer_size < len(results):
@@ -248,13 +279,9 @@ class get_nav_objects(BrowserView):
 				prev_items = list_of_items[offset:] + list_of_items[0:object_idx]
 				next_items = list_of_items[object_idx:(object_idx+buffer_size+1)]
 
-				_buffer = next_items + prev_items
+				bulk_of_items = next_items + prev_items
 				
-				for obj in _buffer:
-					obj_media = ICanContainMedia(obj.getObject()).getLeadMedia()
-					if obj_media != None:
-						items['list'].append({'url':obj.getURL(),'image_url': obj_media.absolute_url()+'/@@images/image/large', 'object_id': obj.getId(), 'title':obj.Title(), 'description': obj.Description(), 'body': ""})
-
+				items = self.build_json_with_list(bulk_of_items, 0, False)
 				return json.dumps(items)
 
 			elif object_idx+buffer_size >= len(results) and object_idx-buffer_size > 0:
@@ -265,13 +292,21 @@ class get_nav_objects(BrowserView):
 				prev_items = list_of_items[(object_idx-buffer_size):object_idx]
 				next_items = list_of_items[object_idx:] + list_of_items[0:(offset+1)]
 
-				_buffer = next_items + prev_items
-				for obj in _buffer:
-					obj_media = ICanContainMedia(obj.getObject()).getLeadMedia()
-					if obj_media != None:
-						items['list'].append({'url':obj.getURL(), 'image_url': obj_media.absolute_url()+'/@@images/image/large', 'object_id': obj.getId(), 'title':obj.Title(), 'description': obj.Description(), 'body': ""})
-				
+				bulk_of_items = next_items + prev_items
+				items = self.build_json_with_list(bulk_of_items, 0, False)
 				return json.dumps(items)
+
+			elif object_idx+buffer_size >= len(results) and object_idx-buffer_size < 0:
+				list_of_items = list(results)
+
+				prev_items = list_of_items[0:object_idx]
+				next_items = list_of_items[object_idx:]
+
+				bulk_of_items = next_items + prev_items
+				items = self.build_json_with_list(bulk_of_items, 0, True)
+				return json.dumps(items)
+
+
 
 class get_slideshow_options(BrowserView):
 	"""
@@ -287,7 +322,6 @@ class get_slideshow_options(BrowserView):
 
 		# Check view type
 		view_type = state.view_template_id()
-		print view_type
 
 		if view_type == "double_view":
 			options = {

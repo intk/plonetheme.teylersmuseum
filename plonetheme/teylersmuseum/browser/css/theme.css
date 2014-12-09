@@ -4046,25 +4046,35 @@ dd.portletItem > h3:first-child {
     display: none;
 }
 
+#body-text {
+    display: none;
+}
+
 #get_more_info {
     cursor: pointer;
 }
 
+.slick-slideshow.double-view .slick-slide img {
+    width: 50%;
+    margin:0;
+    float: left;
+}
+
 /* TWEAKS for slideshow */
 @media (min-width: 992px) and (max-width: 1199px) {
-    .slick-slideshow.coins .slick-slide img {
+    .slick-slideshow.double-view .slick-slide img {
         height: 480px !important;
     }
 }
 
 @media (min-width: 1200px) {
-    .slick-slideshow.coins .slick-slide img {
+    .slick-slideshow.double-view .slick-slide img {
         height: 480px !important;
     }
 }
 
 @media (min-width: 1439px) { 
-    .slick-slideshow.coins .slick-slide img {
+    .slick-slideshow.double-view .slick-slide img {
         height: 640px !important;
     }
 }
