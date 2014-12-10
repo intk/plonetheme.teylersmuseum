@@ -4054,15 +4054,28 @@ dd.portletItem > h3:first-child {
     cursor: pointer;
 }
 
+.slick-loading {
+    visibility: hidden;
+}
+
+.slick-slideshow img:-moz-loading {
+    visibility: hidden;
+}
+
 .slick-slideshow.double-view .slick-slide img {
     width: 50%;
-    margin:0;
+    margin: 0;
+    padding:0px;
     float: left;
+    border: 0px;
 }
 
 /* TWEAKS for slideshow */
 @media (min-width: 992px) and (max-width: 1199px) {
     .slick-slideshow.double-view .slick-slide img {
+        height: 480px !important;
+    }
+    .slick-slideshow.coins .slick-slide img {
         height: 480px !important;
     }
 }
@@ -4071,10 +4084,16 @@ dd.portletItem > h3:first-child {
     .slick-slideshow.double-view .slick-slide img {
         height: 480px !important;
     }
+    .slick-slideshow.coins .slick-slide img {
+        height: 480px !important;
+    }
 }
 
 @media (min-width: 1439px) { 
     .slick-slideshow.double-view .slick-slide img {
+        height: 640px !important;
+    }
+    .slick-slideshow.coins .slick-slide img {
         height: 640px !important;
     }
 }
