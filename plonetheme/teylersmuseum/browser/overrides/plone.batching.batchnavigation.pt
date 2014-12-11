@@ -3,11 +3,12 @@
                    condition="batch"
                    metal:define-macro="navigation"
                    >
+<div class="clearfix"></div>
 <div class="listingBar row-fluid"
      i18n:domain="plone"
      tal:condition="batch/multiple_pages">
     
-    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12">
+    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
       <span class="previous hidden-xs"
         tal:condition="batch/has_previous">
           <a href=""
@@ -19,7 +20,9 @@
              </span>
           </a>
       </span>
+    </div>
 
+    <div class="col-lg-6 col-md-6 col-sm-4 col-xs-12 number-list">
     <!-- Link to first -->
     <span tal:condition="batch/show_link_to_first">
         <a href=""
@@ -29,6 +32,7 @@
            ...
         </span>
     </span>
+
 
     <!-- Pagelist with links to previous pages for quick navigation -->
     <span tal:repeat="pagenumber batch/previous_pages"
@@ -44,6 +48,7 @@
     </span>
 
     <!-- Pagelist with links to next pages for quick navigation -->
+
     <span tal:repeat="pagenumber batch/next_pages"
           tal:omit-tag="" >
       <a href="" tal:content="pagenumber" 
@@ -63,7 +68,7 @@
 
     </div>
 
-    <div class="col-lg-2 col-md-2 col-sm-3 hidden-xs" id="next_item">
+    <div class="col-lg-3 col-md-3 col-sm-4 hidden-xs" id="next_item">
     <span class="next"
           tal:condition="batch/has_next">
         <a href=""
@@ -76,7 +81,6 @@
         </a>
     </span>
     </div>
-
-    
 </div>
+
 </tal:batchnavigation>

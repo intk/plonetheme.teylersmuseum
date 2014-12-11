@@ -156,9 +156,9 @@
 }
 
 .main_menu.open .menu-item:first-child {
-	-ms-transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
+	-ms-transform: rotate(49deg);
+    -webkit-transform: rotate(49deg);
+    transform: rotate(47deg);
     -ms-transform-origin: 2px; 
     -webkit-transform-origin: 2px;
     transform-origin: 2px;
@@ -169,9 +169,9 @@
 }
 
 .main_menu.open .menu-item:nth-child(3) {
-	-ms-transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
+	-ms-transform: rotate(-49deg);
+    -webkit-transform: rotate(-49deg);
+    transform: rotate(-49deg);
     -ms-transform-origin: 2px; 
     -webkit-transform-origin: 2px;
     transform-origin: 2px;
@@ -185,7 +185,7 @@
   	display: block;
   	width: 20px;
   	height: 2px;
-  	margin: 0 0 4px;
+  	margin: 0 0 5px;
   	background: #ffffff;
 }
 

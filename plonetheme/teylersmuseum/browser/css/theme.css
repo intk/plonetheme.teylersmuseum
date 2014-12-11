@@ -307,7 +307,7 @@ body.portaltype-portlet-page #parent-fieldname-description {
 #parent-fieldname-title, .documentFirstHeading {
     padding-left: 20px;
     padding-right: 20px;
-    padding-top: 188px;
+    padding-top: 198px;
     margin-bottom: 7px;
 }
 
@@ -344,7 +344,7 @@ body.portaltype-portlet-page #parent-fieldname-description {
 
 #content-core .thumbnail h3 {
     margin-top: 12px; /* margin from title to image */
-    margin-bottom: 4px;
+    margin-bottom: 11px;
     text-transform: none;
     font-family: "Merriweather", serif;
     font-weight: 700;
@@ -814,8 +814,8 @@ body.portaltype-portlet-page #portlet_bodytext .get-in-contact {
 /* SLIDESHOW */
 .slideshowImage {
     padding-top: 50px;
-    padding-left: 120px;
-    padding-right: 120px;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
 .slideshowImage img {
@@ -900,8 +900,8 @@ body.template-login_form #content-core {
 
 .template-atct_edit #content {
     background-color: #ffffff;
-    padding-left: 120px;
-    padding-right: 120px;
+    padding-left: 100px;
+    padding-right: 100px;
     padding-bottom: 50px;
     padding-top: 50px;
     font-size: 0.875em;
@@ -958,8 +958,8 @@ body.template-login_form #content-core {
 }
 
 #editContentActionMenus {
-    padding-left: 120px;
-    padding-right: 120px;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
 /* folder contents */
@@ -1822,15 +1822,15 @@ body.portaltype-media-person .social-viewlet {
 
 @media (min-width: 992px) and (max-width: 1199px) {
     #parent-fieldname-title, .documentFirstHeading {
-        padding-left: 120px;
-        padding-right: 120px;
+        padding-left: 100px;
+        padding-right: 100px;
     }
 }
 
 @media (min-width: 1200px) {
     #parent-fieldname-title, .documentFirstHeading {
-        padding-left: 120px;
-        padding-right: 120px;
+        padding-left: 100px;
+        padding-right: 100px;
     }
 }
 
@@ -2010,8 +2010,8 @@ body.portaltype-media-person .social-viewlet {
 
 @media (min-width: 992px) and (max-width: 1199px) {
     #parent-fieldname-description {
-        padding-left: 120px;
-        padding-right: 120px;
+        padding-left: 220px;
+        padding-right: 220px;
     }
 
     body.portaltype-portlet-page #parent-fieldname-description, body.portaltype-portlet-page #parent-fieldname-description {
@@ -2034,8 +2034,8 @@ body.portaltype-media-person .social-viewlet {
 
 @media (min-width: 1200px) {
     #parent-fieldname-description, .documentDescription {
-        padding-left: 120px;
-        padding-right: 120px;
+        padding-left: 220px;
+        padding-right: 220px;
     }
 
     body.portaltype-portlet-page #parent-fieldname-description, body.portaltype-portlet-page #parent-fieldname-description {
@@ -2156,8 +2156,8 @@ body.portaltype-media-person .social-viewlet {
 
 @media (min-width: 1200px) {
     #content-core .tileColumns {
-        padding-left: 100px;
-        padding-right: 100px;
+        padding-left: 80px;
+        padding-right: 80px;
     }
 }
 
@@ -2234,8 +2234,8 @@ body.portaltype-media-person .social-viewlet {
 
 @media (min-width: 1200px) {
     #FooterPortlet {
-        padding-left: 100px;
-        padding-right: 100px;
+        padding-left: 80px;
+        padding-right: 80px;
     }
 
     #parent-fieldname-description, .documentDescription {
@@ -2337,8 +2337,8 @@ body.portaltype-media-person .social-viewlet {
 
 @media (min-width: 1200px) {
     #content-core .portletCollection .container-fluid {
-        padding-left: 120px;
-        padding-right: 120px;
+        padding-left: 100px;
+        padding-right: 100px;
     }
 
     #content-core #row-items {
@@ -2347,8 +2347,8 @@ body.portaltype-media-person .social-viewlet {
     }
 
     #content-core #portlet_bodytext.container-fluid {
-        padding-left: 120px;
-        padding-right: 120px;
+        padding-left: 100px;
+        padding-right: 100px;
     }
 }
 
@@ -2390,15 +2390,15 @@ body.portaltype-media-person .social-viewlet {
 
 @media (min-width: 992px) and (max-width: 1199px) {
     #content-core .portletMailChimp .container-fluid {
-        padding-left: 120px;
-        padding-right: 120px;
+        padding-left: 100px;
+        padding-right: 100px;
     }
 }
 
 @media (min-width: 1200px) {
     #content-core .portletMailChimp .container-fluid {
-        padding-left: 120px;
-        padding-right: 120px;
+        padding-left: 100px;
+        padding-right: 100px;
     }
 }
 
@@ -2573,8 +2573,8 @@ body.portaltype-media-person .social-viewlet {
 @media (min-width: 1200px) {
     .slideshowImage {
         padding-top: 50px;
-        padding-left: 120px;
-        padding-right: 120px;
+        padding-left: 100px;
+        padding-right: 100px;
     }
 }
 
@@ -2924,8 +2924,8 @@ body.portaltype-media-person .social-viewlet {
 @media (min-width: 1200px) {
     .template-atct_edit #content {
         background-color: #ffffff;
-        padding-left: 120px;
-        padding-right: 120px;
+        padding-left: 100px;
+        padding-right: 100px;
         padding-bottom: 50px;
         padding-top: 50px;
         font-size: 0.875em;
@@ -2933,8 +2933,8 @@ body.portaltype-media-person .social-viewlet {
 
     .template-folder_contents #content {
         background-color: #ffffff;
-        padding-left: 120px;
-        padding-right: 120px;
+        padding-left: 100px;
+        padding-right: 100px;
         padding-bottom: 50px;
         padding-top: 50px;
         font-size: 1.000em;
@@ -2942,16 +2942,16 @@ body.portaltype-media-person .social-viewlet {
 
     .template-croppingeditor #content {
         background-color: #ffffff;
-        padding-left: 120px;
-        padding-right: 120px;
+        padding-left: 100px;
+        padding-right: 100px;
         padding-bottom: 50px;
         padding-top: 50px;
         font-size: 1.000em;
     }
 
     #editContentActionMenus {
-        padding-left: 120px;
-        padding-right: 120px;
+        padding-left: 100px;
+        padding-right: 100px;
     }
 }
 
@@ -3311,7 +3311,7 @@ body.portaltype-media-person .social-viewlet {
 }
 
 #collectionFilters {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
 #collectionFilters a.highlighted {
@@ -3413,8 +3413,8 @@ table.table-striped th, table.table-striped td {
 
 #content table.table-striped tr {
     font-size: 1em;
-    border-left: 120px solid #f8f8f8 !important;
-    border-right: 120px solid #f8f8f8 !important;
+    border-left: 100px solid #f8f8f8 !important;
+    border-right: 100px solid #f8f8f8 !important;
 }
 
 #content table.table-striped h3 {
@@ -3613,8 +3613,8 @@ body.portaltype-formthankspage #content blockquote > * {
 
 @media (min-width: 992px) and (max-width: 1199px) {
     #content-core.error_page {
-        padding-left: 120px;
-        padding-right: 120px;
+        padding-left: 100px;
+        padding-right: 100px;
     }
     #content-core.error_page > p {
         width: 640px;
@@ -3627,8 +3627,8 @@ body.portaltype-formthankspage #content blockquote > * {
     }
 
     body.portaltype-formthankspage #content blockquote {
-        padding-left: 120px;
-        padding-right: 120px;
+        padding-left: 100px;
+        padding-right: 100px;
     }
 
     dd.portletItem p.btn-container {
@@ -3638,8 +3638,8 @@ body.portaltype-formthankspage #content blockquote > * {
 
 @media (min-width: 1200px) {
     #content-core.error_page {
-        padding-left: 120px;
-        padding-right: 120px;
+        padding-left: 100px;
+        padding-right: 100px;
     }
     #content-core.error_page > p {
         width: 640px;
@@ -3652,8 +3652,8 @@ body.portaltype-formthankspage #content blockquote > * {
     }
 
     body.portaltype-formthankspage #content blockquote {
-        padding-left: 120px;
-        padding-right: 120px;
+        padding-left: 100px;
+        padding-right: 100px;
     }
     dd.portletItem .btn {
         text-align: center !important;
@@ -4151,10 +4151,11 @@ dd.portletItem > h3:first-child {
 }
 
 #collectionFilters a {
-    font-size: 1.000em;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 700;
+    font-size: 1.000em !important;
+    font-family: 'Raleway', sans-serif !important;
+    font-weight: 700 !important;
     color: #cccccc;
+    letter-spacing: 0.02em !important;
 }
 
 #collectionFilters a:visited {
@@ -4232,8 +4233,8 @@ dd.portletItem > h3:first-child {
 
 @media (min-width: 1200px) {
     #collectionFilters {
-        padding-left: 120px;
-        padding-right: 120px;
+        padding-left: 100px;
+        padding-right: 100px;
     }
 }
 
@@ -4241,8 +4242,10 @@ dd.portletItem > h3:first-child {
 #content h1.documentFirstHeading {
     font-family: 'Raleway', sans-serif !important;
     font-weight: 800 !important;
-    font-size: 2.083em !important;
+    font-size: 3.125em !important;
+    line-height: 50px !important;
     color: #333333 !important;
+    letter-spacing: 0.02em;
 }
 
 #content .documentDescription.description {
@@ -4261,8 +4264,15 @@ dd.portletItem > h3:first-child {
 }
 
 .listingBar div:first-child {
-    padding-top: 11px;
+    padding-top: 0px;
 }
 
+.listingBar .btn {
+    width: 100%;
+}
+
+.listingBar .number-list {
+    padding-top: 10px;
+}
 
 

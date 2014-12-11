@@ -42,7 +42,7 @@
                  pas_member context/@@pas_member;">
         <tal:listing condition="batch">
 
-        <div class="col-lg-12 collection-pagination"><span i18n:translate="Page">Page</span> <span tal:content="batch/pagenumber"></span>/<span tal:content="batch/numpages"></span></div>
+        <!--<div class="col-lg-12 collection-pagination"><span i18n:translate="Page">Page</span> <span tal:content="batch/pagenumber"></span>/<span tal:content="batch/numpages"></span></div>-->
 
         <metal:block metal:define-slot="entries">
             <tal:entry tal:repeat="item batch" metal:define-macro="entries">
