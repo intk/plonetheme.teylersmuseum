@@ -6,6 +6,39 @@
 @import url('//fonts.googleapis.com/css?family=Merriweather:400,700,300italic');
 @import url('//fonts.googleapis.com/css?family=Raleway:400,700,800');
 
+
+#content li {
+    display: list-item;
+}
+
+#content ul {
+    list-style-type: disc;
+}
+
+#content ol {
+    list-style-type: decimal;
+}
+
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 20px;
+}
+
+ol {
+    display: block;
+    list-style-type: decimal;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 26px;
+}
+
 .no-space {
     margin-left: 0px !important;
 }
@@ -445,28 +478,28 @@ body.portaltype-portlet-page #parent-fieldname-description {
 #portal-footer-wrapper {
     padding-left: 0px;
     padding-right: 0px;
-    padding-top: 50px;
-    padding-bottom: 85px;
-    background-color: #f8f8f8;
+    padding-top: 108px;
+    padding-bottom: 100px;
+    background-color: #F5F5F5;
 }
 
 #FooterPortlet .portletWrapper:first-child {
     float:none;
-    text-align: left;
+    text-align: center;
     margin-top: 0px;
 }
 
 #FooterPortlet .portletWrapper {
-    text-align: right;
+    text-align: center;
 }
 
-#FooterPortlet .portletWrapper:first-child .portletStaticText {
+/*#FooterPortlet .portletWrapper:first-child .portletStaticText {
     float:left;
 }
 
 #FooterPortlet .portletStaticText {
     float:right;
-}
+}*/
 
 #FooterPortlet .portletWrapper p {
     font-family: 'Merriweather', serif;
@@ -846,9 +879,19 @@ body.portaltype-portlet-page #portlet_bodytext .get-in-contact {
     padding-bottom: 95px;
 }
 
+#content-core div[id*='parent-fieldname-text'] ul, #content-core div[id*='parent-fieldname-text'] ol {
+    margin-bottom: 30px;
+    font-size: 1.125em !important;
+}
+
+#content-core div[id*='parent-fieldname-text'] ul > ul,  #content-core div[id*='parent-fieldname-text'] ol > ol {
+    margin-bottom: 0px;
+    font-size: 1.000em !important;
+}
+
 #content-core div[id*='parent-fieldname-text'], #content-core dd.portletItem {
-    color: #666666;
-    font-size: 1.250em;
+    color: #333333;
+    font-size: 1.000em;
     font-family: 'Merriweather', serif !important;
     font-weight: 400;
 }
@@ -856,25 +899,43 @@ body.portaltype-portlet-page #portlet_bodytext .get-in-contact {
 #content-core div[id*='parent-fieldname-text'] h2, #content div[id*='parent-fieldname-formPrologue'] h2, .pfg-form h2 {
     font-family: 'Merriweather', serif !important;
     font-weight: 700;
-    text-transform: uppercase;
-    font-size: 1.000em;
+    font-size: 1.875em;
+    text-transform: none !important;
     letter-spacing: 0.05em;
-    margin-bottom: -5px;
+    margin-bottom: 25px;
+    color: #D75745 !important;
 }
 
 #content-core div[id*='parent-fieldname-text'] h3, #content div[id*='parent-fieldname-formPrologue'] h3, .pfg-form h3,
 #content-core dd.portletItem h3 {
     letter-spacing: 0.05em;
+    font-family: 'Merriweather', serif !important;
+    font-weight: 700;
+    font-size: 1.500em !important;
+    color: #D75745 !important;
+    margin-bottom: 25px;
+    text-transform: none !important;
 }
 
 #content-core div[id*='parent-fieldname-text'] h4, #content div[id*='parent-fieldname-formPrologue'] h4, .pfg-form h4,
 #content-core dd.portletItem h4 {
     letter-spacing: 0.05em;
+    font-family: 'Merriweather', serif !important;
+    font-weight: 700;
+    font-size: 1.260em !important;
+    color: #D75745 !important;
+    margin-bottom: 25px;
+    text-transform: none !important;
 }
 
 #content-core div[id*='parent-fieldname-text'] > p,
 #content-core dd.portletItem p {
+    font-family: 'Merriweather', serif !important;
+    font-weight: 400 !important;
     margin-bottom: 30px;
+    color: #333333 !important;
+    line-height: 30px !important;
+    font-size: 1.125em;
 }
 
 body[class*='template-manage'] #portal-columns {
@@ -4263,10 +4324,6 @@ dd.portletItem > h3:first-child {
     background-color: #D75745;
 }
 
-.listingBar div:first-child {
-    padding-top: 0px;
-}
-
 .listingBar .btn {
     width: 100%;
 }
@@ -4274,5 +4331,176 @@ dd.portletItem > h3:first-child {
 .listingBar .number-list {
     padding-top: 10px;
 }
+
+#FooterPortlet a {
+    color: #D75745 !important;
+    font-size: 1.000em !important;
+    font-family: 'Merriweather', serif !important;
+    font-weight: 400;
+}
+
+#FooterPortlet h2 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 1.250em;
+    color: #666666;
+    letter-spacing: 0.05em;
+    margin-bottom: 25px;
+}
+
+#FooterPortlet .social-media-portlet i {
+    content: "";
+    padding-top:6px;
+}
+
+#FooterPortlet .social-media-portlet {
+    width: 20%;
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-top: 37px;
+}
+
+#FooterPortlet .social-media-portlet a {
+    color: #ffffff !important;
+    padding-left: 18px;
+}
+
+#FooterPortlet .social-media-portlet .col-lg-4:last-child a {
+    padding-left: 17px;
+}
+
+#FooterPortlet .social-media-portlet .col-lg-4:first-child a {
+    padding-left: 4px;
+}
+
+#FooterPortlet .social-media-portlet .fa.fa-facebook {
+    padding-left: 2px;
+}
+
+#FooterPortlet .social-media-portlet .col-lg-4 {
+    padding-left: 9px !important;
+    padding-right: 9px !important;
+}
+
+#FooterPortlet .social-media-portlet .btn {
+    width: 50px;
+    height: 50px;
+    border: 0px;
+    border-radius: 25px;
+    background-color: #CCCCCC;
+}
+
+#FooterPortlet .museum-info {
+    padding-top: 55px;
+}
+
+#FooterPortlet .museum-info p {
+    font-family: "Merriweather", serif;
+    font-size: 1.000em;
+    color: #999999;
+    display: inline;
+    padding: 12px;
+}
+
+@media (max-width: 480px) {
+    #FooterPortlet .social-media-portlet {
+        width: 45%;
+        margin-left: 20px;
+        margin-top: 37px;
+    }
+
+    #FooterPortlet .social-media-portlet .col-lg-4 {
+        padding-left: 0px !important;
+    }
+
+    #FooterPortlet .museum-info p {
+        display: block;
+        padding: 0px;
+        padding-left: 20px;
+    }
+
+    #FooterPortlet .social-media-portlet {
+        margin-top: 17px;
+    }
+
+    #FooterPortlet .museum-info {
+        padding-top: 32px;
+    }
+
+    #portal-footer-wrapper {
+        padding-top: 60px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    #FooterPortlet .social-media-portlet {
+        width: 40%;
+        margin-left: 20px;
+        margin-top: 37px;
+    }
+
+    #FooterPortlet .social-media-portlet .col-lg-4 {
+        padding-left: 0px !important;
+    }
+
+    #FooterPortlet .museum-info p {
+        display: block;
+        padding: 0px;
+        padding-left: 20px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    #FooterPortlet .social-media-portlet {
+        width: 30%;
+        margin-left: 35%;
+        margin-right: 35%;
+        margin-top: 37px;
+    }
+
+    #FooterPortlet h2 {
+        padding-top: 36px;
+    }
+    #portal-footer-wrapper {
+        padding-top: 33px;
+    }
+
+    #FooterPortlet .social-media-portlet {
+        margin-top: 0px !important;
+    }
+
+    #FooterPortlet .museum-info p {
+        display: block;
+        padding-top: 0px;
+    }
+
+    #FooterPortlet .museum-info {
+        padding-top: 60px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    #FooterPortlet .social-media-portlet {
+        width: 26%;
+        margin-left: 37%;
+        margin-right: 37%;
+        margin-top: 37px;
+    } 
+}
+
+@media (min-width: 1200px) {
+    #FooterPortlet .social-media-portlet {
+        width: 20%;
+        margin-left: 40%;
+        margin-right: 40%;
+        margin-top: 37px;
+    }
+}
+
+.portaltype-document .contentsListing {
+    display: none;
+}
+
+
 
 
