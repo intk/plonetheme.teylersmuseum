@@ -3,8 +3,8 @@
 --------------------------------------------------------------------------------- */
 
 /* FONTS */
-@import url('//fonts.googleapis.com/css?family=Montserrat');
-@import url('//fonts.googleapis.com/css?family=Lato:300');
+@import url('//fonts.googleapis.com/css?family=Merriweather:400,700,300italic');
+@import url('//fonts.googleapis.com/css?family=Raleway:400,700,800');
 
 .no-space {
     margin-left: 0px !important;
@@ -46,28 +46,28 @@ body {
 }
 
 h1 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Merriweather', serif;
     font-weight: 400;
-    color: #242424;
+    color: #000000;
     line-height: 36px;
     text-transform: uppercase;
-    font-size: 26px;
+    font-size: 1.500em;
 }
 
 h2 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Merriweather', serif;
     font-weight: 700;
-    color: #242424;
+    color: #000000;
     line-height: 36px;
     text-transform: uppercase;
-    font-size: 1.125em;
+    font-size: 1.000em;
     margin: 0 0;
 }
 
 h3 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Merriweather', serif;
     font-weight: 700;
-    color: #242424;
+    color: #000000;
     line-height: 24px;
     text-transform: uppercase;
     font-size: 1.000em;
@@ -75,9 +75,9 @@ h3 {
 }
 
 h4 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Merriweather', serif;
     font-weight: 700;
-    color: #242424;
+    color: #000000;
     line-height: 21px;
     text-transform: uppercase;
     font-size: 0.875em;
@@ -85,8 +85,8 @@ h4 {
 }
 
 p {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
     line-height: 33px;
     color: #666666;
 }
@@ -141,22 +141,22 @@ ol {
 }
 
 #content a {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 1.125em;
-    color: #242424;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    font-size: 1.000em;
+    color: #000000;
     line-height: 33px;
     text-decoration: underline;
-    -moz-text-decoration-color: #242424; /* Code for Firefox */
-    text-decoration-color: #242424;
+    -moz-text-decoration-color: #000000; /* Code for Firefox */
+    text-decoration-color: #000000;
 }
 
 #content a:visited {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 1.125em;
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    font-size: 1.000em;
     color: #666666;
-    line-height: 33px;
+    line-height: 30px;
     text-decoration: underline;
     -moz-text-decoration-color: #666666; /* Code for Firefox */
     text-decoration-color: #666666;
@@ -164,10 +164,10 @@ ol {
 
 #content-core div[id*='parent-fieldname-text'] a, #content-core dd.portletItem a {
     font-size: 1em;
-    color: #242424;
+    color: #000000;
     text-decoration: underline;
-    -moz-text-decoration-color: #242424; /* Code for Firefox */
-    text-decoration-color: #242424;
+    -moz-text-decoration-color: #000000; /* Code for Firefox */
+    text-decoration-color: #000000;
 }
 
 #content-core div[id*='parent-fieldname-text'] a:visited, #content-core dd.portletItem a:visited {
@@ -179,17 +179,17 @@ ol {
 
 #content th {
     background-color: #f8f8f8;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
     color: #666666;
-    font-size: 1.125em;
+    font-size: 1.000em;
 }
 
 #content tr {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
     color: #666666;
-    font-size: 1.125em;
+    font-size: 1.000em;
 }
 
 #content ul {
@@ -201,9 +201,9 @@ ol {
 }
 
 #content .pullquote {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Merriweather', serif;
     margin: 0 auto;
-    font-weight: 300;
+    font-weight: 400;
     width: auto;
     font-size: 1.875em;
     float: left;
@@ -222,20 +222,20 @@ ol {
 
 #content a:hover,
 dl.portlet a:hover {
-    color: #242424 !important; 
+    color: #666666 !important; 
 }
 
 #portal-logo {
-    width: 133px;
-    height: 30px;
+    width: 160px;
+    height: 35px;
     margin-top: 0px;
     margin-left: 0px;
     margin-bottom: 0px;
 }
 
 #portal-logo img {
-    width: 133px;
-    height: 30px;
+    width: 160px;
+    height: 35px;
     margin-top: 0px;
     margin-left: 0px;
     margin-bottom: 0px;
@@ -252,8 +252,8 @@ body.portaltype-portlet-page #parent-fieldname-title, body.portaltype-portlet-pa
 
 /* LOGO */
 #portal-logo img {
-    width: 133px;
-    height: 30px;
+    width: 160px;
+    height: 35px;
 }
 
 #content-core {
@@ -263,8 +263,8 @@ body.portaltype-portlet-page #parent-fieldname-title, body.portaltype-portlet-pa
 #parent-fieldname-title, .documentFirstHeading {
     font-size: 1.500em;
     text-transform: uppercase;
-    color: #242424;
-    font-family: 'Montserrat', sans-serif !important;
+    color: #000000;
+    font-family: 'Merriweather', serif !important;
     line-height: 32px;
     font-weight: 400;
     margin: 0;
@@ -274,17 +274,17 @@ body.portaltype-portlet-page #parent-fieldname-title, body.portaltype-portlet-pa
 #content #description, .documentDescription {
     font-size: 1.250em;
     color: #999999;
-    font-family: 'Lato', sans-serif !important;
-    font-weight: 300;
+    font-family: 'Merriweather', serif !important;
+    font-weight: 400;
     line-height: 26px;
 }
 
 body.portaltype-portlet-page #content .documentDescription,
 body.portaltype-portlet-page #content #description, .documentDescription {
     font-size: 1.875em;
-    color: #242424;
-    font-family: 'Lato', sans-serif !important;
-    font-weight: 300;
+    color: #000000;
+    font-family: 'Merriweather', serif !important;
+    font-weight: 400;
     line-height: 45px;
 }
 
@@ -307,7 +307,7 @@ body.portaltype-portlet-page #parent-fieldname-description {
 #parent-fieldname-title, .documentFirstHeading {
     padding-left: 20px;
     padding-right: 20px;
-    padding-top: 44px;
+    padding-top: 188px;
     margin-bottom: 7px;
 }
 
@@ -346,73 +346,93 @@ body.portaltype-portlet-page #parent-fieldname-description {
     margin-top: 12px; /* margin from title to image */
     margin-bottom: 4px;
     text-transform: none;
-    font-family: "Lato", sans-serif;
-    font-weight: 300;
-    color: #242424;
-    font-size: 1.125em;
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    color: #000000;
+    font-size: 1.500em;
     line-height: 26px;
 }
 
 #content-core .thumbnail a {
     text-decoration: none;
-    color: #242424;
-    font-size: 1.125em;
+    color: #000000;
+    font-size: inherit;
     border-bottom: none;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 35px !important;
 }
 
 #content-core .thumbnail a:hover {
-    color: #242424;
+    color: #000000;
     text-decoration: underline;
-    -moz-text-decoration-color: #242424; /* Code for Firefox */
-    text-decoration-color: #242424;
+    -moz-text-decoration-color: #000000; /* Code for Firefox */
+    text-decoration-color: #000000;
 }
 
 #content-core .thumbnail a:focus {
-    color: #242424;
+    color: #000000;
     text-decoration: underline;
-    -moz-text-decoration-color: #242424; /* Code for Firefox */
-    text-decoration-color: #242424;
+    -moz-text-decoration-color: #000000; /* Code for Firefox */
+    text-decoration-color: #000000;
 }
 
 #content-core .thumbnail a:active {
-    color: #242424;
+    color: #000000;
 }
 
 #content-core .thumbnail a.state-published {
     text-decoration: none;
-    color: #242424;
-    font-size: 1.125em;
+    color: #000000;
+    font-size: 1.000em;
     border-bottom: none;
 }
 
 #content-core .thumbnail a.state-published:hover {
-    color: #242424;
+    color: #000000;
     text-decoration: underline;
-    -moz-text-decoration-color: #242424; /* Code for Firefox */
-    text-decoration-color: #242424;
+    -moz-text-decoration-color: #000000; /* Code for Firefox */
+    text-decoration-color: #000000;
 }
 
 #content-core .thumbnail a.state-published:focus {
-    color: #242424;
+    color: #000000;
     text-decoration: underline;
-    -moz-text-decoration-color: #242424; /* Code for Firefox */
-    text-decoration-color: #242424;
+    -moz-text-decoration-color: #000000; /* Code for Firefox */
+    text-decoration-color: #000000;
 }
 
 #content-core .thumbnail a.state-published:active {
-    color: #242424;
+    color: #000000;
 }
 
 #content-core .thumbnail p {
-    font-size: 1.125em;
-    font-family: "Lato", sans-serif;
+    font-size: 1.000em;
+    font-family: "Merriweather", serif;
     color: #999999;
     line-height: 26px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .state-published {
-    color: #242424 !important;
+    color: #000000 !important;
+}
+
+/* Pagination button */
+.listingBar a.btn {
+    text-transform: uppercase !important;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    color: #999999 !important;
+}
+
+.listingBar .btn {
+    background-color: #EEEEEE;
+    border-color: #EEEEEE;
+    border-radius: 25px;
+    font-family: 'Raleway', sans-serif;
+    color: #999999 !important;
+    font-weight: 700;
 }
 
 
@@ -449,19 +469,19 @@ body.portaltype-portlet-page #parent-fieldname-description {
 }
 
 #FooterPortlet .portletWrapper p {
-    font-family: 'Lato', sans-serif;
-    font-size: 1.125em;
+    font-family: 'Merriweather', serif;
+    font-size: 1.000em;
     color: #999999;
     line-height: 17px;
-    font-weight: 300;
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
 }
 
 #FooterPortlet .portletWrapper p a {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Merriweather', serif;
     color: #999999;
     line-height: 17px;
-    font-weight: 300;
+    font-weight: 400;
     border-bottom: 0px;
     -webkit-font-smoothing: antialiased;
 }
@@ -473,7 +493,7 @@ body.portaltype-portlet-page #parent-fieldname-description {
 }
 
 #FooterPortlet .col-lg-2 h2 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Merriweather', serif;
     text-transform: uppercase;
     font-size: 0.875em;
     color: #666666;
@@ -485,11 +505,11 @@ body.portaltype-portlet-page #parent-fieldname-description {
 }
 
 #FooterPortlet .col-lg-6 h2 {
-    font-family: 'Lato', sans-serif;
-    font-size: 1.125em;
-    color: #242424;
+    font-family: 'Merriweather', serif;
+    font-size: 1.000em;
+    color: #000000;
     line-height: 17px;
-    font-weight: 300;
+    font-weight: 400;
     margin-top: 0px;
     margin-bottom: 10px;
     -webkit-font-smoothing: antialiased;
@@ -506,11 +526,11 @@ body.portaltype-portlet-page #parent-fieldname-description {
 }
 
 #content-core .portletCollection .portletHeader h1, dt.portletHeader {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Merriweather", serif;
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 1.250em;
-    color: #242424;
+    font-size: 1.500em;
+    color: #000000;
     margin: 0px;
     line-height: 35px;
 }
@@ -526,8 +546,8 @@ body.portaltype-portlet-page #parent-fieldname-description {
 }
 
 #content-core .portletCollection .portletHeader h2 {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
     font-size: 1.250em;
     color: #999999;
     margin: 0px;
@@ -560,7 +580,7 @@ body.portaltype-portlet-page #parent-fieldname-description {
 
 #content-core .portletCollection .portletFooter .btn {
     background: #262626;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Merriweather", serif;
     font-weight: 400;
     color: #ffffff;
     font-size: 0.875em;
@@ -574,20 +594,20 @@ body.portaltype-portlet-page #parent-fieldname-description {
     background: #ffffff;
     border-style: solid;
     border-width: 1px;
-    border-color: #242424;
+    border-color: #000000;
     color: #262626 !important;
     text-transform: uppercase;
 }
 
 #content-core .portletCollection .portletFooter a:hover {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Merriweather", serif;
     font-weight: 400;
     color: #ffffff !important;
     font-size: 0.875em;
 }
 
 #content-core .portletCollection .portletFooter a:focus {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Merriweather", serif;
     font-weight: 400;
     color: #ffffff !important;
     font-size: 0.875em;
@@ -605,7 +625,7 @@ body.portaltype-portlet-page #parent-fieldname-description {
 
 #content-core .portletMailChimp .btn {
     background: #262626;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Merriweather", serif;
     font-weight: 400;
     text-transform: uppercase;
     color: #ffffff;
@@ -625,7 +645,7 @@ body.portaltype-portlet-page #parent-fieldname-description {
     background: #ffffff;
     border-style: solid;
     border-width: 1px;
-    border-color: #242424;
+    border-color: #000000;
     color: #262626 !important;
     padding: 8px 18px;
 }
@@ -636,12 +656,12 @@ body.portaltype-portlet-page #parent-fieldname-description {
 }
 
 #formfield-form-widgets-email label {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Merriweather', serif;
     font-size: 1.250em;
     color: #999999;
     text-align: center;
     margin-bottom: 20px;
-    font-weight: 300;
+    font-weight: 400;
     width: 100%;
 }
 
@@ -664,11 +684,11 @@ body.portaltype-portlet-page #parent-fieldname-description {
 }
 
 #content-core .portletMailChimp .portletHeader h1 {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Merriweather", serif;
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 1.400em;
-    color: #242424;
+    font-size: 1.500em;
+    color: #000000;
     margin: 0px;
     line-height: 35px;
 }
@@ -711,7 +731,7 @@ body.portaltype-portlet-page #parent-fieldname-description {
 
 body.portaltype-portlet-page #portlet_bodytext a {
     background: #262626;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Merriweather", serif;
     font-weight: 400;
     text-transform: uppercase;
     color: #ffffff;
@@ -725,7 +745,7 @@ body.portaltype-portlet-page #portlet_bodytext a {
 
 body.portaltype-portlet-page #portlet_bodytext a:hover {
     background: #ffffff;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Merriweather", serif;
     font-weight: 400;
     text-transform: uppercase;
     color: #ffffff;
@@ -749,8 +769,8 @@ body.portaltype-portlet-page #portlet_bodytext .get-in-contact {
 #content-core #portlet_bodytext div[id*='parent-fieldname-text'] {
     color: #666666;
     font-size: 1em;
-    font-family: 'Lato', sans-serif !important;
-    font-weight: 300;
+    font-family: 'Merriweather', serif !important;
+    font-weight: 400;
 }
 
 /* PORTLETS General */
@@ -829,15 +849,15 @@ body.portaltype-portlet-page #portlet_bodytext .get-in-contact {
 #content-core div[id*='parent-fieldname-text'], #content-core dd.portletItem {
     color: #666666;
     font-size: 1.250em;
-    font-family: 'Lato', sans-serif !important;
-    font-weight: 300;
+    font-family: 'Merriweather', serif !important;
+    font-weight: 400;
 }
 
 #content-core div[id*='parent-fieldname-text'] h2, #content div[id*='parent-fieldname-formPrologue'] h2, .pfg-form h2 {
-    font-family: 'Montserrat', sans-serif !important;
+    font-family: 'Merriweather', serif !important;
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 1.125em;
+    font-size: 1.000em;
     letter-spacing: 0.05em;
     margin-bottom: -5px;
 }
@@ -953,7 +973,7 @@ body.template-login_form #content-core {
 }
 
 .template-folder_contents #content table tr {
-    font-size: 1.125em;
+    font-size: 1.000em;
 }
 
 .template-folder_contents #content table td {
@@ -1041,7 +1061,7 @@ body.template-login_form #content-core {
 }
 
 .pagePortletDiv .thumbnail a {
-    font-size: 1.125em !important;
+    font-size: 1.000em !important;
 }
 
 /* CONTACT PAGE */
@@ -1064,9 +1084,9 @@ body.template-login_form #content-core {
 
 #content .pfg-form .field input[type="text"] {
     width: 100% !important;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 1.125em;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    font-size: 1.000em;
     color: #999999;
     background-color: #f8f8f8;
     border: 0;
@@ -1080,7 +1100,7 @@ body.template-login_form #content-core {
 
 #content .pfg-form .formQuestion {
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Merriweather', serif;
     font-weight: 700;
     font-size: 1em;
     margin-bottom: 0;
@@ -1091,9 +1111,9 @@ body.template-login_form #content-core {
 }
 
 #content .pfg-form textarea {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 1.125em;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    font-size: 1.000em;
     color: #999999;
     background-color: #f8f8f8;
     border: 0;
@@ -1102,7 +1122,7 @@ body.template-login_form #content-core {
 }
 
 #content div[id*='parent-fieldname-formPrologue'] p {
-    font-size: 1.125em;
+    font-size: 1.000em;
 }
 
 #content div[id*='parent-fieldname-formPrologue'] h3 {
@@ -1115,7 +1135,7 @@ body.template-login_form #content-core {
 
 #content .pfg-form .formControls .btn {
     background: #262626;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Merriweather", serif;
     font-weight: 400;
     color: #ffffff;
     font-size: 0.875em;
@@ -1129,7 +1149,7 @@ body.template-login_form #content-core {
     background: #ffffff;
     border-style: solid;
     border-width: 1px;
-    border-color: #242424;
+    border-color: #000000;
     color: #262626 !important;
 }
 
@@ -1159,9 +1179,9 @@ body.template-login_form #content-core {
 }
 
 #search-page-header .documentFirstHeading {
-    font-family: 'Lato', sans-serif !important;
+    font-family: 'Merriweather', serif !important;
     font-size: 1.875em;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 #search-page-header .documentDescription {
@@ -1177,9 +1197,9 @@ body.template-login_form #content-core {
 }
 
 #search-field input[type="text"] {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 1.125em !important;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    font-size: 1.000em !important;
     color: #999999;
     background-color: #f8f8f8;
     border: 0;
@@ -1189,7 +1209,7 @@ body.template-login_form #content-core {
 
 #search-field .btn {
     background: #262626;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Merriweather", serif;
     font-weight: 400;
     color: #ffffff;
     font-size: 0.875em;
@@ -1203,15 +1223,15 @@ body.template-login_form #content-core {
     background: #ffffff;
     border-style: solid;
     border-width: 1px;
-    border-color: #242424;
+    border-color: #000000;
     color: #262626 !important;
 }
 
 #search-page-header #search-term {
-    color: #242424;
+    color: #000000;
     text-decoration: underline;
-    -moz-text-decoration-color: #242424; /* Code for Firefox */
-    text-decoration-color: #242424;
+    -moz-text-decoration-color: #000000; /* Code for Firefox */
+    text-decoration-color: #000000;
 }
 
 #search-results-bar {
@@ -1287,29 +1307,29 @@ body.template-login_form #content-core {
 }
 
 #search-results .res-info h2 a {
-    color: #242424;
-    font-size: 1.125em;
+    color: #000000;
+    font-size: 1.000em;
 }
 
 #search-results .res-info .description {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 1.125em;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    font-size: 1.000em;
     color: #999999;
 }
 
 #search-results .listingBar a, #search-results .listingBar span {
-    font-family: 'Lato', sans-serif;
-    font-size: 1.125em;
+    font-family: 'Merriweather', serif;
+    font-size: 1.000em;
     color: #999999;
 }
 
 #search-results .listingBar .current_page {
-    color: #242424;
+    color: #666666;
 }
 
 #search-results .listingBar .next {
-    color: #242424;
+    color: #000000;
 }
 
 #search-results .listingBar span, #search-results .listingBar a {
@@ -1321,7 +1341,7 @@ body.template-login_form #content-core {
 }
 
 #search-results .listingBar span.next a {
-    color: #242424;
+    color: #999999;
     margin-right: 0px;
 }
 
@@ -1330,21 +1350,31 @@ body.template-login_form #content-core {
 }
 
 .listingBar a, .listingBar span {
-    font-family: 'Lato', sans-serif;
-    font-size: 1.125em;
+    font-family: 'Raleway', sans-serif !important;
+    font-size: 1.000em !important;
+    font-weight: 700 !important;
     color: #999999;
 }
 
 .listingBar .current_page {
-    color: #242424;
+    color: #666666 !important;
 }
 
 .listingBar .next {
-    color: #242424;
+    color: #999999;
 }
 
 .listingBar span, .listingBar a {
     margin-right: 15px;
+    color: #cccccc !important;
+}
+
+.listingBar span, .listingBar a:visited {
+    color: #cccccc !important;
+}
+
+.listingBar span, .listingBar a:focus {
+    color: #cccccc !important;
 }
 
 .listingBar span.previous {
@@ -1352,7 +1382,7 @@ body.template-login_form #content-core {
 }
 
 .listingBar span.next a {
-    color: #242424;
+    color: #000000;
     margin-right: 0px;
 }
 
@@ -1382,6 +1412,13 @@ body.template-login_form #content-core {
     text-align: right;
 }
 
+.listingBar a.btn {
+    text-transform: uppercase !important;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    color: #999999 !important;
+}
+
 
 /* IMAGES */
 #portal-languageselector {
@@ -1393,17 +1430,17 @@ body.template-login_form #content-core {
 
 #portal-languageselector {
     display: none;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Merriweather', serif;
     font-weight: 700;
     color: #7f7f7f;
-    font-size: 1.125em;
+    font-size: 1.000em;
 }
 
 #portal-languageselector a {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Merriweather', serif;
     font-weight: 700;
     color: #ffffff;
-    font-size: 1.125em;
+    font-size: 1.000em;
 }
 
 #portal-languageselector .currentLanguage a {
@@ -1464,7 +1501,7 @@ body.portaltype-media-person .social-viewlet {
 
 .person-buttons .btn {
     background: rgba(255,255,255, 0.96);
-    font-family: "Montserrat", sans-serif;
+    font-family: "Merriweather", serif;
     font-weight: 400;
     color: #999999;
     font-size: 1.250em;
@@ -1489,7 +1526,7 @@ body.portaltype-media-person .social-viewlet {
 }
 
 .person-buttons a {
-    font-family: 'Montserrat', sans-serif !important;
+    font-family: 'Merriweather', serif !important;
     font-weight: 400 !important;
     text-decoration: none !important;
     color: #999999 !important;
@@ -1800,12 +1837,12 @@ body.portaltype-media-person .social-viewlet {
 /* Media logo */
 @media (max-width: 480px) {
     #portal-logo {
-        margin-left: 20px;
-        margin-top: 20px;
+        margin-left: 110px;
+        margin-top: 25px;
     }
 
     #portal-logo img {
-        margin-top: 20px;
+        margin-top: 25px;
     }
 
     #portal-languageselector {
@@ -1820,8 +1857,8 @@ body.portaltype-media-person .social-viewlet {
 
 @media (min-width: 481px) and (max-width: 767px) {
     #portal-logo {
-        margin-left: 40px;
-        margin-top: 20px;
+        margin-left: 110px;
+        margin-top: 25px;
     }
 
     #portal-logo img {
@@ -1840,12 +1877,12 @@ body.portaltype-media-person .social-viewlet {
 
 @media (min-width: 768px) and (max-width: 991px) {
     #portal-logo {
-        margin-left:40px;
-        margin-top:30px;
+        margin-left:110px;
+        margin-top:25px;
     }
 
     #portal-logo img {
-        margin-top: 30px;
+        margin-top: 25px;
     }
 
     #portal-languageselector {
@@ -1860,11 +1897,11 @@ body.portaltype-media-person .social-viewlet {
 
 @media (min-width: 992px) and (max-width: 1199px) {
     #portal-logo {
-        margin-left: 40px;
-        margin-top: 40px;
+        margin-left: 110px;
+        margin-top: 25px;
     }
     #portal-logo img {
-        margin-top: 40px;
+        margin-top: 25px;
     }
     
     #portal-languageselector {
@@ -1879,12 +1916,12 @@ body.portaltype-media-person .social-viewlet {
 
 @media (min-width: 1200px) {
     #portal-logo {
-        margin-left: 50px; 
-        margin-top: 50px;
+        margin-left: 110px; 
+        margin-top: 25px;
     }
 
     #portal-logo img {
-        margin-top: 50px;
+        margin-top: 25px;
     }
 
     #portal-languageselector {
@@ -2191,7 +2228,7 @@ body.portaltype-media-person .social-viewlet {
     }
 
     #parent-fieldname-description, .documentDescription {
-        padding-bottom: 65px;
+        padding-bottom: 215px;
     }
 }
 
@@ -2202,7 +2239,7 @@ body.portaltype-media-person .social-viewlet {
     }
 
     #parent-fieldname-description, .documentDescription {
-        padding-bottom: 65px;
+        padding-bottom: 215px;
     }
 }
 
@@ -2552,7 +2589,7 @@ body.portaltype-media-person .social-viewlet {
         padding-right: 20px;
         line-height: 30px;
         padding-bottom: 35px;
-        font-size: 1.125em;
+        font-size: 1.000em;
     }
     #content-core div[id*='parent-fieldname-text'] p, #content-core dd.portletItem p {
         width: 100%;
@@ -2940,11 +2977,11 @@ body.portaltype-media-person .social-viewlet {
  
  .embededMediaShow.javascripted .mediaShowSlide .mediaShowInfo
  {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
     text-align: left;
     color: #666666;
-    font-size: 1.125em;
+    font-size: 1.000em;
     line-height: 26px;
     top:auto;
     height: 50px;
@@ -3261,16 +3298,16 @@ body.portaltype-media-person .social-viewlet {
 
 #collectionFilters a {
     color: #999999;
-    font-size: 1.125em;
+    font-size: 1.000em;
 }
 
 #collectionFilters a:visited {
     color: #999999;
-    font-size: 1.125em;
+    font-size: 1.000em;
 }
 
 #collectionFilters a:hover {
-    color: #242424;
+    color: #000000;
 }
 
 #collectionFilters {
@@ -3278,11 +3315,11 @@ body.portaltype-media-person .social-viewlet {
 }
 
 #collectionFilters a.highlighted {
-    color: #242424;
+    color: #000000;
 }
 
 #content .documentDescription, .documentDescription {
-    margin-top: -93px !important;
+    margin-top: -83px !important;
 }
 
 #parent-fieldname-title, .documentFirstHeading {
@@ -3429,24 +3466,24 @@ table.table-striped th, table.table-striped td {
 }
 
 #content-core.error_page p {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 1.125em;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    font-size: 1.000em;
     color: #666666
     -webkit-font-smoothing: antialiased;
 }
 
 #content-core.error_page a {
-    color: #242424;
+    color: #000000;
     font-size: 1em;
     -webkit-font-smoothing: antialiased;
 }
 
 #content-core.error_page a:hover {
-    color: #242424;
+    color: #000000;
     text-decoration: underline;
-    -moz-text-decoration-color: #242424; /* Code for Firefox */
-    text-decoration-color: #242424;
+    -moz-text-decoration-color: #000000; /* Code for Firefox */
+    text-decoration-color: #000000;
 }
 
 #content-core.error_page .item_description a {
@@ -3471,17 +3508,17 @@ table.table-striped th, table.table-striped td {
 }
 
 body.portaltype-formthankspage #content blockquote dt {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Merriweather', serif;
     font-weight: 700;
     font-size: 1em;
     text-transform: uppercase;
-    color: #242424;
+    color: #000000;
 }
 
 
 body.portaltype-formthankspage #content blockquote dd {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
     font-size: 1em;
     margin-bottom: 10px;
     color: #666666;
@@ -3652,9 +3689,9 @@ body.portaltype-formthankspage #content blockquote > * {
 /* POPOVER CONTENT */
 
 .popover-content {
-    font-family: 'Lato', sans-serif;
-    font-size: 1.125em;
-    font-weight: 300;
+    font-family: 'Merriweather', serif;
+    font-size: 1.000em;
+    font-weight: 400;
     color: #666666;
     padding: 20px;
 }
@@ -3668,11 +3705,11 @@ body.portaltype-formthankspage #content blockquote > * {
 }
 
 #content-core div[id*='parent-fieldname-text'] a:hover {
-    color: #000000 !important;
+    color: #666666 !important;
 }
 
 #content-core div[id*='parent-fieldname-text'] a:focus {
-    color: #000000 !important;
+    color: #666666 !important;
 }
 
 .table-responsive {
@@ -3693,8 +3730,8 @@ dl.portletStaticText {
 }
 
 dd.portletItem h3 {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
     font-size: 1.250em;
     color: #999999;
     margin: 0px;
@@ -3706,17 +3743,17 @@ dt.portletHeader {
     font-size: 1.250em !important;
 }
 dt.portletHeader span {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Merriweather", serif;
     font-weight: 700;
     text-transform: uppercase;
-    color: #242424;
+    color: #000000;
     margin: 0px;
     line-height: 35px;
 }
 
 dd.portletItem .btn {
     background: #262626;
-    font-family: "Montserrat", sans-serif !important;
+    font-family: "Merriweather", serif !important;
     font-weight: 400;
     text-transform: uppercase;
     color: #ffffff !important;
@@ -3732,7 +3769,7 @@ dd.portletItem .btn:hover {
     background: #ffffff;
     border-style: solid;
     border-width: 1px;
-    border-color: #242424;
+    border-color: #000000;
     color: #262626 !important;
     text-transform: uppercase;
 }
@@ -4025,7 +4062,7 @@ dd.portletItem > h3:first-child {
 
 .object-container .object-label {
     padding-left: 0px;
-    color:#242424;
+    color:#000000;
 }
 
 .object-container .object-value {
@@ -4098,8 +4135,134 @@ dd.portletItem > h3:first-child {
     }
 }
 
+/* COLLECTION PAGINATINO */
+.collection-pagination {
+    text-transform: uppercase;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    color: #cccccc;
+    margin-bottom: 40px;
+    font-size: 1.000em;
+}
 
+#collectionFilters {
+    text-transform: uppercase;
+    background-color: #F5F5F5;
+}
 
+#collectionFilters a {
+    font-size: 1.000em;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    color: #cccccc;
+}
+
+#collectionFilters a:visited {
+    color: #cccccc;
+}
+
+#collectionFilters a.highlighted {
+    color: #333333;
+}
+
+#collectionFilters {
+    height: 80px;
+}
+
+#collectionFilters .portletWrapper {
+    padding-top: 25px; /* height - height/2 - line height */
+}
+
+/* NEW QUERIES */
+@media (max-width: 480px) {
+    #collectionFilters {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    #collectionFilters {
+        margin-bottom: 0px;
+    }
+
+    #parent-fieldname-title, .documentFirstHeading {
+        padding-top: 80px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    #collectionFilters {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    #collectionFilters {
+        margin-bottom: 0px;
+    }
+
+    #parent-fieldname-title, .documentFirstHeading {
+        padding-top: 80px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    #collectionFilters {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    #collectionFilters {
+        margin-bottom: 0px;
+    }
+
+    #parent-fieldname-title, .documentFirstHeading {
+        padding-top: 100px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    #collectionFilters {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    #collectionFilters {
+        margin-bottom: 0px;
+    }
+}
+
+@media (min-width: 1200px) {
+    #collectionFilters {
+        padding-left: 120px;
+        padding-right: 120px;
+    }
+}
+
+/* NEW TITLES */
+#content h1.documentFirstHeading {
+    font-family: 'Raleway', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 2.083em !important;
+    color: #333333 !important;
+}
+
+#content .documentDescription.description {
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    font-style: italic;
+    color: #333333;
+    font-size: 1.125em;
+}
+
+.menu_wrapper {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-color: #D75745;
+}
+
+.listingBar div:first-child {
+    padding-top: 11px;
+}
 
 
 

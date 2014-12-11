@@ -114,7 +114,7 @@ $(document).ready(function() {
       $(this).addClass("highlighted")
     }
 
-    $.getJSON(URL, function(data) {
+    /*$.getJSON(URL, function(data) {
       if (data != null) {
         var count = $('<span class="resultCount"> (' + data + ') </span>')
         if (data == 0) {
@@ -123,7 +123,7 @@ $(document).ready(function() {
           elem.after(count);
         }
       }
-    });
+    });*/
   });
 });
 

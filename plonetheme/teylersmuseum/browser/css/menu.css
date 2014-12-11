@@ -13,7 +13,7 @@
 	width: 16px;
 	height: 16px;
 	position: absolute;
-	right: 50px;
+	left: 50px;
 	top: 50px;
 	overflow: hidden;
 	border: none;
@@ -65,7 +65,7 @@
 	display: block;
 	color: #ffffff;
 	text-transform: uppercase;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Merriweather', serif;
 	font-size: 24px;
 	font-weight: 700;
 	-webkit-transition: color 0.2s;
@@ -139,8 +139,8 @@
 }
 
 .main_menu {
-  width: 40px;
-  height: 50px;
+  width: 20px;
+  height: 20px;
   position: absolute;
   top: 50px;
   right: 50px;
@@ -159,9 +159,9 @@
 	-ms-transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
-    -ms-transform-origin: 10px; 
-    -webkit-transform-origin: 10px;
-    transform-origin: 10px;
+    -ms-transform-origin: 2px; 
+    -webkit-transform-origin: 2px;
+    transform-origin: 2px;
 }
 
 .main_menu.open .menu-item:nth-child(2) {
@@ -172,9 +172,9 @@
 	-ms-transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
-    -ms-transform-origin: 8px; 
-    -webkit-transform-origin: 8px;
-    transform-origin: 8px;
+    -ms-transform-origin: 2px; 
+    -webkit-transform-origin: 2px;
+    transform-origin: 2px;
 }
 
 .menu-item {
@@ -183,44 +183,44 @@
 	-webkit-transition-duration: 0.5s;
 	transition-duration: 0.5s;  
   	display: block;
-  	width: 40px;
-  	height: 3px;
-  	margin: 0 0 5px;
-  	background: #000000;
+  	width: 20px;
+  	height: 2px;
+  	margin: 0 0 4px;
+  	background: #ffffff;
 }
 
 @media (max-width: 480px) {
     .main_menu {
-    	top: 20px;
-    	right: 20px;
+    	top: 30px;
+    	left: 30px;
     }
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
    .main_menu {
-    	top: 40px;
-    	right: 40px;
+    	top: 30px;
+    	left: 30px;
     } 
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
     .main_menu {
-    	top: 40px;
-    	right: 40px;
+    	top: 30px;
+    	left: 30px;
     }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
     .main_menu {
-    	top: 50px;
-    	right: 50px;
+    	top: 30px;
+    	left: 30px;
     }
 }
 
 @media (min-width: 1200px) {
 	.main_menu {
-    	top: 50px;
-    	right: 50px;
+    	top: 30px;
+    	left: 30px;
     }
 }
 

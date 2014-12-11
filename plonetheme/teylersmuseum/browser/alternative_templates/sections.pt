@@ -4,12 +4,16 @@
     i18n:domain="plone">
 
     <h5 class="hiddenStructure" i18n:translate="heading_sections">Sections</h5>
+
+
     
    <!--<a id="trigger-overlay"><img src="++resource++plonetheme.bootstrapModern.css/menu.svg"></a>-->
-    <div class="main_menu" id="trigger_btn">
-            <span class="menu-item"></span>
-            <span class="menu-item"></span>
-            <span class="menu-item"></span>
+    <div class="menu_wrapper">
+        <div class="main_menu" id="trigger_btn">
+                <span class="menu-item"></span>
+                <span class="menu-item"></span>
+                <span class="menu-item"></span>
+        </div>
     </div>
 
     <div class="menu overlay-hugeinc"
