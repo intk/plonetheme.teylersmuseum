@@ -5,6 +5,11 @@
 <object name="portal_javascripts">
 
   <javascript
+    id="++resource++plonetheme.bootstrapModern.js/vendor/jasny-bootstrap.min.js"
+    cacheable="False" compression="safe" cookable="False"
+    enabled="True" expression=""  inline="False"/>
+
+  <javascript
     id="++resource++plonetheme.bootstrapModern.js/respond.min.js"
     cacheable="False" compression="safe" cookable="False"
     enabled="True" expression=""  inline="False"/>

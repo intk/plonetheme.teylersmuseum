@@ -16,6 +16,12 @@ from collective.portletpage.browser.portletpage import TwoColumns
 from plone.portlet.collection import collection as base
 from plone.app.search.browser import Search
 from plone.app.layout.viewlets.common import GlobalSectionsViewlet
+from plone.app.i18n.locales.browser.selector import LanguageSelector
+from zope.component import queryAdapter
+from plone.multilingual.interfaces import ITG
+from plone.multilingual.interfaces import NOTG
+from plone.app.multilingual.browser.selector import getPostPath, addQuery
+
 try:
     from Products.PloneGetPaid.interfaces import IBuyableMarker
     from Products.PloneGetPaid.interfaces import PayableMarkerMap
@@ -501,11 +507,6 @@ class CollectionPortlet(base.Renderer, FolderListing):
     _template = ViewPageTemplateFile("alternative_templates/portletcollection.pt")
     render = _template
 
-
-class SectionsViewlet(GlobalSectionsViewlet):
-    """
-    helper classes for sections
-    """
 
 class NumberOfResults(CommonBrowserView):
     """

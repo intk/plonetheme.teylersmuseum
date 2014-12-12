@@ -133,9 +133,7 @@ ol {
 }
 
 #portal-languageselector {
-    position: fixed;
-    margin: 0;
-    margin-bottom: 0px;
+
 }
 
 #portal-languageselector ul {
@@ -1483,14 +1481,10 @@ body.template-login_form #content-core {
 
 /* IMAGES */
 #portal-languageselector {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
+ 
 }
 
 #portal-languageselector {
-    display: none;
     font-family: 'Merriweather', serif;
     font-weight: 700;
     color: #7f7f7f;
@@ -1911,8 +1905,7 @@ body.portaltype-media-person .social-viewlet {
     }
 
     #portal-languageselector {
-        top: 20px;
-        left: 20px;
+   
     }
 }
 
@@ -1927,12 +1920,10 @@ body.portaltype-media-person .social-viewlet {
     }
 
     #portal-languageselector {
-        height: 20px;
     }
 
     #portal-languageselector {
-        top: 20px;
-        left: 20px;
+     
     }
 }
 
@@ -1947,12 +1938,9 @@ body.portaltype-media-person .social-viewlet {
     }
 
     #portal-languageselector {
-        height: 30px;
     }
 
     #portal-languageselector {
-        top: 40px;
-        left: 40px;
     }
 }
 
@@ -1966,12 +1954,9 @@ body.portaltype-media-person .social-viewlet {
     }
     
     #portal-languageselector {
-        height: 40px;
     }
 
     #portal-languageselector {
-        top: 40px;
-        left: 40px;
     }
 }
 
@@ -1986,12 +1971,9 @@ body.portaltype-media-person .social-viewlet {
     }
 
     #portal-languageselector {
-        height: 50px;
     }
 
     #portal-languageselector {
-        top: 50px;
-        left: 50px;
     }
 }
 
@@ -4322,6 +4304,7 @@ dd.portletItem > h3:first-child {
     width: 80px;
     height: 80px;
     background-color: #D75745;
+    z-index: 10;
 }
 
 .listingBar .btn {
@@ -4499,6 +4482,31 @@ dd.portletItem > h3:first-child {
 
 .portaltype-document .contentsListing {
     display: none;
+}
+
+.page-overlay {
+    width: 100%;
+    height: 4000px;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    background-color: #000;
+    opacity: 0;
+    -webkit-transition: opacity 400ms ease;
+    transition: opacity 400ms ease;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+body.canvas-slid .page-overlay {
+    opacity: 0.5;
+    z-index:99999;
 }
 
 

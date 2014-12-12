@@ -182,7 +182,8 @@ class get_nav_objects(BrowserView):
 						if slideshow[img].portal_type == 'Image':
 							images.append(slideshow[img].absolute_url()+'/@@images/image/large')
 
-		return images
+		res = sorted(images)
+		return res
 
 	def get_all_fields_object(self, object):
 		object_schema = {}
