@@ -104,7 +104,7 @@ $(document).ready(function() {
     toggleOverlay();
   });*/
 
-  $("#collectionFilters .portletStaticText a").each(function() {
+  $("#collection-filters .portletStaticText a").each(function() {
     var elem = $(this);
     var link = $(this).attr("href");
     var link_alt = link + "/";

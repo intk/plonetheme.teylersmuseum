@@ -4509,6 +4509,128 @@ body.canvas-slid .page-overlay {
     z-index:99999;
 }
 
+/* COLLECTION NAV BAR */
 
+.collection-filters {
+    background-color: #F5F5F5;
+    border: 0px;
+}
+
+.collection-filters li {
+    display: block !important;
+}
+
+.collection-filters li > a:hover {
+    background-color: #F5F5F5 !important;
+}
+
+.collection-filters li a {
+    text-transform: uppercase;
+    font-size: 1.000em !important;
+    font-family: 'Raleway', sans-serif !important;
+    font-weight: 700 !important;
+    color: #cccccc !important; 
+    letter-spacing: 0.02em !important;
+}
+
+.collection-filters .navbar-toggle {
+    background-color: #f5f5f5 !important;
+}
+
+.collection-filters .navbar-toggle:hover{
+    background-color: #f5f5f5 !important;
+}
+
+.collection-filters .navbar-collapse .nav ul > li > a:hover {
+    background-color: #f5f5f5 !important;
+}
+
+.collection-filters .navbar-collapse {
+    border-color: #f5f5f5 !important;
+}
+
+.collection-filters .navbar-brand {
+    text-transform: uppercase;
+    font-size: 1.000em !important;
+    font-family: 'Raleway', sans-serif !important;
+    font-weight: 700 !important;
+    color: #333333 !important; 
+    letter-spacing: 0.02em !important;
+}
+
+.collection-filters .portletWrapper {
+    padding-top: 12px;
+}
+
+.collection-filters p {
+    display: inline-block;
+}
+
+.collection-filters p a {
+    padding-right: 30px;
+    text-transform: uppercase;
+    font-size: 1.000em !important;
+    font-family: 'Raleway', sans-serif !important;
+    font-weight: 700 !important;
+    color: #cccccc !important; 
+    letter-spacing: 0.02em !important;
+}
+
+.collection-filters .portletStaticText a.highlighted {
+    color: #333333 !important;
+}
+
+.collection-filters .managePortletsLink {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .collection-filters p {
+        display: block;
+    }
+
+    .collection-filters .container-fluid {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .collection-filters p {
+        display: block;
+    }
+
+    .collection-filters .container-fluid {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .collection-filters .container-fluid {
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .collection-filters .container-fluid {
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .collection-filters .container-fluid {
+        padding-left: 61px;
+        padding-right: 61px;
+    }   
+}
+
+.collection-filters .navbar-nav a {
+    line-height: 60px !important;
+    height: 60px;
+    padding-top: 0;
+}
 
 

@@ -14,12 +14,25 @@
                              templateId template/getId;
                              portal_type context/portal_type">
 
-    <div class="col-lg-12" id="collectionFilters" tal:define="checkPermission nocall: context/portal_membership/checkPermission;
-        portal context/@@plone_portal_state/portal;">
-        <tal:block replace="structure provider:plonetheme.bootstrapModern.collectionPortletManager"/>
-      </div>
-      <a class="managePortletsFallback" tal:attributes="href string:${context/absolute_url}/@@manage-collection-portlets" tal:condition="python:checkPermission('Portlets: Manage portlets', context)" style="width:300px; display:none;">Manage collection portlets</a>
 
+    <div class="navbar navbar-default collection-filters" id="collection-filters" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only"></span>
+            <i class="fa fa-chevron-down"></i>
+          </button>
+          <a class="navbar-brand hidden-lg hidden-md hidden-sm" href="#" tal:content="context/Title"></a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <tal:block replace="structure provider:plonetheme.bootstrapModern.collectionPortletManager"/>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </div>
     <div class="tileColumns container-fluid">
 
       <div class="row-fluid">
