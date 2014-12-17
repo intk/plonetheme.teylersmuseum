@@ -7,8 +7,8 @@
 
 
 
-    <div class="menu_wrapper">
-        <div class="main_menu" data-toggle="offcanvas" data-target="#nav_menu" data-canvas="body">
+    <div class="menu_wrapper" data-toggle="offcanvas" data-target="#nav_menu" data-canvas="body">
+        <div class="main_menu">
                 <span class="menu-item"></span>
                 <span class="menu-item"></span>
                 <span class="menu-item"></span>

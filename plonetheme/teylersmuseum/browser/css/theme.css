@@ -3,8 +3,8 @@
 --------------------------------------------------------------------------------- */
 
 /* FONTS */
-@import url('//fonts.googleapis.com/css?family=Merriweather:400,700,300italic');
-@import url('//fonts.googleapis.com/css?family=Raleway:400,700,800');
+@import url("//fonts.googleapis.com/css?family=Merriweather:400,700,300italic");
+@import url("//fonts.googleapis.com/css?family=Raleway:400,700,800");
 
 
 #content li {
@@ -234,21 +234,22 @@ ol {
 #content .pullquote {
     font-family: 'Merriweather', serif;
     margin: 0 auto;
-    font-weight: 400;
+    font-weight: 700;
     width: auto;
-    font-size: 1.875em;
+    font-size: 2.250em;
     float: left;
     background: none;
-    color: #666666;
+    color: #333333;
     line-height: 45px;
     float: none !important;
     letter-spacing: 0.05em !important;
-    border-left: 2px solid #cccccc;
+    border-left: 0px;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 0px;
-    padding-bottom: 5px;
+    padding-bottom: 40px;
     margin-bottom: 28px;
+    text-align: center;
 }
 
 #content a:hover,
@@ -4358,6 +4359,15 @@ dd.portletItem > h3:first-child {
 
 #FooterPortlet .social-media-portlet .fa.fa-facebook {
     padding-left: 2px;
+    padding-top: 8px;
+}
+
+#FooterPortlet .social-media-portlet .fa.fa-twitter {
+    padding-top: 7px;
+}
+
+#FooterPortlet .social-media-portlet .fa.fa-youtube-play {
+    padding-top: 7px;
 }
 
 #FooterPortlet .social-media-portlet .col-lg-4 {
@@ -4371,6 +4381,18 @@ dd.portletItem > h3:first-child {
     border: 0px;
     border-radius: 25px;
     background-color: #CCCCCC;
+}
+
+#FooterPortlet .social-media-portlet .btn.facebook-btn:hover {
+    background-color: #3b5998;
+}
+
+#FooterPortlet .social-media-portlet .btn.twitter-btn:hover {
+    background-color: #55ACEE;
+}
+
+#FooterPortlet .social-media-portlet .btn.youtube-btn:hover {
+    background-color: #e52d27;
 }
 
 #FooterPortlet .museum-info {
@@ -4484,29 +4506,34 @@ dd.portletItem > h3:first-child {
     display: none;
 }
 
+/* PAGE OVERLAY */
+
 .page-overlay {
+    position: fixed;
     width: 100%;
-    height: 4000px;
+    height: 100%;
     cursor: pointer;
     top: 0;
     left: 0;
-    position: absolute;
     bottom: 0;
     right: 0;
-    z-index: -1;
+    z-index: -1000;
     background-color: #000;
+    pointer-events:none;
     opacity: 0;
     -webkit-transition: opacity 400ms ease;
     transition: opacity 400ms ease;
-    -webkit-perspective: 1000;
-    perspective: 1000;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
 
 body.canvas-slid .page-overlay {
     opacity: 0.5;
-    z-index:99999;
+    z-index:200;
+}
+
+body.canvas-slid .menu_wrapper {
+    z-index: 300;
 }
 
 /* COLLECTION NAV BAR */
@@ -4632,5 +4659,276 @@ body.canvas-slid .page-overlay {
     height: 60px;
     padding-top: 0;
 }
+
+/* NEW TITLES MOBILE */
+
+@media (max-width: 480px) {
+    #content h1.documentFirstHeading {
+        font-family: 'Merriweather', serif !important;
+        font-weight: 800 !important;
+        font-size: 3.750em !important;
+        line-height: 60px !important;
+        color: #333333 !important;
+        letter-spacing: 0.02em;
+        text-transform: none;
+    }
+
+    #content .documentDescription.description {
+        font-family: 'Merriweather', serif;
+        font-weight: 300;
+        font-style: italic;
+        color: #333333;
+        font-size: 1.125em;
+    }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+    #content h1.documentFirstHeading {
+        font-family: 'Merriweather', serif !important;
+        font-weight: 800 !important;
+        font-size: 1.875em !important;
+        line-height: 40px !important;
+        color: #333333 !important;
+        letter-spacing: 0.02em;
+        text-transform: none;
+    }
+
+    #content .documentDescription.description {
+        font-family: 'Merriweather', serif;
+        font-weight: 300;
+        font-style: italic;
+        color: #333333;
+        font-size: 1.125em;
+    }
+}   
+
+@media (min-width: 768px) and (max-width: 991px) {
+    #content h1.documentFirstHeading {
+        font-family: 'Merriweather', serif !important;
+        font-weight: 800 !important;
+        font-size: 1.875em !important;
+        line-height: 40px !important;
+        color: #333333 !important;
+        letter-spacing: 0.02em;
+        text-transform: none;
+    }
+
+    #content .documentDescription.description {
+        font-family: 'Merriweather', serif;
+        font-weight: 300;
+        font-style: italic;
+        color: #333333;
+        font-size: 1.125em;
+    }
+}
+
+#content-core div[id*='parent-fieldname-text'] th, td {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#content-core div[id*='parent-fieldname-text'] th {
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+}
+
+
+
+#content-core div[id*='parent-fieldname-text'] table {
+    border-bottom: 1px solid #cccccc;
+}
+
+#content-core div[id*='parent-fieldname-text'] th {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 1.00em;
+    text-transform: uppercase;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #D75745;
+}
+
+#content-core div[id*='parent-fieldname-text'] td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    border-top: 0px;
+    color: #333333;
+}
+
+/* STORYTELLING */
+
+.portaltype-object #portal-footer-wrapper {
+    display: none;
+}
+
+.portaltype-object .documentFirstHeading {
+    display: none;
+}
+
+.portaltype-object .documentDescription {
+    display: none;
+}
+
+.portaltype-object header {
+    background-color: #2B2B2B;
+}
+
+.portaltype-object #edit-content-views {
+}
+
+.portaltype-object #editing-bar {
+}
+
+.portaltype-object #slickslideshow {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.portaltype-object .slideshowWrapper {
+    height: 100%;   
+}
+
+.portaltype-object #slickslideshow .slick-slide {
+    max-width: 100%;
+}
+
+.portaltype-object #slickslideshow .slick-slide img, .slideshowContent .slick-slide iframe {
+    max-width: 100%;
+}
+
+.portaltype-object #slickslideshow {
+    background-color: #2b2b2b;
+}
+
+html.portaltype-object {
+    height: 100%;
+    background-color: #2B2B2B !important; 
+}
+
+body.portaltype-object {
+    height: 100%;
+    background-color: #2B2B2B !important;
+}
+
+.portaltype-object #portal-logo img {
+    content: url('++resource++plonetheme.bootstrapModern.css/teylers.png');
+}
+
+.portaltype-object #parent-fieldname-text {
+    display: none;
+}
+
+.portaltype-object #slickslideshow {
+    width: 100%;
+    height: 100%;
+}
+
+.portaltype-object #slideshow-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 80px;
+    width: 100%;
+    background-color: #242424;
+    padding-right: 0px;
+}
+
+.portaltype-object #slideshow-controls > div {
+    height: 100%;
+}
+
+.portaltype-object #slideshow-controls > div p {
+    line-height: 33px;
+    padding: 23.5px;
+    margin:0;
+} 
+
+.portaltype-object #slideshow-controls .slide-description {
+    color: #ffffff !important;
+}
+
+.portaltype-object #slideshow-controls .slide-description span {
+    padding-right: 20px;
+}
+
+.portaltype-object #slideshow-controls .actions-div {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.portaltype-object #slideshow-controls .actions-div a .fa.fa-expand {
+    line-height: 60px;
+    color: #ffffff;
+}
+
+.portaltype-object #slideshow-controls {
+    display: none;
+}
+
+.portaltype-object #slideshow-controls .btn {
+    display: none;
+    height: 100%;
+    background-color: #242424;
+    width: 32%;
+    float: right;
+    border: 0px;
+    border-left: 1px solid #2b2b2b;
+    border-right: 1px solid #2b2b2b;
+}
+
+.portaltype-object #slideshow-controls .btn.expand-btn {
+    display: block;
+}
+
+.portaltype-object header {
+    position: absolute;
+    top: 0,
+    left: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+
+body.portaltype-object {
+    overflow-y: hidden; 
+}
+
+.portaltype-object #slickslideshow {
+       
+}
+
+.portaltype-object .slick-list, .portaltype-object .slick-track {
+    height: 100% !important;
+} 
+
+.portaltype-object .slick-slideshow {
+    width: 100% !important;
+}
+
+.portaltype-object #slickslideshow .slideshowWrapper {
+    padding-top: 140px;
+    padding-bottom: 140px;
+}
+
+.portaltype-object .slick-slide img {
+    position: relative;
+    top: 50%;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    resize: both;
+}
+
+#portal-languageselector {
+    display: none;
+}
+
 
 

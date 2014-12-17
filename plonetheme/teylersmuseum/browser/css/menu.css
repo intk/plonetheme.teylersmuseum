@@ -359,4 +359,8 @@
 	color: #999999;
 }
 
+.menu_wrapper {
+	cursor: pointer;
+}
+
 

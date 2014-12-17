@@ -13,6 +13,13 @@ $(document).ready(function() {
   //mediaShow.recalculateHeight($(".embededMediaShow.javascripted"));
 
   $("#portal-languageselector").prependTo("#nav_menu");
+  $("#portal-languageselector").show(100);
+
+  $(".expand-btn").click(function() {
+    $(".portaltype-object #parent-fieldname-text").toggle();
+    $(".container.object-container").toggle();
+    $("body").css("overflow-y", "visible");
+  });
 
   /* POPOVER */
   $('html').click(function(e) {
