@@ -5,6 +5,9 @@ from plone.app.layout.viewlets.common import ViewletBase
 from Products.Five import BrowserView
 from AccessControl import getSecurityManager
 from Products.CMFPlone.PloneBatch import Batch
+
+from plone.batching.batch import QuantumBatch
+
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.portlets.interfaces import IColumn
@@ -471,7 +474,7 @@ class FolderListing(CommonBrowserView):
             else:
                 final_res = list(brains)
             if batch:
-               results = Batch(final_res, pagesize, start=b_start)
+               results = QuantumBatch(final_res, pagesize, start=b_start)
             else:
                 return final_res
         elif self.context.portal_type in ['Folder', 'Press Kit']:
@@ -484,7 +487,7 @@ class FolderListing(CommonBrowserView):
             else:
                 final_res = list(brains)
             if batch:
-                results = Batch(final_res, pagesize, start=b_start)
+                results = QuantumBatch(final_res, pagesize, start=b_start)
             else:
                 return final_res
         

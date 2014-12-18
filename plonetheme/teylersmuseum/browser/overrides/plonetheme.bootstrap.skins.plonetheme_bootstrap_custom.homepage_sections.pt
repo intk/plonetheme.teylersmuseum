@@ -17,11 +17,7 @@
     </div>
     
     <div class="menu_wrapper" data-toggle="offcanvas" data-target="#nav_menu" data-canvas="body">
-        <div class="main_menu" data-toggle="offcanvas" data-target="#nav_menu" data-canvas="body">
-                <span class="menu-item"></span>
-                <span class="menu-item"></span>
-                <span class="menu-item"></span>
-        </div>
+        <a class="bt-menu-trigger"><span>Menu</span></a>
     </div>
 
     <div class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation" id="nav_menu">
