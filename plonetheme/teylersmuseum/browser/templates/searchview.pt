@@ -37,7 +37,8 @@
 
         <input type="hidden" name="advanced_search" value="False" />
         <input type="hidden" name="sort_on" value="" />
-        <div id="search-page-header">
+        
+            <div id="search-page-header">
                             
                             <h1 class="documentFirstHeading"
                                 i18n:translate=""
@@ -68,6 +69,28 @@
                                   Search Term
                               </span>
                             </h2>
+
+                            <fieldset id="search-field" i18n:domain="plone" class="noborder">
+                              <div class="row-fluid" id="fieldscontainer">
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6" id="search_input_div">
+                                    <input class="searchPage"
+                                     name="SearchableText"
+                                     type="text"
+                                     size="25"
+                                     id="search_input"
+                                     title="Search Site"
+                                     placeholder="Search site"
+                                     i18n:attributes="title title_search_title; placeholder title_search_title"
+                                     tal:attributes="value st;"
+                                     /></div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6" id="submit_search_div">
+                                      <input class="btn btn-inverse"
+                                        type="submit"
+                                        value="Search"
+                                        i18n:attributes="value label_search;"/>
+                                </div>
+                              </div>
+                          </fieldset>
                 </div>
 
                 <div class="clearfix"></div> 
@@ -77,30 +100,7 @@
                              b_start request/b_start | b_start;
                              batch python: view.results(b_start=b_start);
                              normalizeString nocall:context/@@plone/normalizeString;">
-            
-
-
-            <fieldset id="search-field" i18n:domain="plone" class="noborder">
-            <div class="row-fluid" id="fieldscontainer">
-              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6" id="search_input_div">
-                  <input class="searchPage"
-                   name="SearchableText"
-                   type="text"
-                   size="25"
-                   id="search_input"
-                   title="Search Site"
-                   placeholder="Search site"
-                   i18n:attributes="title title_search_title; placeholder title_search_title"
-                   tal:attributes="value st;"
-                   /></div>
-              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6" id="submit_search_div">
-                    <input class="btn btn-inverse"
-                      type="submit"
-                      value="Search"
-                      i18n:attributes="value label_search;"/>
-              </div>
-            </div>
-            </fieldset>
+          
 
             <div class="clearfix"></div> 
 
@@ -279,7 +279,9 @@
                                                    allowAnonymousViewAbout site_properties/allowAnonymousViewAbout;
                                                    show_about python:not isAnon or allowAnonymousViewAbout;">
                           <div class="searchResults row-fluid">
+                            <div class="col-lg-8 results-wrapper">
                               <tal:results repeat="item batch">
+
                                     <tal:block tal:define="item_id item/getId;
                                        normalizeString nocall:context/@@plone/normalizeString;
                                        item_description item/Description;
@@ -294,11 +296,11 @@
                                        item_link python: (item_type == 'Press Kit' and not view.checkPermission(item, 'Add portal content')) and item_url + '/download_zip' or (item_type in use_view_action and item_url+'/view' or item_url);">
                                           <metal:block define-slot="entry">
                                                     
-                                                    <div class="col-lg-3 col-md-3 col-sm-5">
+                                                    <div class="col-lg-4 col-md-4 col-sm-5">
                                                       <a class="imagelink" tal:condition="item/hasMedia" href="" tal:attributes="href item_link"><tal:image replace="structure python:view.getLeadMediaTag(item, scale='preview')"></tal:image></a>
                                                     </div>
                                                     
-                                                    <div class="res-info col-lg-9 col-md-9 col-sm-7">
+                                                    <div class="res-info col-lg-8 col-md-8 col-sm-7">
                                                         <h2 class="summary"  tal:attributes="class python: 'summary %s'%item_wf_state_class">
                                                             <a href="#"
                                                                tal:attributes="href item_link"
@@ -325,6 +327,50 @@
                                     </tal:block>     
                                     
                               </tal:results>
+                            </div>
+                            <div class="col-lg-4 portlet-wrapper">
+                              <div class="navbar navbar-default" id="search-results-selector" role="navigation">
+                                    
+                                      <!-- Brand and toggle get grouped for better mobile display -->
+                                      <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                          <span class="sr-only"></span>
+                                          <i class="fa fa-chevron-down"></i>
+                                        </button>
+                                        <a class="navbar-brand">Toon alle resultaten</a>
+                                      </div>
+                                      <!-- Collect the nav links, forms, and other content for toggling -->
+                                      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                        <ul class="nav navbar-nav">
+                                          <p>Test</p>
+                                          <p>Test</p>
+                                          <p>Test</p>
+                                        </ul>
+                                      </div><!-- /.navbar-collapse -->
+                                    
+                                  </div>
+                                  <div class="navbar navbar-default" id="search-sort-selector" role="navigation">
+                                    
+                                      <!-- Brand and toggle get grouped for better mobile display -->
+                                      <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                                          <span class="sr-only"></span>
+                                          <i class="fa fa-chevron-down"></i>
+                                        </button>
+                                        <a class="navbar-brand">Sorteer op relevantie</a>
+                                      </div>
+                                      <!-- Collect the nav links, forms, and other content for toggling -->
+                                      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                                        <ul class="nav navbar-nav">
+                                          <p>Test</p>
+                                          <p>Test</p>
+                                          <p>Test</p>
+                                        </ul>
+                                      </div><!-- /.navbar-collapse -->
+                                    
+                                  </div>
+
+                            </div>
                           </div>
                           <div metal:use-macro="context/batch_macros/macros/navigation" />
                         </metal:results>
