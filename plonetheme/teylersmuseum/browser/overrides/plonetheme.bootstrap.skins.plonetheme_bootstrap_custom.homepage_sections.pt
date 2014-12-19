@@ -12,9 +12,8 @@
 
 
 <tal:sections i18n:domain="plone">
-    <div class="page-overlay">
-        
-    </div>
+    
+    <div class="page-overlay"></div>
     
     <div class="menu_wrapper" data-toggle="offcanvas" data-target="#nav_menu" data-canvas="body">
         <a class="bt-menu-trigger"><span>Menu</span></a>
@@ -23,12 +22,8 @@
     <div class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation" id="nav_menu">
             <ul class="nav navmenu-nav main-menu">
                 <metal:main define-macro="nav_main">
-                <li tal:attributes="class python:selected_portal_tab=='index_html' and 'home active' or 'home'"><a tal:condition="python:level==1"
-                                tal:define="navigation_view context/@@plonetheme_navigation_root"
-                                tal:attributes="href navigation_view/navigation_root_url" i18n:translate="Home" i18n:domain="plone">Home</a></li>
-                
+
                 <tal:navitem repeat="node children">
-                
                 <li tal:define="children   node/children;
                                 item       node/item;
                                 useView    python:item.portal_type in viewActions;
@@ -38,7 +33,7 @@
                                 isCurrent  node/currentItem;
                                 liLevel    level;
                                 main_menu  python:liLevel == 1;
-                                show_lower python:children and level+2 < bottomLevel;
+                                show_lower python:children and level+3 < bottomLevel;
                                 item_type_class string:itemtype-${item/portal_type};
                                 css_class_active python:(isCurrent or item.id==selected_portal_tab) and 'active' or '';
                                 css_class_submenu python:show_lower and 'dropdown' or '';

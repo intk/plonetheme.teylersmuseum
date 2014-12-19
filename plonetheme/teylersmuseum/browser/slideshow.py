@@ -319,6 +319,8 @@ class get_nav_objects(BrowserView):
 		b_start = self.request.get('b_start')
 		collection_id = self.request.get('collection_id')
 
+		items = {}
+
 		is_folder = False
 		is_collection = False
 
@@ -350,6 +352,7 @@ class get_nav_objects(BrowserView):
 				bulk_of_items = next_items + prev_items
 				
 				items = self.build_json_with_list(bulk_of_items, 0, False, is_folder, len(list_of_items))
+				items['index_obj'] = object_idx+1
 				return json.dumps(items)
 			
 			elif object_idx-buffer_size < 0 and object_idx+buffer_size < len(results):
@@ -363,6 +366,7 @@ class get_nav_objects(BrowserView):
 				bulk_of_items = next_items + prev_items
 				
 				items = self.build_json_with_list(bulk_of_items, 0, False, is_folder, len(list_of_items))
+				items['index_obj'] = object_idx+1
 				return json.dumps(items)
 
 			elif object_idx+buffer_size >= len(results) and object_idx-buffer_size > 0:
@@ -375,6 +379,7 @@ class get_nav_objects(BrowserView):
 
 				bulk_of_items = next_items + prev_items
 				items = self.build_json_with_list(bulk_of_items, 0, False, is_folder, len(list_of_items))
+				items['index_obj'] = object_idx+1
 				return json.dumps(items)
 
 			elif object_idx+buffer_size >= len(results) and object_idx-buffer_size < 0:
@@ -385,6 +390,7 @@ class get_nav_objects(BrowserView):
 
 				bulk_of_items = next_items + prev_items
 				items = self.build_json_with_list(bulk_of_items, 0, True, is_folder, len(list_of_items))
+				items['index_obj'] = object_idx+1
 				return json.dumps(items)
 		else:
 			return json.dumps(items);

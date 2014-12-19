@@ -2,11 +2,6 @@
     I N T K - T H E M E
 --------------------------------------------------------------------------------- */
 
-/* FONTS */
-@import url("//fonts.googleapis.com/css?family=Merriweather:400,700,300italic");
-@import url("//fonts.googleapis.com/css?family=Raleway:400,700,800");
-
-
 #content li {
     display: list-item;
 }
@@ -65,6 +60,10 @@ ol {
 
 
 /* BODY */
+html {
+    -webkit-font-smoothing: antialiased;
+}
+
 body {
   background-color: #f8f8f8 !important;
   -webkit-font-smoothing: antialiased;
@@ -3513,7 +3512,7 @@ table.table-striped th, table.table-striped td {
     font-family: 'Merriweather', serif;
     font-weight: 400;
     font-size: 1.000em;
-    color: #666666
+    color: #666666;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -4079,13 +4078,13 @@ dd.portletItem > h3:first-child {
 .slick-prev, .slick-next {
     width: 80px;
     height: 80px;
-    margin-top: -50px;
+    margin-top: -40px;
     opacity: 0;
     transition: opacity 0.2s ease-in;
 }
 
 .slick-init .slick-prev, .slick-init .slick-next {
-    opacity: 1;
+    opacity: 0.6;
     transition: opacity 0.2s ease-in;
 }
 
@@ -4093,13 +4092,12 @@ dd.portletItem > h3:first-child {
     content: "";
 }
 
-/*.slideshowWrapper:hover .slick-prev, .slideshowWrapper:hover .slick-next {
+.slick-prev:hover, .slick-next:hover {
     opacity: 1;
     transition: opacity 0.2s ease-in;
-}*/
+}
 
 /* OBJECT TYPE */
-
 .container.object-container {
     width: 100%;
 }
@@ -4136,10 +4134,6 @@ dd.portletItem > h3:first-child {
     display: none;
 }
 
-#body-text {
-    display: none;
-}
-
 #get_more_info {
     cursor: pointer;
 }
@@ -4162,21 +4156,21 @@ dd.portletItem > h3:first-child {
 
 /* TWEAKS for slideshow */
 @media (min-width: 992px) and (max-width: 1199px) {
-    .slick-slideshow.double-view .slick-slide img {
+    /*.slick-slideshow.double-view .slick-slide img {
         height: 480px !important;
     }
     .slick-slideshow.coins .slick-slide img {
         height: 480px !important;
-    }
+    }*/
 }
 
 @media (min-width: 1200px) {
-    .slick-slideshow.double-view .slick-slide img {
+    /*.slick-slideshow.double-view .slick-slide img {
         height: 480px !important;
     }
     .slick-slideshow.coins .slick-slide img {
         height: 480px !important;
-    }
+    }*/
 }
 
 @media (min-width: 1439px) { 
@@ -4869,16 +4863,13 @@ body.portaltype-object {
     padding-left: 0px;
 }
 
-.portaltype-object #slideshow-controls .actions-div a .fa.fa-info-circle, .portaltype-object #slideshow-controls .actions-div a .fa.fa-times {
+.portaltype-object #slideshow-controls .actions-div a .fa.fa-info-circle, .portaltype-object #slideshow-controls .actions-div a .fa.fa-times,
+.portaltype-object #slideshow-controls .btn.expand-btn .fa.fa-expand, .portaltype-object #slideshow-controls .btn.expand-btn .fa.fa-compress {
     line-height: 60px;
     color: #ffffff;
     font-size: 1.250em;
     opacity: 0.6;
 }
-
-
-
-
 
 .portaltype-object #slideshow-controls {
     display: none;
@@ -4899,15 +4890,19 @@ body.portaltype-object {
     display: block;
 }
 
+.portaltype-object #slideshow-controls .btn.expand-btn {
+    display: block;
+}
+
 .portaltype-object header {
     position: absolute;
-    top: 0,
+    top: 0;
     left: 0;
     width: 100%;
     z-index: 2;
 }
 
-.portaltype-object #slideshow-controls .btn.info-btn:hover .fa {
+.portaltype-object #slideshow-controls .btn.info-btn:hover .fa, .portaltype-object #slideshow-controls .btn.expand-btn:hover .fa {
     opacity: 1;
 }
 
@@ -4953,12 +4948,144 @@ body.portaltype-object {
     display: none;
 }
 
-
 /* STORYTELLING */
 
 .portaltype-object .slide-description #slide-description, .portaltype-object .slide-description #slide-count {
     font-size: 1.125em;
+}
 
+.portaltype-object .slide-description #slide-description {
+    max-width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    white-space: -moz-nowrap; /* Firefox */    
+    white-space: -nowrap;     /* Opera <7 */   
+    white-space: -o-nowrap;   /* Opera 7 */    
+    word-wrap: break-word;      /* IE */
+}
+
+.portaltype-object .slide-description {
+    overflow: hidden;
+}
+
+.portaltype-object #slideshow-controls {
+    padding-left: 0px;
+}
+
+.portaltype-object #slideshow-controls > div p {
+    padding-left: 13.5px;
+}
+
+/* Fullscreen solution */
+
+.portaltype-object .inner-bg {
+    height: 100%;
+}
+
+#slickslideshow.fullscreen .slideshowWrapper {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+header.fullscreen {
+    height: 0px;
+}
+
+#slickslideshow.fullscreen .inner-bg {
+    position: relative; 
+    top: -50%; 
+    left: -50%; 
+    width: 200%; 
+    height: 200%;
+}
+
+#slickslideshow.fullscreen .inner-bg img {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    margin: auto;
+    min-width: 50%;
+    min-height: 50%;
+    -webkit-transform: none;
+    transform: none;
+    width: auto !important;
+    height: auto !important;
+    max-width: none !important;
+}
+
+#slickslideshow.fullscreen .slick-list, #slickslideshow.fullscreen .slick-track, #slickslideshow.fullscreen .slick-slide {
+    overflow: hidden;
+}
+
+
+#slickslideshow.fullscreen .slick-slider img {
+    max-width: none !important;
+}
+
+@media (max-width: 480px) {
+    #slickslideshow.fullscreen .slick-slide img, #slickslideshow .slick-slide iframe {
+        max-width: 100%;
+        height: auto !important;
+        margin: auto !important;
+    }
+}
+
+.container.object-container {
+    padding-top: 20px;
+}
+
+/* NEW ARROWS */
+.wrap-next, .wrap-prev {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 50%;
+    margin-top: -50px;
+    background-color: rgba(36, 36, 36, 0.6);
+}
+
+.wrap-next {
+    right: 0;
+}
+
+.wrap-prev {
+    left: 0;
+}
+
+.slick-prev:hover, .slick-next:hover {
+    opacity: 1;
+    transition: opacity 0.2s ease-in;
+}
+
+#visual-portal-wrapper {
+    margin-top: -1px;
+}
+
+.portaltype-object .double-container {
+    width: 50%;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+}
+
+.portaltype-object .slick-slide .double-container:first-child img {
+    float: right;
+    max-width: none !important;
+}
+
+.portaltype-object .slick-slide .double-container:last-child img {
+    float: left;
+    max-width: none !important;
+}
+
+.portaltype-object .slide-description, .portaltype-object .slide-count {
+    opacity: 0.6;
+}
+
+.portaltype-object #slickslideshow.fullscreen #slideshow-controls {
+    opacity: 0.8;
 }
 
 
