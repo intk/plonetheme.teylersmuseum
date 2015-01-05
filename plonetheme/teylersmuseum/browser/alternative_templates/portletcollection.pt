@@ -27,6 +27,7 @@
             tal:define="oddrow repeat/item/odd;
                         useView python:item.portal_type in viewActions;
                         item_type item/Type;
+                        item_title item/Title;
                         item_obj item/getObject;
                         excluded_from_nav python:item_obj.exclude_from_nav;
                         item_url python:item_type == 'Media Event' and '%s'%item.getURL() or item.getURL();

@@ -11,18 +11,23 @@ $(document).ready(function() {
     FastClick.attach(document.body);
   });
 
-  slickSlideshow.$obj.mouseenter(function() {
-    $("#portal-header-wrapper").fadeIn();
-    $("#slideshow-controls").fadeIn();
-    $(".wrap-prev").fadeIn();
-    $(".wrap-next").fadeIn();
-  });
+  if (slickSlideshow.$obj != undefined) {
+    slickSlideshow.$obj.mousemove(function() {
+      $("#portal-header-wrapper").fadeIn();
+      $("#slideshow-controls").fadeIn();
+      $(".wrap-prev").fadeIn();
+      $(".wrap-next").fadeIn();
+    });
+
+  }
 
   window.onpopstate = function() {
-    if (slickSlideshow.forward) {
-      slickSlideshow.$obj.slickPrev();
-    } else {
-      slickSlideshow.$obj.slickNext();
+    if (slickSlideshow.$obj != undefined) {
+      if (slickSlideshow.forward) {
+        slickSlideshow.$obj.slickPrev();
+      } else {
+        slickSlideshow.$obj.slickNext();
+      }
     }
   }
 

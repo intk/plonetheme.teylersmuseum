@@ -32,12 +32,6 @@
   	background: #ffffff;
 }
 
-@media (max-width: 480px) {
-    .main_menu, .bt-menu-trigger {
-    	top: 30px;
-    	left: 30px;
-    }
-}
 
 @media (min-width: 481px) and (max-width: 767px) {
    .main_menu, .bt-menu-trigger {
@@ -294,6 +288,25 @@
 	-o-transform: translateY(0) rotate(-45deg);
 }
 
+
+@media (max-width: 480px) {
+    .main_menu, .bt-menu-trigger {
+    	top: 20px;
+    	left: 20px;
+    }
+
+    .menu_wrapper {
+    	position: absolute;
+    	width: 60px;
+    	height: 60px;
+    	background-color: #D75745;
+    	z-index: 10;
+	}
+
+	.navmenu, .navbar-offcanvas {
+		width: calc(100% - 60px);
+	}
+}
 
 
 

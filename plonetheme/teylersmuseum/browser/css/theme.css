@@ -440,7 +440,7 @@ body.portaltype-portlet-page #parent-fieldname-description {
 #content-core .thumbnail p {
     font-size: 1.000em;
     font-family: "Merriweather", serif;
-    color: #999999;
+    color: #666666;
     line-height: 26px;
     font-weight: 400;
 }
@@ -1651,6 +1651,10 @@ body.portaltype-media-person .social-viewlet {
         margin-top: 10px;
         width: auto !important;
     }
+
+    #content-core .thumbnail h3 {
+        margin-bottom: 5px !important;
+    }
 }
 
 /* TABLET */
@@ -1892,12 +1896,19 @@ body.portaltype-media-person .social-viewlet {
 /* Media logo */
 @media (max-width: 480px) {
     #portal-logo {
-        margin-left: 110px;
-        margin-top: 25px;
+        position: absolute;
+        right: 20px;
+        top: 16px;
+    }  
+
+    #portal-logo {
+        width: 120px;
+        height: 27px;
     }
 
     #portal-logo img {
-        margin-top: 25px;
+        width: 120px;
+        height: 27px;
     }
 
     #portal-languageselector {
@@ -1987,7 +1998,7 @@ body.portaltype-media-person .social-viewlet {
 
     .documentDescription {
         padding-left: 20px;
-        padding-right: 20px;
+        padding-right: 55px;
     }
 
     body.portaltype-portlet-page #content .documentDescription, body.portaltype-portlet-page #content #description, body.portaltype-portlet-page #content .documentDescription, body.portaltype-portlet-page #content #description {
@@ -2217,7 +2228,7 @@ body.portaltype-media-person .social-viewlet {
     }
     #FooterPortlet .portletWrapper .portletStaticText {
         text-align: left;
-        margin-bottom: 18px;
+        margin-bottom: 35px;
     }
 
     #FooterPortlet .col-lg-2:first-child {
@@ -4233,7 +4244,7 @@ dd.portletItem > h3:first-child {
     }
 
     #parent-fieldname-title, .documentFirstHeading {
-        padding-top: 80px;
+        padding-top: 125px;
     }
 }
 
@@ -4332,7 +4343,7 @@ dd.portletItem > h3:first-child {
     font-size: 1.250em;
     color: #666666;
     letter-spacing: 0.05em;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 }
 
 #FooterPortlet .social-media-portlet i {
@@ -4412,7 +4423,7 @@ dd.portletItem > h3:first-child {
 
 @media (max-width: 480px) {
     #FooterPortlet .social-media-portlet {
-        width: 45%;
+        width: 75%;
         margin-left: 20px;
         margin-top: 37px;
     }
@@ -4436,13 +4447,13 @@ dd.portletItem > h3:first-child {
     }
 
     #portal-footer-wrapper {
-        padding-top: 60px;
+        padding-top: 80px;
     }
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
     #FooterPortlet .social-media-portlet {
-        width: 40%;
+        width: 60%;
         margin-left: 20px;
         margin-top: 37px;
     }
@@ -4494,6 +4505,10 @@ dd.portletItem > h3:first-child {
         margin-right: 37%;
         margin-top: 37px;
     } 
+
+    #content-core div[id*='parent-fieldname-text'] .table-responsive {
+        width: 80% !important;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -4502,6 +4517,10 @@ dd.portletItem > h3:first-child {
         margin-left: 40%;
         margin-right: 40%;
         margin-top: 37px;
+    }
+
+    #content-core div[id*='parent-fieldname-text'] .table-responsive {
+        width: 60% !important;
     }
 }
 
@@ -4614,15 +4633,20 @@ body.canvas-slid .menu_wrapper {
     display: none;
 }
 
+.collection-filters .fa-chevron-down {
+    color: #999999;
+}
+
 @media (max-width: 480px) {
     .collection-filters p {
         display: block;
     }
 
     .collection-filters .container-fluid {
-        padding-left: 20px;
+        padding-left: 25px;
         padding-right: 20px;
     }
+
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
@@ -4667,13 +4691,13 @@ body.canvas-slid .menu_wrapper {
 
 @media (max-width: 480px) {
     #content h1.documentFirstHeading {
-        font-family: 'Merriweather', serif !important;
+        font-family: 'Raleway', serif !important;
         font-weight: 800 !important;
-        font-size: 3.750em !important;
-        line-height: 60px !important;
+        font-size: 2.500em !important;
+        line-height: 40px !important;
         color: #333333 !important;
-        letter-spacing: 0.02em;
-        text-transform: none;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
     }
 
     #content .documentDescription.description {
@@ -4681,7 +4705,7 @@ body.canvas-slid .menu_wrapper {
         font-weight: 300;
         font-style: italic;
         color: #333333;
-        font-size: 1.125em;
+        font-size: 1.000em !important;
     }
 }
 @media (min-width: 481px) and (max-width: 767px) {
@@ -4730,10 +4754,10 @@ body.canvas-slid .menu_wrapper {
 }
 
 #content-core div[id*='parent-fieldname-text'] th {
-    border-left: 1px solid #cccccc;
-    border-right: 1px solid #cccccc;
-    border-top: 1px solid #cccccc;
-    border-bottom: 1px solid #cccccc;
+    border-left: 1px solid #f1f1f1;
+    border-right: 1px solid #f1f1f1;
+    border-top: 1px solid #f1f1f1;
+    border-bottom: 1px solid #f1f1f1;
 }
 
 
@@ -4750,16 +4774,22 @@ body.canvas-slid .menu_wrapper {
     padding-top: 10px;
     padding-bottom: 10px;
     color: #D75745;
+    letter-spacing: 0.05em;
+}
+
+#content-core div[id*='parent-fieldname-text'] hr {
+    border-top: 1px solid #cccccc;
 }
 
 #content-core div[id*='parent-fieldname-text'] td {
     padding-top: 10px;
     padding-bottom: 10px;
-    border-left: 1px solid #cccccc;
-    border-right: 1px solid #cccccc;
-    border-bottom: 1px solid #cccccc;
+    border-left: 1px solid #f1f1f1;
+    border-right: 1px solid #f1f1f1;
+    border-bottom: 1px solid #f1f1f1;
     border-top: 0px;
     color: #333333;
+    font-size: 1.000em;
 }
 
 /* STORYTELLING */
@@ -5245,5 +5275,15 @@ header.fullscreen {
 .portlet-wrapper {
     display: none;
 }
+
+#content-core div[id*='parent-fieldname-text'] ul > li {
+    padding-left: 10px;
+}
+
+#content-core div[id*='parent-fieldname-text'] ol > li {
+    padding-left: 10px;
+}
+
+
 
 
