@@ -62,6 +62,7 @@
             <tal:block tal:define="item_id item/getId;
                        item_description item/description;
                        item_type item/Type;
+                       item_title item/Title;
                        item_obj item/getObject;
                        excluded_from_nav python:item_obj.exclude_from_nav;
                        item_person python:item_type == 'Media Person';
@@ -87,15 +88,13 @@
               <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" metal:define-macro="listitem">
                 <div class="thumbnail">
                   <div class="thumb-wrapper">
-
                     <a class="thumb-image" tal:condition="python: (item.hasMedia or item.portal_type == 'Image') and not excluded_from_nav and item_img != None" href="" tal:attributes="href python: item_link+'?collection_id='+collection_id+'&b_start='+str(b_start) if portal_type == 'Collection' and item_type == 'Object' else item_link"
                       >
 
                       <img tal:define="images item_img/@@images;
                                          scale python: images.scale('image', scale='preview')"
                              tal:condition="scale"
-                             src="" alt=""
-                             tal:replace="structure python: scale.tag(css_class='tileImage')" />
+                             tal:replace="structure python: scale.tag(css_class='tileImage', alt=item_title, title=item_title)" />
                     </a> 
 
                       <div class="thumb-image" tal:condition="python: (item.hasMedia or item.portal_type == 'Image') and excluded_from_nav and item_img != None"
@@ -105,7 +104,7 @@
                                          scale python: images.scale('image', scale='preview')"
                              tal:condition="scale"
                              src="" alt=""
-                             tal:replace="structure python: scale.tag(css_class='tileImage')" />  
+                             tal:replace="structure python: scale.tag(css_class='tileImage', alt=item_title, title=item_title)" />  
                       </div> 
 
                       <div class="btn-group person-buttons person-collection" tal:condition="item_person">

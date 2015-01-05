@@ -243,7 +243,7 @@ class CommonBrowserView(BrowserView):
                     if slide.portal_type == "Image":
                         lead = slide.getURL()
                         break
-        
+
         if lead is not None:
             crop = ""
             if hasattr(item, 'getURL'):

@@ -46,7 +46,7 @@
                                          scale python: images.scale('image', scale='preview')"
                              tal:condition="scale"
                              src="" alt=""
-                             tal:replace="structure python: scale.tag(css_class='tileImage')" /> 
+                             tal:replace="structure python: scale.tag(css_class='tileImage', alt=item_title, title=item_title)" /> 
                       
                     </a> 
 
@@ -56,7 +56,7 @@
                                          scale python: images.scale('image', scale='preview')"
                              tal:condition="scale"
                              src="" alt=""
-                             tal:replace="structure python: scale.tag(css_class='tileImage')" /> 
+                             tal:replace="structure python: scale.tag(css_class='tileImage', alt=item_title, title=item_title)" /> 
                     </div>  
 
                     <!-- Buttons if Media Person -->

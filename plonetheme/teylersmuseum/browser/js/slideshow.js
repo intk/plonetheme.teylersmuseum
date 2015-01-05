@@ -377,7 +377,11 @@ slickSlideshow.initSlick = function(object_idx) {
 
 	if (slickSlideshow.view_type == "multiple_view") {
 		var $currSlide = $(slickSlideshow.$obj.getSlick().$slides[0]);
-		$currSlide.slickPlay();
+		$(".play-btn").removeClass('paused');
+		$(".play-btn").addClass('playing');
+		$(".actions-div .play-btn i").removeClass("fa-play");
+      	$(".actions-div .play-btn i").addClass("fa-pause");
+      	$currSlide.slickPlay();
 	}
 
 	var h = $(window).height();
@@ -533,6 +537,10 @@ slickSlideshow.beforeChange = function(event) {
 	if (slickSlideshow.view_type == "multiple_view") {
 		currentSlide = event.currentSlide;
 		var $currSlider = $(event.$slides[currentSlide]);
+		$(".play-btn").removeClass('playing');
+		$(".play-btn").addClass('paused');
+		$(".actions-div .play-btn i").removeClass("fa-pause");
+      	$(".actions-div .play-btn i").addClass("fa-play");
 		$currSlider.slickPause();
 	}
 }
@@ -574,20 +582,10 @@ slickSlideshow.afterChange = function(event) {
 		$("#portal-header-wrapper").fadeOut();
     	$("#slideshow-controls").fadeOut();
     	$(".wrap-prev").fadeOut();
-    	$(".wrap-next").context.onmouseout = function() {
-    		$("#portal-header-wrapper").fadeIn();
-    		$("#slideshow-controls").fadeIn();
-    		$(".wrap-prev").fadeIn();
-    	}
 	} else {
 		$("#portal-header-wrapper").fadeOut();
     	$("#slideshow-controls").fadeOut();
     	$(".wrap-next").fadeOut();
-    	$(".wrap-prev").context.onmouseout = function() {
-    		$("#portal-header-wrapper").fadeIn();
-    		$("#slideshow-controls").fadeIn();
-    		$(".wrap-next").fadeIn();
-    	}
 	}
 
 	var reset = slickSlideshow.updateSlideshowLoading(currentSlide);
@@ -638,6 +636,10 @@ slickSlideshow.afterChange = function(event) {
 
 		// Multiple View
 		if (slickSlideshow.view_type == "multiple_view") {
+			$(".play-btn").removeClass('paused');
+			$(".play-btn").addClass('playing');
+			$(".actions-div .play-btn i").removeClass("fa-play");
+      		$(".actions-div .play-btn i").addClass("fa-pause");
 			$currentSlideObj.slickPlay();
 		}
 

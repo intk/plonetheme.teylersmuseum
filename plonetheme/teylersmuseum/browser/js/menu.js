@@ -3,12 +3,33 @@ function supportsSvg() {
     return document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Shape", "1.1");
 }
 
+
 $(document).ready(function() {
+  
+  /* FASTCLICK */
+  $(function() {
+    FastClick.attach(document.body);
+  });
+
+  slickSlideshow.$obj.mouseenter(function() {
+    $("#portal-header-wrapper").fadeIn();
+    $("#slideshow-controls").fadeIn();
+    $(".wrap-prev").fadeIn();
+    $(".wrap-next").fadeIn();
+  });
+
+  window.onpopstate = function() {
+    if (slickSlideshow.forward) {
+      slickSlideshow.$obj.slickPrev();
+    } else {
+      slickSlideshow.$obj.slickNext();
+    }
+  }
+
   $("#portal-languageselector").prependTo("#nav_menu");
   $("#portal-languageselector").show(100);
 
   $(".info-btn").click(function() {
-
     if ($(".container.object-container").is(":visible")) {
 
       $('html, body').animate({
@@ -36,6 +57,28 @@ $(document).ready(function() {
     }
   });
 
+  
+  $(".play-btn").click(function() {
+    var currentSlide = slickSlideshow.$obj.slickCurrentSlide();
+    var $slide = $(slickSlideshow.$obj.getSlick().$slides[currentSlide]);
+    var $playBtn = $(this);
+
+    if ($playBtn.hasClass('playing')) {
+      $slide.slickPause();
+      $playBtn.removeClass('playing');
+      $playBtn.addClass('paused');
+      $(".actions-div .play-btn i").removeClass("fa-pause");
+      $(".actions-div .play-btn i").addClass("fa-play");
+    } else {
+      $slide.slickPlay();
+      $playBtn.removeClass('paused');
+      $playBtn.addClass('playing');
+      $(".actions-div .play-btn i").removeClass("fa-play");
+      $(".actions-div .play-btn i").addClass("fa-pause");
+    }
+  });
+
+
   $(".expand-btn").click(function() {
     var gap = 0;
     var h = $(window).height();
@@ -57,14 +100,6 @@ $(document).ready(function() {
     }
 
     slickSlideshow.$obj.attr("style", "height:"+(h-gap)+"px;");
-  });
-
-
-  
-
-  /* FASTCLICK */
-  $(function() {
-    FastClick.attach(document.body);
   });
 
   /* HIDDEN STRUCTS */

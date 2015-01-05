@@ -4864,7 +4864,10 @@ body.portaltype-object {
 }
 
 .portaltype-object #slideshow-controls .actions-div a .fa.fa-info-circle, .portaltype-object #slideshow-controls .actions-div a .fa.fa-times,
-.portaltype-object #slideshow-controls .btn.expand-btn .fa.fa-expand, .portaltype-object #slideshow-controls .btn.expand-btn .fa.fa-compress {
+.portaltype-object #slideshow-controls .btn.expand-btn .fa.fa-expand, 
+.portaltype-object #slideshow-controls .btn.expand-btn .fa.fa-compress, 
+.portaltype-object #slideshow-controls .btn.play-btn .fa.fa-play,
+.portaltype-object #slideshow-controls .btn.play-btn .fa.fa-pause {
     line-height: 60px;
     color: #ffffff;
     font-size: 1.250em;
@@ -4890,6 +4893,11 @@ body.portaltype-object {
     display: block;
 }
 
+body.template-multiple_view.portaltype-object #slideshow-controls .btn.play-btn,
+body.template-multiple_view.portaltype-object #slideshow-controls .btn.pause-btn {
+    display: block;
+}
+
 .portaltype-object #slideshow-controls .btn.expand-btn {
     display: block;
 }
@@ -4902,7 +4910,9 @@ body.portaltype-object {
     z-index: 2;
 }
 
-.portaltype-object #slideshow-controls .btn.info-btn:hover .fa, .portaltype-object #slideshow-controls .btn.expand-btn:hover .fa {
+.portaltype-object #slideshow-controls .btn.info-btn:hover .fa, 
+.portaltype-object #slideshow-controls .btn.expand-btn:hover .fa,
+.portaltype-object #slideshow-controls .btn.play-btn:hover .fa {
     opacity: 1;
 }
 
