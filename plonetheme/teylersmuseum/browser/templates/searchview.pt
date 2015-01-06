@@ -33,6 +33,9 @@
                       first_call not:request/advanced_search|nothing;
                       st python:request.get('SearchableText', '');
                       DateTime python:modules['DateTime'].DateTime;
+                      b_start python:0;
+                      b_start request/b_start | b_start;
+                      batch python: view.results(b_start=b_start);
                       ">
 
         <input type="hidden" name="advanced_search" value="False" />
@@ -49,17 +52,8 @@
                                 tal:condition="not:st">
                                 Search results</h1>
 
-                            <h2 class="documentDescription" tal:condition="st" i18n:translate="">
-                              <span i18n:translate="batch_x_items_matching_your_criteria">
-
-                              <span i18n:name="number" id="search-results-number"
-                                          tal:content="batch/sequence_length|string:0">
-                                          234</span> items matching your search terms.</span>
-                              <span id="search-term" tal:content="st" i18n:name="term">
-                                  Search Term
-                              </span>
-                            </h2>
-                            <h2 class="documentDescription" tal:condition="not:st" i18n:translate="">
+                          
+                            <h2 class="documentDescription" i18n:translate="">
                               <span i18n:translate="batch_x_items_matching_your_criteria">
 
                               <span i18n:name="number" id="search-results-number"
@@ -96,10 +90,7 @@
                 <div class="clearfix"></div> 
         <div class="container-fluid">
             <div id="search-results-wrapper" class="row-fluid"
-                 tal:define="b_start python:0;
-                             b_start request/b_start | b_start;
-                             batch python: view.results(b_start=b_start);
-                             normalizeString nocall:context/@@plone/normalizeString;">
+                 tal:define="normalizeString nocall:context/@@plone/normalizeString;">
           
 
             <div class="clearfix"></div> 
@@ -340,36 +331,14 @@
                                         <a class="navbar-brand">Toon alle resultaten</a>
                                       </div>
                                       <!-- Collect the nav links, forms, and other content for toggling -->
-                                      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                      <div class="collapse navbar-collapse in" id="bs-example-navbar-collapse-1">
                                         <ul class="nav navbar-nav">
-                                          <p>Test</p>
-                                          <p>Test</p>
-                                          <p>Test</p>
+                                          <!-- Render portlet manager -->
+                                          <tal:block replace="structure provider:plonetheme.bootstrapModern.searchPortletManager"/>
                                         </ul>
                                       </div><!-- /.navbar-collapse -->
                                     
                                   </div>
-                                  <div class="navbar navbar-default" id="search-sort-selector" role="navigation">
-                                    
-                                      <!-- Brand and toggle get grouped for better mobile display -->
-                                      <div class="navbar-header">
-                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-                                          <span class="sr-only"></span>
-                                          <i class="fa fa-chevron-down"></i>
-                                        </button>
-                                        <a class="navbar-brand">Sorteer op relevantie</a>
-                                      </div>
-                                      <!-- Collect the nav links, forms, and other content for toggling -->
-                                      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-                                        <ul class="nav navbar-nav">
-                                          <p>Test</p>
-                                          <p>Test</p>
-                                          <p>Test</p>
-                                        </ul>
-                                      </div><!-- /.navbar-collapse -->
-                                    
-                                  </div>
-
                             </div>
                           </div>
                           <div metal:use-macro="context/batch_macros/macros/navigation" />

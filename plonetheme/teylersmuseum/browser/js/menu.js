@@ -3,7 +3,6 @@ function supportsSvg() {
     return document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Shape", "1.1");
 }
 
-
 $(document).ready(function() {
   
   /* FASTCLICK */
@@ -141,6 +140,15 @@ $(document).ready(function() {
     if (link == window.location.href || link_alt == window.location.href || link == window.location.href + "aggregator" || link == window.location.href + "/aggregator") {
       $(this).addClass("highlighted")
     }
+  });
+
+  $("#search-results-selector .navbar-nav a").each(function() {
+    var $elem = $(this);
+    var args = $elem.attr("href").replace(/.*?:\/\//g, "");
+    var location = window.location.href;
+
+    var search_query = location + args;
+    $elem.attr("href", search_query);
   });
 });
 

@@ -1899,6 +1899,7 @@ body.portaltype-media-person .social-viewlet {
         position: absolute;
         right: 20px;
         top: 16px;
+        z-index: 1000;
     }  
 
     #portal-logo {
@@ -1909,14 +1910,6 @@ body.portaltype-media-person .social-viewlet {
     #portal-logo img {
         width: 120px;
         height: 27px;
-    }
-
-    #portal-languageselector {
-        height: 20px;
-    }
-
-    #portal-languageselector {
-   
     }
 }
 
@@ -2007,7 +2000,7 @@ body.portaltype-media-person .social-viewlet {
     }
 
     body.portaltype-portlet-page #parent-fieldname-description, body.portaltype-portlet-page #parent-fieldname-description {
-        padding-top: 40px;
+        padding-top: 118px;
     }
 
     body.portaltype-portlet-page #parent-fieldname-description, body.portaltype-portlet-page #parent-fieldname-description {
@@ -2032,7 +2025,7 @@ body.portaltype-media-person .social-viewlet {
     }
 
     body.portaltype-portlet-page #parent-fieldname-description, body.portaltype-portlet-page #parent-fieldname-description {
-        padding-top: 40px;
+        padding-top: 118px;
     }
 
     body.portaltype-portlet-page #parent-fieldname-description, body.portaltype-portlet-page #parent-fieldname-description {
@@ -4246,6 +4239,26 @@ dd.portletItem > h3:first-child {
     #parent-fieldname-title, .documentFirstHeading {
         padding-top: 125px;
     }
+
+    .slick-prev {
+        background: url("++resource++plonetheme.bootstrapModern.css/arrow-left.svg") no-repeat 17px !important;
+        background-position: 50% 50%;
+        background-size: 20px 20px;
+    }
+
+    .slick-next {
+        background: url("++resource++plonetheme.bootstrapModern.css/arrow-right.svg") no-repeat 24px !important;
+        background-position: 50% 50%;
+        background-size: 20px 20px;
+    }
+
+    .slick-prev, .slick-next {
+        width: 60px;
+        height: 60px;
+        margin-top: -30px;
+    }
+
+
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
@@ -4947,6 +4960,17 @@ body.template-multiple_view.portaltype-object #slideshow-controls .btn.pause-btn
 }
 
 
+@media (max-width: 480px) {
+    .portaltype-object #slideshow-controls .slide-description {
+        padding-left: 0px;
+    }
+
+    .portaltype-object .slide-description #slide-description, .portaltype-object .slide-description #slide-count {
+        font-size: 1.000em !important;
+    }
+}
+
+
 body.portaltype-object {
     overflow-y: hidden; 
 }
@@ -5070,6 +5094,15 @@ header.fullscreen {
         height: auto !important;
         margin: auto !important;
     }
+
+    .portaltype-object #slideshow-controls .btn {
+        width: 100%;
+        opacity: 1 !important;
+    }
+
+    #content-core div[id*='parent-fieldname-text'], #content div[id*='parent-fieldname-formPrologue'], .pfg-form {
+        padding-top: 180px;
+    }
 }
 
 .container.object-container {
@@ -5084,6 +5117,15 @@ header.fullscreen {
     top: 50%;
     margin-top: -50px;
     background-color: rgba(36, 36, 36, 0.6);
+}
+
+@media (max-width: 480px) {
+    .wrap-next, .wrap-prev {
+        width: 60px;
+        height: 60px;
+        top: 50%;
+        margin-top: -40px;
+    }
 }
 
 .wrap-next {
@@ -5273,7 +5315,7 @@ header.fullscreen {
 }
 
 .portlet-wrapper {
-    display: none;
+    display: block;
 }
 
 #content-core div[id*='parent-fieldname-text'] ul > li {
@@ -5282,6 +5324,10 @@ header.fullscreen {
 
 #content-core div[id*='parent-fieldname-text'] ol > li {
     padding-left: 10px;
+}
+
+.navbar-nav .managePortletsLink {
+    display: none;
 }
 
 

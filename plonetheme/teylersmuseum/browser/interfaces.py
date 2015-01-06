@@ -30,4 +30,7 @@ class IPagePortlet(IColumn):
 class ICollectionPortletManager(IColumn):
     """we need our own portlet manager for the footer.
     """
-    
+
+class ISearchPortletManager(IColumn):
+    """we need our own portlet manager for the footer.
+    """

@@ -306,6 +306,35 @@
 	.navmenu, .navbar-offcanvas {
 		width: calc(100% - 60px);
 	}
+
+	#nav_menu #portal-languageselector {
+		padding-left: 20px;
+	}
+
+	#nav_menu ul.main-menu {
+		margin-left: 10px;
+	}
+
+	#nav_menu .navbar-form {
+		padding-left: 35px;
+		padding-right: 5px;
+		border-top: 0px;
+		border-bottom: 0px;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+	}
+
+	#nav_menu .navbar-form input {
+		text-indent: 5px;
+	}
+
+	#nav_menu .navbar-form .fa-search {
+		right: 15px;
+	}
+
+	#nav_menu #srch-term {
+		padding-right: 35px;
+	}
 }
 
 
