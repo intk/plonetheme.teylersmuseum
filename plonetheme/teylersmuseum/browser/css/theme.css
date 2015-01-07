@@ -174,11 +174,11 @@ ol {
     font-family: 'Merriweather', serif;
     font-weight: 400;
     font-size: 1.000em;
-    color: #000000;
+    color: #242424;
     line-height: 33px;
     text-decoration: underline;
-    -moz-text-decoration-color: #000000; /* Code for Firefox */
-    text-decoration-color: #000000;
+    -moz-text-decoration-color: #242424; /* Code for Firefox */
+    text-decoration-color: #242424;
 }
 
 #content a:visited {
@@ -194,10 +194,10 @@ ol {
 
 #content-core div[id*='parent-fieldname-text'] a, #content-core dd.portletItem a {
     font-size: 1em;
-    color: #000000;
+    color: #242424;
     text-decoration: underline;
-    -moz-text-decoration-color: #000000; /* Code for Firefox */
-    text-decoration-color: #000000;
+    -moz-text-decoration-color: #242424; /* Code for Firefox */
+    text-decoration-color: #242424;
 }
 
 #content-core div[id*='parent-fieldname-text'] a:visited, #content-core dd.portletItem a:visited {
@@ -374,19 +374,19 @@ body.portaltype-portlet-page #parent-fieldname-description {
 }
 
 #content-core .thumbnail h3 {
-    margin-top: 12px; /* margin from title to image */
+    margin-top: 16px; /* margin from title to image */
     margin-bottom: 11px;
     text-transform: none;
     font-family: "Merriweather", serif;
     font-weight: 700;
-    color: #000000;
+    color: #242424;
     font-size: 1.500em;
     line-height: 26px;
 }
 
 #content-core .thumbnail a {
     text-decoration: none;
-    color: #000000;
+    color: #242424;
     font-size: inherit;
     border-bottom: none;
     font-weight: 700;
@@ -395,46 +395,46 @@ body.portaltype-portlet-page #parent-fieldname-description {
 }
 
 #content-core .thumbnail a:hover {
-    color: #000000;
+    color: #242424;
     text-decoration: underline;
-    -moz-text-decoration-color: #000000; /* Code for Firefox */
-    text-decoration-color: #000000;
+    -moz-text-decoration-color: #242424; /* Code for Firefox */
+    text-decoration-color: #242424;
 }
 
 #content-core .thumbnail a:focus {
-    color: #000000;
+    color: #242424;
     text-decoration: underline;
-    -moz-text-decoration-color: #000000; /* Code for Firefox */
-    text-decoration-color: #000000;
+    -moz-text-decoration-color: #242424; /* Code for Firefox */
+    text-decoration-color: #242424;
 }
 
 #content-core .thumbnail a:active {
-    color: #000000;
+    color: #242424;
 }
 
 #content-core .thumbnail a.state-published {
     text-decoration: none;
-    color: #000000;
+    color: #242424;
     font-size: 1.000em;
     border-bottom: none;
 }
 
 #content-core .thumbnail a.state-published:hover {
-    color: #000000;
+    color: #242424;
     text-decoration: underline;
-    -moz-text-decoration-color: #000000; /* Code for Firefox */
-    text-decoration-color: #000000;
+    -moz-text-decoration-color: #242424; /* Code for Firefox */
+    text-decoration-color: #242424;
 }
 
 #content-core .thumbnail a.state-published:focus {
-    color: #000000;
+    color: #242424;
     text-decoration: underline;
-    -moz-text-decoration-color: #000000; /* Code for Firefox */
-    text-decoration-color: #000000;
+    -moz-text-decoration-color: #242424; /* Code for Firefox */
+    text-decoration-color: #242424;
 }
 
 #content-core .thumbnail a.state-published:active {
-    color: #000000;
+    color: #242424;
 }
 
 #content-core .thumbnail p {
@@ -446,7 +446,7 @@ body.portaltype-portlet-page #parent-fieldname-description {
 }
 
 .state-published {
-    color: #000000 !important;
+    color: #242424 !important;
 }
 
 /* Pagination button */
@@ -594,6 +594,7 @@ body.portaltype-portlet-page #parent-fieldname-description {
 #content-core .portletCollection .portletFooter {
     text-align: center;
     padding-bottom: 100px;
+    margin-top: 30px;
 }
 
 #content-core .portletCollection .portletHeader {
@@ -610,42 +611,94 @@ body.portaltype-portlet-page #parent-fieldname-description {
 }
 
 #content-core .portletCollection .portletFooter .btn {
-    background: #262626;
-    font-family: "Merriweather", serif;
-    font-weight: 400;
+    background: #D75745;
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
     color: #ffffff;
-    font-size: 0.875em;
+    font-size: 1.000em;
     border-style: solid;
     border-width: 1px;
-    border-color: #262626;
+    border-color: #D75745;
     text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 30px;
 }
 
 #content-core .portletCollection .portletFooter .btn:hover {
-    background: #ffffff;
+    background: #D75745;
     border-style: solid;
     border-width: 1px;
     border-color: #000000;
-    color: #262626 !important;
+    color: #ffffff !important;
     text-transform: uppercase;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #D75745;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 #content-core .portletCollection .portletFooter a:hover {
-    font-family: "Merriweather", serif;
-    font-weight: 400;
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
     color: #ffffff !important;
-    font-size: 0.875em;
+    font-size: 1.000em;
+    letter-spacing: 0.05em;
 }
 
 #content-core .portletCollection .portletFooter a:focus {
-    font-family: "Merriweather", serif;
-    font-weight: 400;
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
     color: #ffffff !important;
-    font-size: 0.875em;
+    font-size: 1.000em;
+    letter-spacing: 0.05em;
 }
 
 #content-core .portletCollection .portletFooter .btn-large {
-    padding: 4px 18px;
+    padding: 8px 28px;
+}
+
+body.portaltype-portlet-page #content-core .portletCollection .portletHeader h2 {
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    font-size: 3.125em;
+    color: #d75745;
+    margin: 0px;
+    line-height: 75px;
+    margin-top: 5px;
+    text-transform: none !important;
+}
+
+body.portaltype-portlet-page #content-core .portletCollection .portletHeader h1, dt.portletHeader {
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.250em;
+    color: #999999;
+    letter-spacing: 0.05em;
+    margin: 0px;
+    line-height: 35px;
+}
+
+body.portaltype-portlet-page #content-core .portletCollection .portletHeader h1 {
+    margin-bottom: 35px;
+}
+
+body.portaltype-portlet-page #content-core .thumbnail p {
+    font-size: 1.125em;
+}
+
+body.portaltype-portlet-page #content-core .thumbnail h3 {
+    margin-bottom: 5px;
+}
+
+body.portaltype-portlet-page #content-core .thumbnail {
+    margin: 0 0 13.5px;
+}
+
+body.portaltype-portlet-page #content-core .thumbnail a {
+    line-height: 30px !important;
 }
 
 /* NEWSLETTER */
@@ -2384,18 +2437,31 @@ body.portaltype-media-person .social-viewlet {
 
 @media (min-width: 1200px) {
     #content-core .portletCollection .container-fluid {
-        padding-left: 100px;
-        padding-right: 100px;
+        padding-left: 80px;
+        padding-right: 80px;
     }
 
     #content-core #row-items {
-        padding-left: 100px;
-        padding-right: 100px;
+        padding-left: 80px;
+        padding-right: 80px;
     }
 
     #content-core #portlet_bodytext.container-fluid {
-        padding-left: 100px;
-        padding-right: 100px;
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+
+    body.portaltype-portlet-page #content-core .portletCollection .portletHeader h2 {
+        font-family: 'Merriweather', serif;
+        font-weight: 400;
+        font-size: 3.125em;
+        color: #d75745;
+        margin: 0px;
+        line-height: 75px;
+        margin-top: 5px;
+        width: 95%;
+        margin: 0 auto;
+        text-transform: none !important;
     }
 }
 
@@ -5306,6 +5372,10 @@ header.fullscreen {
 
 }
 
+#search-results-selector {
+    display: none;
+}
+
 #search-sort-selector ul, #search-results-selector ul {
     list-style-type: none !important;
 }
@@ -5328,6 +5398,15 @@ header.fullscreen {
 
 .navbar-nav .managePortletsLink {
     display: none;
+}
+
+.thumbnail .caption .item-creation-date {
+    color: #D75745;
+    font-size: 1.000em;
+}
+
+#srch-term {
+    margin-bottom: 50px;
 }
 
 

@@ -107,7 +107,7 @@ slickSlideshow.resizeImages = function() {
 	$slick = slickSlideshow.$obj.getSlick();
 	$slides = $($slick.$slides);
 
-	$slides.each(function(index) {	
+	$(".slick-cloned").each(function(index) {
 		if (slickSlideshow.view_type == "double_view" || slickSlideshow.view_type == 'multiple_view') {
 			var $imgs = $($(this).find('img'));
 			$imgs.each(function(index) {
@@ -121,7 +121,6 @@ slickSlideshow.resizeImages = function() {
 			});
 		} else {
 			var $img = $($(this).find('img')[0]);
-			
 			$img.hide();
 			$img.load(function() {
 				var image_h = slickSlideshow.change_width($(this));
@@ -133,7 +132,7 @@ slickSlideshow.resizeImages = function() {
 		}
 	});
 
-	$(".slick-cloned").each(function(index) {
+	$slides.each(function(index) {	
 		if (slickSlideshow.view_type == "double_view" || slickSlideshow.view_type == 'multiple_view') {
 			var $imgs = $($(this).find('img'));
 			$imgs.each(function(index) {
@@ -572,6 +571,10 @@ slickSlideshow.afterChange = function(event) {
 	
 	var currentSlide = slickSlideshow.$obj.getSlick().currentSlide;
 
+	if (currentSlide == slickSlideshow.lastItem) {
+		return;
+	}
+
 	var $slides = slickSlideshow.$obj.getSlick().$slides;
 	var on_site_total = $slides.length-1;
 
@@ -598,15 +601,17 @@ slickSlideshow.afterChange = function(event) {
 	} else if (slickSlideshow.slideCount >= slickSlideshow.total_items+1) {
 		slickSlideshow.slideCount = 1;
 	}
-
+	
 	if (slickSlideshow.forward) {
-		if (!isMobile.any()) {
+		if (!isMobile.any() && $("#slickslideshow").hasClass("fullscreen")) {
+			$(".wrap-next").fadeIn();
 			$("#portal-header-wrapper").fadeOut();
 	    	$("#slideshow-controls").fadeOut();
 	    	$(".wrap-prev").fadeOut();
     	}
 	} else {
-		if (!isMobile.any()) {
+		if (!isMobile.any() && $("#slickslideshow").hasClass("fullscreen")) {
+			$(".wrap-prev").fadeIn();
 			$("#portal-header-wrapper").fadeOut();
 	    	$("#slideshow-controls").fadeOut();
 	    	$(".wrap-next").fadeOut();

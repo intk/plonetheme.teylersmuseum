@@ -28,6 +28,8 @@
                         useView python:item.portal_type in viewActions;
                         item_type item/Type;
                         item_title item/Title;
+                        item_created item/CreationDate;
+                        item_modified item/ModificationDate;
                         item_obj item/getObject;
                         excluded_from_nav python:item_obj.exclude_from_nav;
                         item_url python:item_type == 'Media Event' and '%s'%item.getURL() or item.getURL();
@@ -44,7 +46,7 @@
                     <a class="thumb-image" tal:condition="python: (item.hasMedia or item.portal_type == 'Image') and not excluded_from_nav" href="" tal:attributes="href item_link"
                       tal:define="item_img python:view.getImageObject(item)">
                       <img tal:define="images item_img/@@images;
-                                         scale python: images.scale('image', scale='preview')"
+                                         scale python: images.scale('image', scale='mini')"
                              tal:condition="scale"
                              src="" alt=""
                              tal:replace="structure python: scale.tag(css_class='tileImage', alt=item_title, title=item_title)" /> 
@@ -54,7 +56,7 @@
                     <div class="thumb-image" tal:condition="python: (item.hasMedia or item.portal_type == 'Image') and excluded_from_nav"
                       tal:define="item_img python:view.getImageObject(item)">
                       <img tal:define="images item_img/@@images;
-                                         scale python: images.scale('image', scale='preview')"
+                                         scale python: images.scale('image', scale='mini')"
                              tal:condition="scale"
                              src="" alt=""
                              tal:replace="structure python: scale.tag(css_class='tileImage', alt=item_title, title=item_title)" /> 
@@ -86,12 +88,16 @@
                     Title
                   </h3>
                     <p>
+                      <span class="item-creation-date" tal:content="python:toLocalizedTime(item_modified, long_format=1)">Creation date</span>
+                    </p> 
+                    <p>
                       <span tal:condition="python:item.description != '' " tal:replace="python:view.trimText(item.description, 200, strip=False)"></span>
                       
                       <tal:bodyfallback condition="python:item.description == '' and item_type != 'Image' and item_type != 'File' and item_type != 'Folder' and item_type != 'Press Kit'">
                       <span tal:condition="python: getattr(item.getObject(), 'text', False)" tal:replace="python:view.trimText(item.getObject().text, 200, strip=True)"></span>
                       </tal:bodyfallback>
                     </p> 
+
                   </div>
                 </div>
         </div>

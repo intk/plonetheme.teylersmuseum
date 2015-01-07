@@ -474,7 +474,7 @@ class FolderListing(CommonBrowserView):
             else:
                 final_res = list(brains)
             if batch:
-               results = QuantumBatch(final_res, pagesize, start=b_start)
+                results = QuantumBatch(final_res, pagesize, start=b_start, quantumleap=1)
             else:
                 return final_res
         elif self.context.portal_type in ['Folder', 'Press Kit']:
@@ -487,7 +487,7 @@ class FolderListing(CommonBrowserView):
             else:
                 final_res = list(brains)
             if batch:
-                results = QuantumBatch(final_res, pagesize, start=b_start)
+                results = QuantumBatch(final_res, pagesize, start=b_start, quantumleap=1)
             else:
                 return final_res
         

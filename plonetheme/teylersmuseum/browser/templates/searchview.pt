@@ -288,7 +288,7 @@
                                           <metal:block define-slot="entry">
                                                     
                                                     <div class="col-lg-4 col-md-4 col-sm-5">
-                                                      <a class="imagelink" tal:condition="item/hasMedia" href="" tal:attributes="href item_link"><tal:image replace="structure python:view.getLeadMediaTag(item, scale='preview')"></tal:image></a>
+                                                      <a class="imagelink" tal:condition="item/hasMedia" href="" tal:attributes="href item_link"><tal:image replace="structure python:view.getLeadMediaTag(item, scale='mini')"></tal:image></a>
                                                     </div>
                                                     
                                                     <div class="res-info col-lg-8 col-md-8 col-sm-7">
@@ -351,6 +351,7 @@
     </form>
 
   </div>
+
 
 </body>
 </html>

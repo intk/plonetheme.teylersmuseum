@@ -55,8 +55,6 @@
                  pas_member context/@@pas_member;">
         <tal:listing condition="batch">
 
-        <!--<div class="col-lg-12 collection-pagination"><span i18n:translate="Page">Page</span> <span tal:content="batch/pagenumber"></span>/<span tal:content="batch/numpages"></span></div>-->
-
         <metal:block metal:define-slot="entries">
             <tal:entry tal:repeat="item batch" metal:define-macro="entries">
             <tal:block tal:define="item_id item/getId;
@@ -92,7 +90,7 @@
                       >
 
                       <img tal:define="images item_img/@@images;
-                                         scale python: images.scale('image', scale='preview')"
+                                         scale python: images.scale('image', scale='mini')"
                              tal:condition="scale"
                              tal:replace="structure python: scale.tag(css_class='tileImage', alt=item_title, title=item_title)" />
                     </a> 
@@ -101,7 +99,7 @@
                         >
                       
                       <img tal:define="images item_img/@@images;
-                                         scale python: images.scale('image', scale='preview')"
+                                         scale python: images.scale('image', scale='mini')"
                              tal:condition="scale"
                              src="" alt=""
                              tal:replace="structure python: scale.tag(css_class='tileImage', alt=item_title, title=item_title)" />  
@@ -132,7 +130,8 @@
                     <p>
                       <span tal:condition="python:item.getObject().description != '' " tal:replace="python:view.trimText(item.getObject().description, 200, strip=False)"></span>
                         
-                    </p> 
+                    </p>
+                    
                   </div>
                   
                   
