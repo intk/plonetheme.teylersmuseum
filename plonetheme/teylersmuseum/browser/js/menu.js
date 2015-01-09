@@ -24,7 +24,7 @@ $(document).ready(function() {
 
   /* Ignores initial popstate */
   setTimeout(function () {
-    window.addEventListener( 'pjax:popstate', function() {
+    window.addEventListener( 'popstate', function() {
         if (slickSlideshow.$obj != undefined) {
           if (slickSlideshow.forward) {
             slickSlideshow.$obj.slickPrev();

@@ -88,9 +88,6 @@
                     Title
                   </h3>
                     <p>
-                      <span class="item-creation-date" tal:content="python:toLocalizedTime(item_modified, long_format=1)">Creation date</span>
-                    </p> 
-                    <p>
                       <span tal:condition="python:item.description != '' " tal:replace="python:view.trimText(item.description, 200, strip=False)"></span>
                       
                       <tal:bodyfallback condition="python:item.description == '' and item_type != 'Image' and item_type != 'File' and item_type != 'Folder' and item_type != 'Press Kit'">

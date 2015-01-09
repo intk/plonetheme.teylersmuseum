@@ -107,12 +107,20 @@
 
                       <div class="btn-group person-buttons person-collection" tal:condition="item_person">
                         
-                        <a class="btn btn-inverse phone_popover visible-lg visible-md" tal:condition="python: getattr(item.getObject(), 'telephoneNumber', True)" data-toggle="popover" tal:attributes="data-content python: getattr(item.getObject(), 'telephoneNumber')" data-container="body" data-viewport=".phone-popover" data-placement="top"><i class="fa fa-phone"></i></a>
+                        <a class="btn btn-inverse phone_popover visible-lg visible-md" tal:condition="python: getattr(item_obj
+, 'telephoneNumber', True)" data-toggle="popover" tal:attributes="data-content python: getattr(item_obj
+, 'telephoneNumber')" data-container="body" data-viewport=".phone-popover" data-placement="top"><i class="fa fa-phone"></i></a>
 
-                        <a tal:attributes="href python:'tel:'+getattr(item.getObject(), 'telephoneNumber')" class="btn btn-inverse visible-sm visible-xs" tal:condition="python: getattr(item.getObject(), 'telephoneNumber', True)"><i class="fa fa-phone"></i></a>
+                        <a tal:attributes="href python:'tel:'+getattr(item_obj
+, 'telephoneNumber')" class="btn btn-inverse visible-sm visible-xs" tal:condition="python: getattr(item_obj
+, 'telephoneNumber', True)"><i class="fa fa-phone"></i></a>
 
-                        <a tal:attributes="href python:'https://twitter.com/intent/follow?original_referer=http://www.intk.com&region=follow_link&screen_name='+getattr(item.getObject(), 'twitter')+'&tw_p=followbutton&variant=2.0'" class="btn btn-inverse" tal:condition="python: getattr(item.getObject(), 'twitter', True)"><i class="fa fa-twitter"></i></a>
-                        <a tal:attributes="href python:'mailto:'+getattr(item.getObject(), 'email')+'?subject=Contact via INTK website'" class="btn btn-inverse" tal:condition="python: getattr(item.getObject(), 'email', True)"><i class="fa fa-paper-plane"></i></a>
+                        <a tal:attributes="href python:'https://twitter.com/intent/follow?original_referer=http://www.intk.com&region=follow_link&screen_name='+getattr(item_obj
+, 'twitter')+'&tw_p=followbutton&variant=2.0'" class="btn btn-inverse" tal:condition="python: getattr(item_obj
+, 'twitter', True)"><i class="fa fa-twitter"></i></a>
+                        <a tal:attributes="href python:'mailto:'+getattr(item_obj
+, 'email')+'?subject=Contact via INTK website'" class="btn btn-inverse" tal:condition="python: getattr(item_obj
+, 'email', True)"><i class="fa fa-paper-plane"></i></a>
                       </div>    
                           
                   </div>
@@ -128,7 +136,9 @@
                     Title
                   </h3>
                     <p>
-                      <span tal:condition="python:item.getObject().description != '' " tal:replace="python:view.trimText(item.getObject().description, 200, strip=False)"></span>
+                      <span tal:condition="python:item_obj
+.description != '' " tal:replace="python:view.trimText(item_obj
+.description, 200, strip=False)"></span>
                         
                     </p>
                     
