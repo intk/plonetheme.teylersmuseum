@@ -46,7 +46,7 @@
                     <a class="thumb-image" tal:condition="python: (item.hasMedia or item.portal_type == 'Image') and not excluded_from_nav" href="" tal:attributes="href item_link"
                       tal:define="item_img python:view.getImageObject(item)">
                       <img tal:define="images item_img/@@images;
-                                         scale python: images.scale('image', scale='mini')"
+                                         scale python: images.scale('image', scale='preview')"
                              tal:condition="scale"
                              src="" alt=""
                              tal:replace="structure python: scale.tag(css_class='tileImage', alt=item_title, title=item_title)" /> 
@@ -56,7 +56,7 @@
                     <div class="thumb-image" tal:condition="python: (item.hasMedia or item.portal_type == 'Image') and excluded_from_nav"
                       tal:define="item_img python:view.getImageObject(item)">
                       <img tal:define="images item_img/@@images;
-                                         scale python: images.scale('image', scale='mini')"
+                                         scale python: images.scale('image', scale='preview')"
                              tal:condition="scale"
                              src="" alt=""
                              tal:replace="structure python: scale.tag(css_class='tileImage', alt=item_title, title=item_title)" /> 

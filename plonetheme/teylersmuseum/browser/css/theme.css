@@ -4877,11 +4877,14 @@ body.canvas-slid .menu_wrapper {
     display: none;
 }
 
-.portaltype-object .documentFirstHeading {
+.portaltype-object .documentFirstHeading,
+body.template-collection_view:not(.portaltype-folder) .documentFirstHeading {
     display: none;
 }
 
-.portaltype-object .documentDescription {
+.portaltype-object .documentDescription,
+body.template-collection_view:not(.portaltype-folder) .documentDescription
+{
     display: none;
 }
 
@@ -4895,20 +4898,24 @@ body.canvas-slid .menu_wrapper {
 .portaltype-object #editing-bar {
 }
 
-.portaltype-object #slickslideshow {
+.portaltype-object #slickslideshow,
+body.template-collection_view:not(.portaltype-folder) #slickslideshow {
     padding-top: 0px;
     padding-bottom: 0px;
 }
 
-.portaltype-object .slideshowWrapper {
+.portaltype-object .slideshowWrapper,
+body.template-collection_view:not(.portaltype-folder) .slideshowWrapper {
     height: 100%;   
 }
 
-.portaltype-object #slickslideshow .slick-slide {
+.portaltype-object #slickslideshow .slick-slide,
+body.template-collection_view:not(.portaltype-folder) #slickslideshow .slick-slide {
     max-width: 100%;
 }
 
-.portaltype-object #slickslideshow .slick-slide img, .slideshowContent .slick-slide iframe {
+.portaltype-object #slickslideshow .slick-slide img, .slideshowContent .slick-slide iframe,
+body.template-collection_view:not(.portaltype-folder) #slickslideshow .slick-slide img {
     max-width: 100%;
 }
 
@@ -4926,7 +4933,8 @@ body.portaltype-object {
     background-color: #2B2B2B !important;
 }
 
-.portaltype-object #portal-logo img {
+.portaltype-object #portal-logo img,
+body.template-collection_view:not(.portaltype-folder) #portal-logo img {
     content: url('++resource++plonetheme.bootstrapModern.css/teylers.png');
 }
 
@@ -4934,7 +4942,8 @@ body.portaltype-object {
     display: none;
 }
 
-.portaltype-object #slickslideshow {
+.portaltype-object #slickslideshow,
+body.template-collection_view:not(.portaltype-folder) #slickslideshow {
     width: 100%;
     height: 100%;
 }
@@ -4947,6 +4956,10 @@ body.portaltype-object {
     width: 100%;
     background-color: #242424;
     padding-right: 0px;
+}
+
+body.template-collection_view:not(.portaltype-folder) #slideshow-controls {
+    display: none;
 }
 
 .portaltype-object #slideshow-controls > div {
@@ -5011,7 +5024,8 @@ body.template-multiple_view.portaltype-object #slideshow-controls .btn.pause-btn
     display: block;
 }
 
-.portaltype-object header {
+.portaltype-object header,
+body.template-collection_view:not(.portaltype-folder) header {
     position: absolute;
     top: 0;
     left: 0;
@@ -5045,11 +5059,14 @@ body.portaltype-object {
        
 }
 
-.portaltype-object .slick-list, .portaltype-object .slick-track {
+.portaltype-object .slick-list, .portaltype-object .slick-track,
+body.template-collection_view:not(.portaltype-folder) .slick-list,
+body.template-collection_view:not(.portaltype-folder) .slick-track {
     height: 100% !important;
 } 
 
-.portaltype-object .slick-slideshow {
+.portaltype-object .slick-slideshow,
+body.template-collection_view:not(.portaltype-folder) .slick-slideshow {
     width: 100% !important;
 }
 
@@ -5058,7 +5075,8 @@ body.portaltype-object {
     padding-bottom: 80px;
 }
 
-.portaltype-object .slick-slide img {
+.portaltype-object .slick-slide img,
+body.template-collection_view:not(.portaltype-folder) .slick-slide img {
     position: relative;
     top: 50%;
     width: 100%;
@@ -5108,7 +5126,8 @@ body.portaltype-object {
 
 /* Fullscreen solution */
 
-.portaltype-object .inner-bg {
+.portaltype-object .inner-bg,
+body.template-collection_view:not(.portaltype-folder) .inner-bg {
     height: 100%;
 }
 
@@ -5410,5 +5429,8 @@ header.fullscreen {
 }
 
 
-
+/* COLLECTION HEADER */
+.slick-slideshow.collection + #slideshow-controls {
+    display: none !important;
+}
 

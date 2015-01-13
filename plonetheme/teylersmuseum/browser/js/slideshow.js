@@ -26,7 +26,7 @@ var isMobile = {
 };
 
 _logger = {}
-_logger.debug = false;
+_logger.debug = true;
 
 _logger.log = function(text) {
 	if (_logger.debug) {
@@ -308,6 +308,7 @@ slickSlideshow.getNavigationContent = function(query, object_id) {
 
 	// Set request URL
 	URL = current_url + "/" + request_url + query;
+
 	slickSlideshow.request_url = URL;
 	slickSlideshow.query = query;
 	
@@ -437,8 +438,36 @@ slickSlideshow.setLoadingProperties = function() {
 	slickSlideshow.resize = true;
 }
 
+slickSlideshow.initCollection = function() {
+	slickSlideshow.$obj = $($('.slick-slideshow')[0]);
+	$("#slickslideshow").toggleClass("fullscreen");
+	slickSlideshow.$obj.attr("style", "height:600px;");
+
+	slickSlideshow.$obj.slick({
+		accessibility: true,
+		dots: false,
+		infinite: true,
+		slidesToShow: 1,
+		initialSlide: 0,
+		adaptiveHeight: true,
+		focusOnSelect: false,
+		appendArrows: $(".slideshowWrapper"),
+	});
+
+}
+
 slickSlideshow.init = function() {
 	var query = location.search;
+
+	$slick_slideshow = $($('.slick-slideshow')[0]);
+
+	if ($slick_slideshow != undefined) {
+		if ($slick_slideshow.hasClass('collection')) {
+			slickSlideshow.initCollection();
+			return;
+		}
+	}
+
 	if (query != "" || query == "") {
 		_logger.log("==== INIT Loading feature ====");
 		slickSlideshow.$obj = $($('.slick-slideshow')[0]);

@@ -90,7 +90,7 @@
                       >
 
                       <img tal:define="images item_img/@@images;
-                                         scale python: images.scale('image', scale='mini')"
+                                         scale python: images.scale('image', scale='preview')"
                              tal:condition="scale"
                              tal:replace="structure python: scale.tag(css_class='tileImage', alt=item_title, title=item_title)" />
                     </a> 
@@ -99,7 +99,7 @@
                         >
                       
                       <img tal:define="images item_img/@@images;
-                                         scale python: images.scale('image', scale='mini')"
+                                         scale python: images.scale('image', scale='preview')"
                              tal:condition="scale"
                              src="" alt=""
                              tal:replace="structure python: scale.tag(css_class='tileImage', alt=item_title, title=item_title)" />  
