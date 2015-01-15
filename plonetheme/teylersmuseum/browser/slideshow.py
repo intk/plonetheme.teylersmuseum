@@ -11,6 +11,10 @@ from Products.mediaObject.object import IObject
 from plone.dexterity.interfaces import IDexterityFTI
 from zope.component import getUtility
 from Products.CMFCore.utils import getToolByName
+from zope.i18nmessageid import MessageFactory
+
+MessageFactory = MessageFactory('Products.mediaObject')
+
 
 class get_nav_objects(BrowserView):
 	"""
@@ -186,8 +190,9 @@ class get_nav_objects(BrowserView):
 		return res
 
 	def get_all_fields_object(self, object):
-		object_schema = {}
+		object_schema = []
 		schema = getUtility(IDexterityFTI, name='Object').lookupSchema()
+
 		for name, field in getFieldsInOrder(schema):
 			if name not in ["text", "title"]:
 				value = getattr(object, name)
@@ -195,7 +200,11 @@ class get_nav_objects(BrowserView):
 					if name in ['technique', 'artist', 'material', 'object_type']:
 						_value = '<a href="search?SearchableText=%s">%s</a>' % (value, value)
 						value = _value
-					object_schema[field.title] = value
+
+					_title = MessageFactory(field.title)
+					new_attr = {"title": self.context.translate(_title), "value": value}
+
+					object_schema.append(new_attr)
 
 		return object_schema
 
@@ -228,9 +237,9 @@ class get_nav_objects(BrowserView):
 				if obj_media != None:
 					schema = self.get_all_fields_object(obj.getObject())
 					if not items['has_list_images']:
-						items['list'].append({'schema':schema, 'url':obj.getURL(),'image_url': obj_media.absolute_url()+'/@@images/image/large', 'object_id': obj.getId, 'title':obj.Title, 'description': obj.Description, 'body': self.get_object_body(obj)})
+						items['list'].append({'schema':schema, 'url':obj.getURL(),'image_url': obj_media.absolute_url()+'/@@images/image/large', 'object_id': obj.getId, 'title':obj.Title, 'description': obj.Description, 'body': self.get_object_body(obj.getObject())})
 					else:
-						items['list'].append({'schema':schema, 'images':self.get_multiple_images(obj.getObject(), view_type), 'url':obj.getURL(),'image_url': obj_media.absolute_url()+'/@@images/image/large', 'object_id': obj.getId, 'title':obj.Title, 'description': obj.Description, 'body': self.get_object_body(obj)})				
+						items['list'].append({'schema':schema, 'images':self.get_multiple_images(obj.getObject(), view_type), 'url':obj.getURL(),'image_url': obj_media.absolute_url()+'/@@images/image/large', 'object_id': obj.getId, 'title':obj.Title, 'description': obj.Description, 'body': self.get_object_body(obj.getObject())})				
 		else:
 			for obj in list_items:
 				obj_media = ICanContainMedia(obj.getObject()).getLeadMedia()
