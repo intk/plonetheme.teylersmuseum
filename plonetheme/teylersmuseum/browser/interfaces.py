@@ -5,10 +5,16 @@ from zope import schema
 from plone.portlets.interfaces import IPortletManager
 from plone.app.portlets.interfaces import IColumn
 
+from zope.publisher.interfaces.browser import IDefaultBrowserLayer
+
 """
 Base interfaces for further development and to adapt and extend theme
 for particular websites
 """
+
+class IBrowserLayer(IDefaultBrowserLayer):
+    """plone.app.event specific browser layer.
+    """
 
 class IMediaTypes(Interface):
     """

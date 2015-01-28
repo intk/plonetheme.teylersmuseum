@@ -36,6 +36,7 @@
                       b_start python:0;
                       b_start request/b_start | b_start;
                       batch python: view.results(b_start=b_start);
+                      batch_size batch/sequence_length|string:0;
                       ">
 
         <input type="hidden" name="advanced_search" value="False" />
@@ -88,6 +89,7 @@
                 </div>
 
                 <div class="clearfix"></div> 
+        
         <div class="container-fluid">
             <div id="search-results-wrapper" class="row-fluid"
                  tal:define="normalizeString nocall:context/@@plone/normalizeString;">
@@ -96,7 +98,7 @@
             <div class="clearfix"></div> 
 
             <!-- RESULTS BAR -->
-            <div id="search-results-bar">
+            <div id="search-results-bar" tal:condition="python: batch_size != 0">
                     <dl class="actionMenu deactivated"
                         tal:attributes="class python:view.show_advanced_search() and 'actionMenu activated' or 'actionMenu deactivated'">
 
@@ -108,6 +110,7 @@
                               Filter the results.
                           </a>
                       </dt>
+
                       <dd class="actionMenuContent">
                           <div id="search-filter" i18n:domain="plone">
 
@@ -223,13 +226,14 @@
                                              i18n:attributes="value label_search;"/>
                                   </div>
 
-                                  <div class="visualClear"><!-- --></div>
+                                  <div class="clearfix"><!-- --></div>
                               </fieldset>
 
                           </div>
                       </dd>
 
                     </dl>
+                    <div class="clearfix visible-xs"></div>
 
                     <span id="searchResultsSort">
                       <span i18n:translate="sort_by">Sort by</span>

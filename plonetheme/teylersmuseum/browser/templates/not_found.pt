@@ -105,19 +105,15 @@
                           <div class="row-fluid">
                           <tal:similar repeat="similar similar_items">
                               <tal:entry define="result_url similar/getURL;
-                                                 getImageObject python: options['getImageObject'];
                                                  result_type similar/portal_type;
                                                  item_icon python:plone_view.getIcon(similar);
                                                  item_type similar/Type;
                                                  url python:test(result_type in use_view_action, result_url+'/view', result_url);
                                                  item_wf_state_class string:state-${similar/review_state};">
                                   
-                                  <div tal:attributes="class python:'contenttype-' + normalizeString(result_type) and 'col-lg-3 col-md-3 col-sm-5 thumb-pic'" 
-                                    tal:define="image python: getImageObject(similar);">
-                                    
+                                  <div tal:attributes="class python:'contenttype-' + normalizeString(result_type) and 'col-lg-3 col-md-3 col-sm-5 thumb-pic'">
                                     <a tal:attributes="href url">
-                                        <img tal:attributes="src python: image.absolute_url()+'/@@images/image/mini'" tal:condition="python: item_type == 'Object'"/>
-                                    </a>
+                                    <img tal:attributes="src python: similar" tal:condition="python: item_type == 'Object'"/></a>
                                      
                                   </div>
                                   

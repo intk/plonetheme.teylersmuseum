@@ -34,6 +34,9 @@
 
     <include package="plone.app.portlets" />
     
+
+
+
     <browser:page
         name="search"
         class=".views.SearchView"
@@ -53,14 +56,6 @@
     />
 
     <!-- Viewlets -->
-    <browser:viewlet
-      name="plonetheme.bootstrapModern.sections"
-      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
-      layer=".interfaces.IThemeSpecific"
-      class=".viewlets.SectionsViewlet"
-      template="alternative_templates/sections.pt"
-      permission="zope2.View"
-    />
 
     <browser:viewlet
       name="plonetheme.bootstrapModern.footer"
@@ -72,6 +67,22 @@
     />
 
     <browser:viewlet
+        name="plone.contentactions"
+        manager="plone.app.layout.viewlets.interfaces.IAboveContentBody"
+        class="plone.app.layout.viewlets.common.ContentActionsViewlet"
+        layer=".interfaces.IThemeSpecific"
+        permission="zope2.View"
+    />
+
+    <browser:viewlet
+        name="plone.contentviews"
+        manager="plone.app.layout.viewlets.interfaces.IAboveContentBody"
+        class="plone.app.layout.viewlets.common.ContentViewsViewlet"
+        layer=".interfaces.IThemeSpecific"
+        permission="zope2.View"
+    />
+
+    <browser:viewlet
         name="plone.searchbox"
         manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
         class="plone.app.layout.viewlets.common.SearchBoxViewlet"
@@ -80,16 +91,10 @@
         permission="zope2.View"
     />
 
-    <!-- Viewlet for new slideshow -->
-    <!--<browser:viewlet
-      name="plonetheme.bootstrapModern.nextprevious"
-      manager="plone.app.layout.viewlets.interfaces.IAboveContentBody"
-      class=".viewlets.nextPreviousViewlet"
-      layer=".interfaces.IThemeSpecific"
-      permission="zope2.View"
-    />-->
+    
 
     <!-- Pages -->
+
     <browser:page
         name="collection_view"
         menu="plone_displayviews"
@@ -99,6 +104,26 @@
         template="templates/collection_custom.pt"
         layer=".interfaces.IThemeSpecific"
         permission="zope2.View"
+    />
+
+    <browser:page
+      name="content_view"
+      for="*"
+      layer=".interfaces.IThemeSpecific"
+      template="templates/content_view.pt"
+      permission="zope2.View"
+      menu="plone_displayviews"
+      title="View Content"
+    />
+
+    <browser:page
+        name="content_view"
+        for="plone.event.interfaces.IEvent"
+        layer="plone.app.contenttypes.interfaces.IPloneAppContenttypesLayer"
+        template="templates/content_view.pt"
+        permission="zope2.View"
+        menu="plone_displayviews"
+        title="View Content"
     />
 
     <browser:page
@@ -116,6 +141,15 @@
       for="*"
       class=".slideshow.get_nav_objects"
       template="templates/get_nav_objects.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope2.View"
+    />
+
+    <browser:page
+      name="get_fields"
+      for="*"
+      class=".slideshow.get_fields"
+      template="templates/get_fields.pt"
       layer=".interfaces.IThemeSpecific"
       permission="zope2.View"
     />

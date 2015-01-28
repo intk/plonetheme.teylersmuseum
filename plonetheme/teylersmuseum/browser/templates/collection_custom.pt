@@ -4,7 +4,7 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       metal:use-macro="here/main_template/macros/master"
-      i18n:domain="plone">
+      i18n:domain="plonelocales">
 <body>
 
   <div metal:fill-slot="content-core"  tal:define="showall python:True"> 
@@ -37,13 +37,11 @@
 
       <div class="row-fluid">
         <metal:listingmacro define-macro="listing">
-        <tal:results define="contentFilter contentFilter|request/contentFilter|nothing;
-                 contentFilter python:contentFilter and dict(contentFilter) or {};
+        <tal:results define="
                  b_start python:request.get('b_start', 0);
-                 sort_on python:request.get('sort_on', 0);
-                 limit_display limit_display|request/limit_display|nothing;
-                 limit_display python:limit_display and int(limit_display) or None;
-                 batch python:view.results(b_start=b_start, pagesize=33, only_documented=not showall);
+                 sort_on python: getattr(context, 'sort_on', None);
+                 item_count python: getattr(context, 'item_count', 33);
+                 batch python:view.results(b_start=b_start, sort_on=sort_on, pagesize=item_count);
                  site_properties context/portal_properties/site_properties;
                  use_view_action site_properties/typesUseViewActionInListings|python:();
                  isAnon context/@@plone_portal_state/anonymous;
@@ -64,18 +62,9 @@
                        item_obj item/getObject;
                        excluded_from_nav python:item_obj.exclude_from_nav;
                        item_person python:item_type == 'Media Person';
-                       item_url python:item_type == 'Media Event' and '%s'%item.getURL() or item.getURL();
-                       item_modified item/ModificationDate;
-                       item_created item/CreationDate;
+                       item_url python: item.getURL();
                        item_icon item/getIcon;
                        item_wf_state_class python:'state-' + normalizeString(item.review_state);
-                       item_creator item/Creator;
-                       item_start python:(item.start or item.StartDate) if item_type == 'Media Event' else None;
-                       item_end python:(item.end) if item_type == 'Media Event' else None;
-                       item_modified item/ModificationDate;
-                       odd repeat/item/odd;
-                       even repeat/item/even;
-                       first repeat/item/start;
                        number repeat/item/number;
                        item_img python:view.getImageObject(item);
                        item_link python: (item_type == 'Press Kit' and not view.checkPermission(item, 'Add portal content')) and item_url + '/download_zip' or (item_type in use_view_action and item_url+'/view' or item_url);">
@@ -90,7 +79,7 @@
                       >
 
                       <img tal:define="images item_img/@@images;
-                                         scale python: images.scale('image', scale='preview')"
+                                         scale python: images.scale('image', scale='mini')"
                              tal:condition="scale"
                              tal:replace="structure python: scale.tag(css_class='tileImage', alt=item_title, title=item_title)" />
                     </a> 
@@ -99,7 +88,7 @@
                         >
                       
                       <img tal:define="images item_img/@@images;
-                                         scale python: images.scale('image', scale='preview')"
+                                         scale python: images.scale('image', scale='mini')"
                              tal:condition="scale"
                              src="" alt=""
                              tal:replace="structure python: scale.tag(css_class='tileImage', alt=item_title, title=item_title)" />  
@@ -135,6 +124,31 @@
                   <h3 tal:condition="excluded_from_nav" tal:content="item/Title">
                     Title
                   </h3>
+                  <p tal:condition="python: item_type == 'Event'" class="item-dates">
+                    <tal:differentday tal:condition="python:not item.start.Date() == item.end.Date()" i18n:translate="event_when_differentday">
+                      <abbr i18n:name="startdate">
+                        <span tal:replace="python: toLocalizedTime(item.start.strftime('%d %B %Y'))">Start Date</span>
+                        <tal:word i18n:translate="event_when_differentday_optional_word_between_date_and_time" />
+                      </abbr>
+                      to
+                      <span i18n:name="linebreak" />
+                      <abbr i18n:name="enddate">
+                        <span tal:replace="python: toLocalizedTime(item.end.strftime('%d %B %Y'))">End Date</span>
+                        <tal:word i18n:translate="event_when_differentday_optional_word_between_date_and_time" />
+                      </abbr>
+                    </tal:differentday>
+
+                    <tal:sameday tal:condition="python:item.start.Date() == item.end.Date()" i18n:translate="event_when_sameday">
+                      <span tal:replace="python: toLocalizedTime(item.start.strftime('%d %B %Y'))" i18n:name="date">Start Date Time</span>,
+                      <abbr i18n:name="starttime">
+                        <span tal:content="python:toLocalizedTime(item.start, time_only=1)">Start Time</span>
+                      </abbr >
+                      -
+                      <abbr i18n:name="endtime">
+                         <span tal:content="python:toLocalizedTime(item.end, time_only=1)">End Time</span>
+                      </abbr>
+                    </tal:sameday>
+                  </p>
                     <p>
                       <span tal:condition="python:item_obj
 .description != '' " tal:replace="python:view.trimText(item_obj

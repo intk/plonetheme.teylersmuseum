@@ -19,7 +19,14 @@
         <a class="bt-menu-trigger"><span>Menu</span></a>
     </div>
 
+
+
     <div class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation" id="nav_menu">
+            
+            <div class="menu_wrapper" data-toggle="offcanvas" data-target="#nav_menu" data-canvas="body">
+                <a class="bt-menu-trigger"><span>Menu</span></a>
+            </div>
+
             <ul class="nav navmenu-nav main-menu">
                 <metal:main define-macro="nav_main">
 
@@ -67,13 +74,30 @@
                 </metal:main>
             </ul>
              <form class="navbar-form" role="search" action="@@search">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search" name="SearchableText" id="srch-term" 
-                i18n:attributes="title title_search_site;
-                placeholder title_search_site
-                ">
-            <i class="fa fa-search"></i>
-        </div>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" name="SearchableText" id="srch-term" 
+                        i18n:attributes="title title_search_site;
+                        placeholder title_search_site"/>
+                        <i class="fa fa-search"></i>
+                    <input type="submit" value="" id="input-search-menu" class="submit-search"/>
+                        
+                        
+                        <label for="searchbox_currentfolder_only" style="cursor: pointer">
+                        <span
+                            i18n:translate="label_searchbox_currentfolder_only"
+                            tal:omit-tag="">
+                            only in current section
+                        </span>
+                        <input id="searchbox_currentfolder_only"
+                             class="noborder checkbox"
+                             type="checkbox"
+                             name="path"
+                             tal:attributes="value python: '/'.join(context.getPhysicalPath());
+                                             checked request/form/path|nothing"
+                        />
+                        </label>
+
+                    </div>
         </form>
     </div>
 </tal:sections>

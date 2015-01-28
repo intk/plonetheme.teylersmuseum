@@ -41,12 +41,12 @@ class get_nav_objects(BrowserView):
 			folder_path = '/'.join(collection_obj.getPhysicalPath())
 			results = catalog(path={'query': folder_path, 'depth': 1, 'portal_type':'Object'})
 		else:
-			results = collection_obj.queryCatalog(batch=False, sort_on='sortable_title')
+			results = collection_obj.queryCatalog(batch=False)
 		return results
 
 	def get_batch(self, collection_object, start, pagesize=33):
 		collection_obj = collection_object.getObject()
-		results = collection_obj.queryCatalog(batch=True, b_start=int(start), sort_on='sortable_title', b_size=pagesize)
+		results = collection_obj.queryCatalog(batch=True, b_start=int(start), b_size=pagesize)
 		return results
 
 	"""
@@ -195,11 +195,23 @@ class get_nav_objects(BrowserView):
 
 		for name, field in getFieldsInOrder(schema):
 			if name not in ["text", "title"]:
-				value = getattr(object, name)
+				value = getattr(object, name, '')
 				if value != None and value != '':
 					if name in ['technique', 'artist', 'material', 'object_type']:
-						_value = '<a href="search?SearchableText=%s">%s</a>' % (value, value)
-						value = _value
+						# check materials link
+						if name == 'material':
+							materials = value.split(',')
+							_value = ""
+							for i, mat in enumerate(materials):
+								if i == (len(materials)-1):
+									_value += '<a href="search?SearchableText=%s">%s</a>' % (mat, mat)
+								else:
+									_value += '<a href="search?SearchableText=%s">%s</a>, ' % (mat, mat)
+
+							value = _value
+						else:
+							_value = '<a href="search?SearchableText=%s">%s</a>' % (value, value)
+							value = _value
 
 					_title = MessageFactory(field.title)
 					new_attr = {"title": self.context.translate(_title), "value": value}
@@ -405,7 +417,6 @@ class get_nav_objects(BrowserView):
 			return json.dumps(items);
 
 
-
 class get_slideshow_options(BrowserView):
 	"""
 	AJAX call to get slideshow options
@@ -450,4 +461,47 @@ class get_slideshow_options(BrowserView):
 			return json_str
 
 
+
+class get_fields(BrowserView):
+	"""
+	Utils
+	"""
+	def get_all_fields_object(self, object):
+		object_schema = []
+		schema = getUtility(IDexterityFTI, name='Object').lookupSchema()
+
+		for name, field in getFieldsInOrder(schema):
+			if name not in ["text", "title"]:
+				value = getattr(object, name, '')
+				if value != None and value != '':
+					if name in ['technique', 'artist', 'material', 'object_type']:
+						# check materials link
+						if name == 'material':
+							materials = value.split(',')
+							_value = ""
+							for i, mat in enumerate(materials):
+								if i == (len(materials)-1):
+									_value += '<a href="search?SearchableText=%s">%s</a>' % (mat, mat)
+								else:
+									_value += '<a href="search?SearchableText=%s">%s</a>, ' % (mat, mat)
+
+							value = _value
+						else:
+							_value = '<a href="search?SearchableText=%s">%s</a>' % (value, value)
+							value = _value
+
+					_title = MessageFactory(field.title)
+					new_attr = {"title": self.context.translate(_title), "value": value}
+
+					object_schema.append(new_attr)
+
+		return object_schema
+
+	def getJSON(self):
+		schema = []
+		if self.context.portal_type == "Object":
+			obj = self.context
+			schema = self.get_all_fields_object(obj)
+
+		return json.dumps({'schema':schema})
 

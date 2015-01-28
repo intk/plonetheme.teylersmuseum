@@ -25,6 +25,7 @@ from plone.multilingual.interfaces import ITG
 from plone.multilingual.interfaces import NOTG
 from plone.app.multilingual.browser.selector import getPostPath, addQuery
 
+
 try:
     from Products.PloneGetPaid.interfaces import IBuyableMarker
     from Products.PloneGetPaid.interfaces import PayableMarkerMap
@@ -461,22 +462,11 @@ class FolderListing(CommonBrowserView):
     """'
     Override of folder_listing view
     """
-    def results(self, batch=True, b_start = 0, pagesize=10, sort_on='sortable_title', only_documented=False):
+    def results(self, batch=True, b_start = 0, pagesize=33, sort_on='sortable_title', only_documented=False):
         results = []
 
         if self.context.portal_type  == 'Collection':
-            brains = self.context.queryCatalog(batch=False, sort_on=sort_on)
-            if only_documented:
-                final_res = []
-                for res in brains:
-                    if res.hasMedia:
-                        final_res.append(res)
-            else:
-                final_res = list(brains)
-            if batch:
-                results = QuantumBatch(final_res, pagesize, start=b_start, quantumleap=1)
-            else:
-                return final_res
+            return self.context.results(batch=batch, b_size=pagesize, sort_on=sort_on, b_start=b_start)
         elif self.context.portal_type in ['Folder', 'Press Kit']:
             brains = self.context.getFolderContents()
             if only_documented:
@@ -490,7 +480,7 @@ class FolderListing(CommonBrowserView):
                 results = QuantumBatch(final_res, pagesize, start=b_start, quantumleap=1)
             else:
                 return final_res
-        
+
         return results
 
     def getImageObject(self, item):

@@ -46,7 +46,7 @@
                     <a class="thumb-image" tal:condition="python: (item.hasMedia or item.portal_type == 'Image') and not excluded_from_nav" href="" tal:attributes="href item_link"
                       tal:define="item_img python:view.getImageObject(item)">
                       <img tal:define="images item_img/@@images;
-                                         scale python: images.scale('image', scale='preview')"
+                                         scale python: images.scale('image', scale='mini')"
                              tal:condition="scale"
                              src="" alt=""
                              tal:replace="structure python: scale.tag(css_class='tileImage', alt=item_title, title=item_title)" /> 
@@ -56,7 +56,7 @@
                     <div class="thumb-image" tal:condition="python: (item.hasMedia or item.portal_type == 'Image') and excluded_from_nav"
                       tal:define="item_img python:view.getImageObject(item)">
                       <img tal:define="images item_img/@@images;
-                                         scale python: images.scale('image', scale='preview')"
+                                         scale python: images.scale('image', scale='mini')"
                              tal:condition="scale"
                              src="" alt=""
                              tal:replace="structure python: scale.tag(css_class='tileImage', alt=item_title, title=item_title)" /> 
@@ -83,10 +83,38 @@
                        >
                     Title
                     </a>
+                    
                   </h3>
+                  <p tal:condition="python: item_type == 'Event'" class="item-dates">
+                    <tal:differentday tal:condition="python:not item.start.Date() == item.end.Date()" i18n:translate="event_when_differentday">
+                      <abbr i18n:name="startdate">
+                        <span tal:replace="python: toLocalizedTime(item.start.strftime('%d %B %Y'))">Start Date</span>
+                        <tal:word i18n:translate="event_when_differentday_optional_word_between_date_and_time" />
+                      </abbr>
+                      to
+                      <span i18n:name="linebreak" />
+                      <abbr i18n:name="enddate">
+                        <span tal:replace="python: toLocalizedTime(item.end.strftime('%d %B %Y'))">End Date</span>
+                        <tal:word i18n:translate="event_when_differentday_optional_word_between_date_and_time" />
+                      </abbr>
+                    </tal:differentday>
+
+                    <tal:sameday tal:condition="python:item.start.Date() == item.end.Date()" i18n:translate="event_when_sameday">
+                      <span tal:replace="python: toLocalizedTime(item.start.strftime('%d %B %Y'))" i18n:name="date">Start Date Time</span>
+                      <span i18n:name="linebreak"></span>
+                      <abbr i18n:name="starttime">
+                        <span tal:content="python:toLocalizedTime(item.start, time_only=1)">Start Time</span>
+                      </abbr >
+                      -
+                      <abbr i18n:name="endtime">
+                         <span tal:content="python:toLocalizedTime(item.end, time_only=1)">End Time</span>
+                      </abbr>
+                    </tal:sameday>
+                  </p>
                   <h3 tal:condition="excluded_from_nav" tal:content="item/Title">
                     Title
                   </h3>
+
                     <p>
                       <span tal:condition="python:item.description != '' " tal:replace="python:view.trimText(item.description, 200, strip=False)"></span>
                       
