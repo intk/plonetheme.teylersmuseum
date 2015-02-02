@@ -165,7 +165,8 @@ ol {
 
 
 body:not(.template-folder_contents) #content table,
-body:not(.template-sharing) #content table {
+body:not(.template-sharing) #content table,
+body:not(.template-usergroup-groupprefs) #content table {
     width: 100%;
 }
 
@@ -206,7 +207,7 @@ body:not(.template-sharing) #content table {
     text-decoration-color: #666666;
 }
 
-body:not(.template-folder_contents):not(.template-sharing) #content th {
+body:not(.template-folder_contents):not(.template-sharing):not(.template-usergroup-groupprefs) #content th {
     background-color: #f5f5f5;
     font-family: 'Merriweather', serif;
     font-weight: 400;
@@ -712,16 +713,17 @@ body.portaltype-portlet-page #content-core .thumbnail a {
 }
 
 #content-core .portletMailChimp .btn {
-    background: #262626;
-    font-family: "Merriweather", serif;
-    font-weight: 400;
-    text-transform: uppercase;
+    background: #D75745;
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
     color: #ffffff;
-    font-size: 0.875em;
+    font-size: 1.000em;
     border-style: solid;
     border-width: 1px;
-    border-color: #262626;
-    padding: 8px 18px;
+    border-color: #D75745;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 30px;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -730,12 +732,17 @@ body.portaltype-portlet-page #content-core .thumbnail a {
 }
 
 #content-core .portletMailChimp .btn:hover {
-    background: #ffffff;
+    background: #000000;
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 1.000em;
     border-style: solid;
     border-width: 1px;
     border-color: #000000;
-    color: #262626 !important;
-    padding: 8px 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 30px;
 }
 
 #content-core .portletMailChimp .formControls .btn {
@@ -772,12 +779,13 @@ body.portaltype-portlet-page #content-core .thumbnail a {
 }
 
 #content-core .portletMailChimp .portletHeader h1 {
-    font-family: "Merriweather", serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 1.500em;
-    color: #000000;
+    font-size: 1.250em;
+    color: #999999;
     margin: 0px;
+    letter-spacing: 0.05em;
     line-height: 35px;
 }
 
@@ -807,8 +815,15 @@ body.portaltype-portlet-page #content-core .thumbnail a {
 }
 
 #content-core .portletMailChimp .portletDescription p {
-    color: #999999;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
     font-size: 1.250em;
+    color: #d75745;
+    line-height: 75px;
+    margin-top: 5px;
+    width: 95%;
+    margin: 0 auto;
+    text-transform: none !important;
 }
 
 /* FRONT PAGE BUTTON */
@@ -2625,6 +2640,11 @@ body.portaltype-media-person .social-viewlet {
         padding-right: 0px;
         margin-left: 0px;
     }
+
+    #content-core .portletMailChimp .portletDescription p {
+        margin: 0px;
+        line-height: 35px;
+    }
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
@@ -2647,6 +2667,11 @@ body.portaltype-media-person .social-viewlet {
         padding-left: 5%;
         padding-right: 0px;
         margin-left: 0px;
+    }
+
+    #content-core .portletMailChimp .portletDescription p {
+        margin: 0px;
+        line-height: 35px;
     }
 }
 
@@ -3442,6 +3467,11 @@ body.portaltype-media-person .social-viewlet {
     border: 2px solid #f5f5f5;
     -webkit-box-shadow: none;
     box-shadow: none;
+    font-family: "Merriweather", serif;
+    font-size: 1.00em;
+    line-height: 26px;
+    color: #666666;
+    font-weight: 400;
 }
 
 /* SLIDESHOW MARGINS */
@@ -3507,60 +3537,6 @@ a.get-in-contact:visited {
 }
 
 /* FANCY TABLE */
-
-body:not(.template-folder_contents):not(.template-sharing) table.table-striped, {
-    background-color: #ffffff;
-    width: 100% !important;
-}
-
-body:not(.template-folder_contents):not(.template-sharing) table.table-striped th, body:not(.template-folder_contents):not(.template-sharing) table.table-striped td {
-    border: 40px solid #f5f5f5;
-    border-top: 40px solid #f5f5f5 !important;
-}
-
-body:not(.template-folder_contents):not(.template-sharing) #content table.table-striped th {
-    font-size: 1em;
-    background-color: #ffffff;
-}
-
-body:not(.template-folder_contents):not(.template-sharing) #content table.table-striped tr {
-    font-size: 1em;
-    border-left: 100px solid #f5f5f5 !important;
-    border-right: 100px solid #f5f5f5 !important;
-}
-
-body:not(.template-folder_contents):not(.template-sharing) #content table.table-striped h3 {
-    color: #666666;
-    font-size: 0.700em;
-}
-
-body:not(.template-folder_contents):not(.template-sharing) #content table.table-striped p {
-    font-size: 0.9em;
-    margin: 0;
-    line-height: 24px;
-}
-
-body:not(.template-folder_contents):not(.template-sharing) #content table.table-striped th:first-child p {
-    margin-bottom: 25px;
-    color: #666666;
-}
-
-body:not(.template-folder_contents):not(.template-sharing) #content table.table-striped th:first-child p:last-child {
-    margin-bottom: 4px;
-}
-
-body:not(.template-folder_contents):not(.template-sharing) #content table.table-striped td {
-    vertical-align: middle;
-}
-
-body:not(.template-folder_contents):not(.template-sharing) #content table.table-striped th, body:not(.template-folder_contents):not(.template-sharing) table.table-striped  td {
-    vertical-align: middle;
-    padding: 0;
-    padding-left: 18px !important;
-    padding-right: 18px !important;
-    padding-top: 22px !important;
-    padding-bottom: 22px !important;
-}
 
 /* 404 Page */
 
@@ -3851,10 +3827,10 @@ dd.portletItem h3 {
     text-transform: none !important;
 }
 
-body:not(.template-folder_contents):not(.template-sharing) dt.portletHeader {
+body:not(.template-folder_contents):not(.template-sharing):not(.template-usergroup-groupprefs) dt.portletHeader {
     font-size: 1.250em !important;
 }
-body:not(.template-folder_contents):not(.template-sharing) dt.portletHeader span {
+body:not(.template-folder_contents):not(.template-sharing):not(.template-usergroup-groupprefs) dt.portletHeader span {
     font-family: "Merriweather", serif;
     font-weight: 700;
     text-transform: uppercase;
@@ -3863,7 +3839,7 @@ body:not(.template-folder_contents):not(.template-sharing) dt.portletHeader span
     line-height: 35px;
 }
 
-body:not(.template-folder_contents):not(.template-sharing) dd.portletItem .btn {
+body:not(.template-folder_contents):not(.template-sharing):not(.template-usergroup-groupprefs) dd.portletItem .btn {
     background: #262626;
     font-family: "Merriweather", serif !important;
     font-weight: 400;
@@ -3877,7 +3853,7 @@ body:not(.template-folder_contents):not(.template-sharing) dd.portletItem .btn {
     -webkit-font-smoothing: antialiased;
 }
 
-body:not(.template-folder_contents):not(.template-sharing) dd.portletItem .btn:hover {
+body:not(.template-folder_contents):not(.template-sharing):not(.template-usergroup-groupprefs) dd.portletItem .btn:hover {
     background: #ffffff;
     border-style: solid;
     border-width: 1px;
@@ -3886,15 +3862,15 @@ body:not(.template-folder_contents):not(.template-sharing) dd.portletItem .btn:h
     text-transform: uppercase;
 }
 
-body:not(.template-folder_contents):not(.template-sharing) dd.portletItem a.btn {
+body:not(.template-folder_contents):not(.template-sharing):not(.template-usergroup-groupprefs) dd.portletItem a.btn {
     text-decoration: none !important;
 }
 
-body:not(.template-folder_contents):not(.template-sharing) dd.portletItem p.btn-container {
+body:not(.template-folder_contents):not(.template-sharing):not(.template-usergroup-groupprefs) dd.portletItem p.btn-container {
     text-align: center;
 }
 
-body:not(.template-folder_contents):not(.template-sharing) dd.portletItem > h3:first-child {
+body:not(.template-folder_contents):not(.template-sharing):not(.template-usergroup-groupprefs) dd.portletItem > h3:first-child {
     margin-top: -30px !important;
 }
 
@@ -4870,7 +4846,7 @@ body.canvas-slid .menu_wrapper {
     border-bottom: 1px solid #cccccc;
 }
 
-body:not(.template-folder_contents):not(.template-sharing)  #content-core div[id*='parent-fieldname-text'] th {
+body:not(.template-folder_contents):not(.template-sharing):not(.template-usergroup-groupprefs)  #content-core div[id*='parent-fieldname-text'] th {
     font-family: 'Raleway', sans-serif;
     font-weight: 800;
     font-size: 1.00em;
@@ -5336,7 +5312,7 @@ header.fullscreen {
 @media (max-width: 480px) {
     #slickslideshow.fullscreen .slick-slide img, #slickslideshow .slick-slide iframe {
         max-width: 100%;
-        height: auto !important;
+        height: 100% !important;
         margin: auto !important;
     }
 
@@ -6156,8 +6132,48 @@ body.template-search #search-page-header .documentFirstHeading, body.template-se
     display: block !important;
 }
 
+#portal-column-content .alert.alert-info {
+    position: absolute;
+    z-index: 10;
+    margin-bottom: 0px;
+    border-color: #d75745;
+    background-color: #d75745;
+    left: 350px;
+    right: 0px;
+    top: 0px;
+}
+
+@media (max-width: 480px) {
+    #portal-column-content .alert.alert-info {
+        position: absolute;
+        z-index: 10;
+        margin-bottom: 0px;
+        border-color: #d75745;
+        background-color: #d75745;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    #portal-column-content .alert.alert-info {
+        position: absolute;
+        z-index: 10;
+        margin-bottom: 0px;
+        border-color: #d75745;
+        background-color: #d75745;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+    }
+}
 
 /* BACKEND */
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    padding: 2px;
+}
 
 #portal-personaltools-wrapper {
     z-index: 100;
@@ -6182,10 +6198,31 @@ body.template-folder_contents #content-core, .template-folder_contents #content 
     display: none;
 }
 
+#content .dropdown-menu li {
+    display: block;
+}
+
+#content-core dd.portletItem ul.qq-upload-list {
+    padding-top: 10px;
+    width: auto !important;
+}
+
+/*.template-usergroup-groupprefs td.listingCheckbox {
+    padding: 1px;
+}
+
+.template-usergroup-groupprefs th,
+.template-usergroup-groupprefs td,
+.template-usergroup-groupprefs td,
+.template-usergroup-groupprefs tbody {
+    padding: 1px !important;
+    font-size: 0.850em;
+}*/
+
 /* folder contents */
 
 .template-folder_contents #content a {
-    font-size: 0.875em;
+    font-size: 1.000em;
 }
 
 .template-folder_contents #content .documentDescription {
@@ -6197,7 +6234,7 @@ body.template-folder_contents #content-core, .template-folder_contents #content 
 }
 
 .template-folder_contents #content table td {
-    font-size: 0.875em;
+    font-size: 1.000em;
 }
 
 .template-folder_contents #content table th {
@@ -6205,15 +6242,15 @@ body.template-folder_contents #content-core, .template-folder_contents #content 
 }
 
 .template-folder_contents #content {
-    font-size: 0.875em;
+    font-size: 1.000em;
 }
 
 .template-folder_contents #content table {
-    font-size: 0.875em;
-}
+    font-size: 1.000em;
+} 
 
 .template-folder_contents .folder_contents_portlet_manager {
-    font-size: 0.875em;
+    font-size: 1.000em;
 }
 
 .template-folder_contents #content .managePortletsFallback {
@@ -6239,11 +6276,12 @@ body.template-folder_contents #content-core, .template-folder_contents #content 
 }
 
 .folder_contents_portlet_manager {
-    width: 300px !important;
+    width: 350px !important;
 }
 
 .template-folder_contents #edit-content-views {
     width: 100%;
+    margin-left: 0px !important;
 }
 
 .template-folder_contents #viewlet-above-content-body {
@@ -6253,6 +6291,19 @@ body.template-folder_contents #content-core, .template-folder_contents #content 
 
 .template-folder_contents table.listing {
     margin-top: 50px;
+}
+
+.template-folder_contents .documentEditable {
+    background-color: #ffffff;
+    padding-bottom: 50px;
+}
+
+.template-folder_contents .managePortletsFallback {
+    height: 25px;
+}
+
+.template-folder_contents a.managePortletsFallback {
+    line-height: 25px !important;
 }
 
 #edit-content-views {
@@ -6282,6 +6333,20 @@ ul#edit-content-views {
 #editContentActionMenus {
     padding-bottom: 50px;
 }
+
+body.portaltype-portlet-page.userrole-authenticated #edit-content-views {
+    padding-top: 100px;
+}
+
+body.portaltype-portlet-page.userrole-authenticated #portal-logo img {
+    content: url('++resource++plonetheme.bootstrapModern.css/teylers_black.png') !important; 
+}
+
+.template-document form[class^="kssattr-formname"] {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
 
 /* EDIT PAGE */
 
@@ -6456,6 +6521,41 @@ table.grid th {
     border: 1px solid #e7e7e7;
     padding: 0.5em;
 }
+
+html, body {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    width: 100%;
+    box-sizing:border-box;
+}
+
+body.canvas-slid {
+    overflow-x: hidden !important;
+}
+
+.page-overlay {
+    overflow-x: hidden !important;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+  #srch-term:focus {
+    font-size: 13px !important;
+    background: #000000 !important;
+  }
+}
+
+div.buyable {
+    background-color: #ffffff;
+}
+
+div.buyable {
+    margin: 0 !important;
+    padding-top: 0.3em !important;
+    padding-bottom: 1em !important;
+    text-align: right !important;
+}
+
+
 
 
 

@@ -93,7 +93,7 @@ slickSlideshow.pauseCurrentSlide = function() {
 
 slickSlideshow.YT_ready = function() {
 	if (slickSlideshow.$obj.getSlick() != undefined) { 
-		var $first_slide = $(slickSlideshow.$obj.getSlick().$slides[0]);
+		var $first_slide = $(slickSlideshow.$obj.getSlick().$slides[slickSlideshow.initialSlide]);
 
 		$(".actions-div").hide();
 
@@ -538,7 +538,6 @@ slickSlideshow.findHashSlide = function(location_hash)  {
 
 	var slides = slickSlideshow.slides;
 	for (var i = 0; i < slides.length; i++) {
-		console.log(slides[i].relative_path)
 		if (slides[i].relative_path == hash) {
 			return i;
 		}
@@ -548,16 +547,17 @@ slickSlideshow.findHashSlide = function(location_hash)  {
 }
 
 slickSlideshow.findHashCollectionSlide = function(location_hash) {
-	/*var hash = location_hash.split("#")[1]
+	var hash = location_hash.split("#")[1]
 	
-	var $slides = 
+	var $slides = $(".slick-slideshow div:not(.inner-bg)");
 
 	for (var i = 0; i < $slides.length; i++) {
-		console.log($slides[i].attr("data-url"))
-		if ($slides[i].attr("data-url") == hash) {
+		var url = $($slides[i]).attr("data-url");
+		var url_compare = "/"+url.split("/").slice(3).join("/");
+		if (url_compare == hash) {
 			return i;
 		}
-	};*/
+	};
 
 	return 0;
 }
@@ -566,10 +566,8 @@ slickSlideshow.initSlick = function(object_idx) {
 	
 	if (slickSlideshow.regular) {
 
-		var initialSlide = 0;
-
 		if (window.location.hash != "") {
-			initialSlide = slickSlideshow.findHashSlide(window.location.hash);
+			slickSlideshow.initialSlide = slickSlideshow.findHashSlide(window.location.hash);
 		}
 
 		slickSlideshow.$obj.slick({
@@ -578,7 +576,7 @@ slickSlideshow.initSlick = function(object_idx) {
 			infinite: true,
 			speed: 500,
 			slidesToShow: 1,
-			initialSlide: initialSlide,
+			initialSlide: slickSlideshow.initialSlide,
 			adaptiveHeight: true,
 			focusOnSelect: false,
 			onAfterChange: slickSlideshow.afterChange,
@@ -667,6 +665,7 @@ slickSlideshow.setLoadingProperties = function() {
 	slickSlideshow.resize = true;
 	slickSlideshow.moved = false;
 	slickSlideshow.editingMode = false;
+	slickSlideshow.initialSlide = 0;
 }
 
 slickSlideshow.resizeWindow = function() {
@@ -710,18 +709,18 @@ slickSlideshow.initCollection = function() {
 
 	slickSlideshow.isCollection = true;
 
-	/*var initialSlide = 0;
-
 	if (window.location.hash != "") {
-		initialSlide = slickSlideshow.findHashCollectionSlide(window.location.hash);
-	}*/
+		slickSlideshow.initialSlide = slickSlideshow.findHashCollectionSlide(window.location.hash);
+	}
+
+	slickSlideshow.slideCount = slickSlideshow.initialSlide + 1;
 
 	slickSlideshow.$obj.slick({
 		accessibility: true,
 		dots: false,
 		infinite: true,
 		slidesToShow: 1,
-		initialSlide: 0,
+		initialSlide: slickSlideshow.initialSlide,
 		speed: 500,
 		adaptiveHeight: true,
 		focusOnSelect: false,
@@ -736,7 +735,7 @@ slickSlideshow.initCollection = function() {
 
 	slickSlideshow.total_items = slickSlideshow.$obj.getSlick().$slides.length;
 	$("#slideshow-controls #slide-count").html((slickSlideshow.slideCount) + "/" + slickSlideshow.total_items);
-	$("#slideshow-controls #slide-description").html($(slickSlideshow.$obj.getSlick().$slides[0]).attr("data-description"));
+	$("#slideshow-controls #slide-description").html($(slickSlideshow.$obj.getSlick().$slides[slickSlideshow.initialSlide]).attr("data-description"));
 
 	slickSlideshow.resizeWindow();
 	slickSlideshow.resizeImages();
@@ -1099,9 +1098,9 @@ slickSlideshow.updateSlideURLFragment = function(slide) {
 }
 
 slickSlideshow.updateSlideCollectionURL = function(slide) {
-	/*var url = slide.attr("data-url");
-	var real_url = url.split('/NewTeylers/')[1];
-	window.location.hash = '/'+real_url;*/
+	var url = slide.attr("data-url");
+	var real_url = url.split("/").slice(3).join("/");
+	window.location.hash = "/"+real_url;
 }
 
 slickSlideshow.afterChange = function(event) {
@@ -1153,6 +1152,10 @@ slickSlideshow.afterChange = function(event) {
 			$(".actions-div").hide();
 		} else {
 			$(".actions-div").show();
+		}
+
+		if (slickSlideshow.isCollection) {
+			slickSlideshow.updateSlideCollectionURL($currentSlideObj);
 		}
 
 		slickSlideshow.contentAJAXrefresh(currentSlide, $currentSlideObj);
