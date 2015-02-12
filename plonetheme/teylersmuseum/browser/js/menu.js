@@ -62,7 +62,7 @@ $(document).ready(function() {
   });
 
   $(function() {
-    $(".share-btn").popover({ trigger: "focus", html: true, animation:false,
+    $(".share-btn").popover({ trigger: "click focus", html: true, animation:false,
       content: function() {
         return $('#share-settings').html()
       },
@@ -81,7 +81,7 @@ $(document).ready(function() {
             if (!$(".popover:hover").length) {
                 $(_this).popover("hide");
             }
-        }, 300);
+        }, 200);
     });
   });
 
@@ -194,11 +194,13 @@ $(document).ready(function() {
       slickSlideshow.resize = true;
       $(".actions-div .expand-btn i").removeClass("fa-compress");
       $(".actions-div .expand-btn i").addClass("fa-expand");
+      slickSlideshow.resizeImage(true);
     } else {
       $(".actions-div .expand-btn i").removeClass("fa-expand");
       $(".actions-div .expand-btn i").addClass("fa-compress");
     }
 
+    h = h - 2;
     slickSlideshow.$obj.attr("style", "height:"+(h-gap)+"px;");
   });
 
@@ -217,6 +219,7 @@ $(document).ready(function() {
       } else {
         classie.remove(menu, 'closed');
         classie.add(menu, 'open');
+        slickSlideshow.pauseCurrentSlide();
       }
     }
   }

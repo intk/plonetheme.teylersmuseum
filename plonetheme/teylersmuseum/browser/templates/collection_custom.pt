@@ -61,7 +61,6 @@
                        item_title item/Title;
                        item_obj item/getObject;
                        excluded_from_nav python:item_obj.exclude_from_nav;
-                       item_person python:item_type == 'Media Person';
                        item_url python: item.getURL();
                        item_icon item/getIcon;
                        item_wf_state_class python:'state-' + normalizeString(item.review_state);
@@ -92,24 +91,6 @@
                              tal:condition="scale"
                              src="" alt=""
                              tal:replace="structure python: scale.tag(css_class='tileImage', alt=item_title, title=item_title)" />  
-                      </div> 
-
-                      <div class="btn-group person-buttons person-collection" tal:condition="item_person">
-                        
-                        <a class="btn btn-inverse phone_popover visible-lg visible-md" tal:condition="python: getattr(item_obj
-, 'telephoneNumber', True)" data-toggle="popover" tal:attributes="data-content python: getattr(item_obj
-, 'telephoneNumber')" data-container="body" data-viewport=".phone-popover" data-placement="top"><i class="fa fa-phone"></i></a>
-
-                        <a tal:attributes="href python:'tel:'+getattr(item_obj
-, 'telephoneNumber')" class="btn btn-inverse visible-sm visible-xs" tal:condition="python: getattr(item_obj
-, 'telephoneNumber', True)"><i class="fa fa-phone"></i></a>
-
-                        <a tal:attributes="href python:'https://twitter.com/intent/follow?original_referer=http://www.intk.com&region=follow_link&screen_name='+getattr(item_obj
-, 'twitter')+'&tw_p=followbutton&variant=2.0'" class="btn btn-inverse" tal:condition="python: getattr(item_obj
-, 'twitter', True)"><i class="fa fa-twitter"></i></a>
-                        <a tal:attributes="href python:'mailto:'+getattr(item_obj
-, 'email')+'?subject=Contact via INTK website'" class="btn btn-inverse" tal:condition="python: getattr(item_obj
-, 'email', True)"><i class="fa fa-paper-plane"></i></a>
                       </div>    
                           
                   </div>
@@ -130,7 +111,7 @@
                         <span tal:replace="python: toLocalizedTime(item.start.strftime('%d %B %Y'))">Start Date</span>
                         <tal:word i18n:translate="event_when_differentday_optional_word_between_date_and_time" />
                       </abbr>
-                      to
+                      t/m
                       <span i18n:name="linebreak" />
                       <abbr i18n:name="enddate">
                         <span tal:replace="python: toLocalizedTime(item.end.strftime('%d %B %Y'))">End Date</span>

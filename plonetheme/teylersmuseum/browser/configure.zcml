@@ -74,10 +74,20 @@
         permission="zope2.View"
     />
 
+
+
     <browser:viewlet
         name="plone.contentviews"
         manager="plone.app.layout.viewlets.interfaces.IAboveContentBody"
         class="plone.app.layout.viewlets.common.ContentViewsViewlet"
+        layer=".interfaces.IThemeSpecific"
+        permission="zope2.View"
+    />
+
+    <browser:viewlet
+        name="plone.path_bar"
+        manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+        class="plone.app.layout.viewlets.common.PathBarViewlet"
         layer=".interfaces.IThemeSpecific"
         permission="zope2.View"
     />
@@ -89,6 +99,17 @@
         template="templates/searchbox.pt"
         layer=".interfaces.IThemeSpecific"
         permission="zope2.View"
+    />
+
+    <browser:viewlet
+      name="bda.plone.shop.buyable"
+      for="bda.plone.shop.interfaces.IBuyable"
+      class="plone.app.layout.viewlets.common.ViewletBase"
+      template="templates/buyable_viewlet.pt"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+      permission="zope2.View"
+      layer="bda.plone.shop.interfaces.IShopExtensionLayer" 
+      zcml:condition="installed bda.plone.shop"
     />
 
     

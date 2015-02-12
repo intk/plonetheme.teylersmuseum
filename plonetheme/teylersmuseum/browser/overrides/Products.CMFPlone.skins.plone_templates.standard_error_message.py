@@ -41,9 +41,10 @@ def getImageObject(item):
     if item.hasMedia and item.leadMedia != None:
         catalog = getToolByName(context, 'portal_catalog')
         media_brains = catalog.queryCatalog({"UID": item.leadMedia})
-        media = media_brains[0]
-        media_object = media.getObject()
-        return media_object
+        if len(media_brains) > 0:
+            media = media_brains[0]
+            media_object = media.getObject()
+            return media_object
 
 no_actions = {'folder': [], 'user': [], 'global': [], 'workflow': []}
 

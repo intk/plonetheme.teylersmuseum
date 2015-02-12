@@ -91,7 +91,7 @@
                         <span tal:replace="python: toLocalizedTime(item.start.strftime('%d %B %Y'))">Start Date</span>
                         <tal:word i18n:translate="event_when_differentday_optional_word_between_date_and_time" />
                       </abbr>
-                      to
+                      t/m
                       <span i18n:name="linebreak" />
                       <abbr i18n:name="enddate">
                         <span tal:replace="python: toLocalizedTime(item.end.strftime('%d %B %Y'))">End Date</span>
