@@ -25,6 +25,15 @@ from plone.multilingual.interfaces import ITG
 from plone.multilingual.interfaces import NOTG
 from plone.app.multilingual.browser.selector import getPostPath, addQuery
 
+SHOP_AVAILABLE = True
+
+try:
+    from bda.plone.cart import get_item_data_provider
+    from bda.plone.shop.interfaces import IBuyable
+except ImportError:
+    SHOP_AVAILABLE = False
+
+from decimal import Decimal
 
 try:
     from Products.PloneGetPaid.interfaces import IBuyableMarker
@@ -482,6 +491,28 @@ class FolderListing(CommonBrowserView):
                 return final_res
 
         return results
+
+    def getPrice(self, item):
+        if SHOP_AVAILABLE:
+            item_data = get_item_data_provider(item)
+            net_price = Decimal(item_data.net)
+            vat = item_data.vat
+            if vat % 2 != 0:
+                item_vat = Decimal(vat).quantize(Decimal('1.0'))
+            else:
+                item_vat = Decimal(vat)
+            
+            gross_price = net_price + net_price / Decimal(100) * item_vat
+            return gross_price
+        else:
+            return float(0.0)
+
+
+    def isBuyable(self, item):
+        if SHOP_AVAILABLE:
+            return IBuyable.providedBy(item)
+        else:
+            return False 
 
     def getImageObject(self, item):
         if item.portal_type == "Image":

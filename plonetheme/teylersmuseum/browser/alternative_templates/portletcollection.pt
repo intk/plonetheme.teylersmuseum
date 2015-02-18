@@ -33,10 +33,10 @@
                         item_obj item/getObject;
                         excluded_from_nav python:item_obj.exclude_from_nav;
                         item_url python:item_type == 'Media Event' and '%s'%item.getURL() or item.getURL();
-                        item_person python:item_type == 'Media Person';
                         use_view_action site_properties/typesUseViewActionInListings|python:();
                         itemUrl python:useView and item.getURL() + '/view' or item.getURL();
                         normalizeString nocall:plone_view/normalizeString;
+                        item_is_buyable python:view.isBuyable(item_obj);
                         item_link python: (item_type == 'Press Kit' and not view.checkPermission(item, 'Add portal content')) and item_url + '/download_zip' or (item_type in use_view_action and item_url+'/view' or item_url);">
 
             <div class="thumbnail">
@@ -60,18 +60,6 @@
                              tal:condition="scale"
                              src="" alt=""
                              tal:replace="structure python: scale.tag(css_class='tileImage', alt=item_title, title=item_title)" /> 
-                    </div>  
-
-                    <!-- Buttons if Media Person -->
-                    <div class="btn-group person-buttons person-collection" tal:condition="item_person">
-                      
-                      <a class="btn btn-inverse phone_popover visible-lg visible-md" tal:condition="python: getattr(item.getObject(), 'telephoneNumber', True)" data-toggle="popover" tal:attributes="data-content python:getattr(item.getObject(), 'telephoneNumber')" data-container="body" data-viewport=".phone-popover" data-placement="top"><i class="fa fa-phone"></i></a>
-
-                      <a tal:attributes="href python:'tel:'+getattr(item.getObject(), 'telephoneNumber')" class="btn btn-inverse visible-sm visible-xs" tal:condition="python: getattr(item.getObject(), 'telephoneNumber', True)"><i class="fa fa-phone"></i></a>
-                      
-                      <a tal:attributes="href python:'https://twitter.com/intent/follow?original_referer=http://www.intk.com&region=follow_link&screen_name='+getattr(item.getObject(), 'twitter')+'&tw_p=followbutton&variant=2.0'" class="btn btn-inverse" tal:condition="python: getattr(item.getObject(), 'twitter', True)"><i class="fa fa-twitter"></i></a>
-                      
-                      <a tal:attributes="href python:'mailto:'+getattr(item.getObject(), 'email')+'?subject=Contact via INTK website'" class="btn btn-inverse" tal:condition="python: getattr(item.getObject(), 'email', True)"><i class="fa fa-paper-plane"></i></a>
                     </div>  
                     
                   </div>
@@ -114,8 +102,12 @@
                   <h3 tal:condition="excluded_from_nav" tal:content="item/Title">
                     Title
                   </h3>
-
-                    <p>
+                    <p tal:condition="item_is_buyable">
+                      <tal:buyable-info tal:define="price python:view.getPrice(item_obj)">
+                        <span class="item-prices">€ <span tal:replace="python: '%0.2f' % price"></span></span>
+                      </tal:buyable-info>
+                    </p>
+                    <p tal:condition="not:item_is_buyable">
                       <span tal:condition="python:item.description != '' " tal:replace="python:view.trimText(item.description, 200, strip=False)"></span>
                       
                       <tal:bodyfallback condition="python:item.description == '' and item_type != 'Image' and item_type != 'File' and item_type != 'Folder' and item_type != 'Press Kit'">

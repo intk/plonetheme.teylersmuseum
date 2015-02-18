@@ -10,6 +10,9 @@ function slideMouseMove() {
 
       if (slickSlideshow.$obj.slickCurrentSlide() == 0) {
         $("body.portaltype-portlet-page .documentDescription, body.template-content_view .documentDescription, body.template-content_view .documentFirstHeading").fadeIn();
+        if ($(".slideshowWrapper").hasClass("moved")) {
+          $(".slideshowWrapper").removeClass("moved");
+        }
       }
 
       if (slickSlideshow.playing != true) {
@@ -23,6 +26,9 @@ function slideMouseMove() {
       } else {
         if (slickSlideshow.$obj.slickCurrentSlide() == 0) {
           $("body.portaltype-portlet-page .documentDescription, body.template-content_view .documentDescription, body.template-content_view .documentFirstHeading").fadeIn();
+          if ($(".slideshowWrapper").hasClass("moved")) {
+            $(".slideshowWrapper").removeClass("moved");
+          }
         }
       }
     }

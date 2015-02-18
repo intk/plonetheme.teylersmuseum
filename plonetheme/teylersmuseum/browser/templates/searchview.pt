@@ -97,8 +97,9 @@
 
             <div class="clearfix"></div> 
 
+
             <!-- RESULTS BAR -->
-            <div id="search-results-bar" tal:condition="python: batch_size != 0">
+            <div id="search-results-bar">
                     <dl class="actionMenu deactivated"
                         tal:attributes="class python:view.show_advanced_search() and 'actionMenu activated' or 'actionMenu deactivated'">
 
