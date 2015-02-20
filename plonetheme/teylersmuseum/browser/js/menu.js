@@ -57,6 +57,7 @@ $(document).ready(function() {
   if (isMobile.any()) {
     var window_w = $(window).width();
     $(".navmenu, .navbar-offcanvas").css("width", window_w);
+    $("body").addClass("mobile");
   }
 
   $("#portal-languageselector").prependTo("#nav_menu");
@@ -120,6 +121,33 @@ $(document).ready(function() {
     }
   }
 
+
+  $(".shop-btn").click(function() {
+    var currentSlide = slickSlideshow.$obj.slickCurrentSlide();
+    var slides = slickSlideshow.$obj.getSlick().$slides;
+    var currentLocation = document.location.origin;
+    
+    if ($("body").hasClass("site-nl")) {
+      var formPath = currentLocation + "/nl/bestel-afbeelding/view?url=";      
+    } else {
+      var formPath = currentLocation + "/en/order-image/view?url=";      
+    }
+
+    var $currentSlide = $(slides[currentSlide]);
+    if ($currentSlide != undefined) {
+      if ($currentSlide.attr("data-url") != undefined) {
+        formPath += $currentSlide.attr("data-url");
+        document.location.href = formPath;
+      } else {
+        formPath += document.location.href;
+        document.location.href = formPath;
+      }
+    } else {
+      formPath += document.location.href;
+      document.location.href = formPath;
+    }
+
+  });
   
 
   $(".info-btn").click(function() {
@@ -206,7 +234,6 @@ $(document).ready(function() {
       $(".actions-div .expand-btn i").addClass("fa-compress");
     }
 
-    h = h - 2;
     slickSlideshow.$obj.attr("style", "height:"+(h-gap)+"px;");
   });
 

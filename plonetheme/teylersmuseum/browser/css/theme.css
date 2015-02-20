@@ -717,6 +717,7 @@ body.portaltype-portlet-page #content-core .thumbnail h3 {
 
 body.portaltype-portlet-page #content-core .thumbnail {
     margin: 0 0 13.5px;
+    padding-top: 25px;
 }
 
 body.portaltype-portlet-page #content-core .thumbnail a {
@@ -3969,21 +3970,22 @@ body.portaltype-portlet-page .slick-prev:hover, body.portaltype-portlet-page .sl
     }
 
     .slick-prev {
-        background: url("++resource++plonetheme.bootstrapModern.css/arrow-left.svg") no-repeat 17px !important;
+        background: url("++resource++plonetheme.bootstrapModern.css/arrow-left.svg") no-repeat 10px !important;
         background-position: 50% 50%;
         background-size: 20px 20px;
     }
 
     .slick-next {
-        background: url("++resource++plonetheme.bootstrapModern.css/arrow-right.svg") no-repeat 24px !important;
+        background: url("++resource++plonetheme.bootstrapModern.css/arrow-right.svg") no-repeat 10px !important;
         background-position: 50% 50%;
         background-size: 20px 20px;
     }
 
     .slick-prev, .slick-next {
-        width: 60px;
-        height: 60px;
-        margin-top: -30px;
+        width: 40px !important;
+        height: 40px !important;
+        top: 50%;
+        margin-top: -20px !important;
     }
 
 
@@ -4738,7 +4740,8 @@ body.template-content_view #slideshow-controls .btn.share-btn .fa.fa-share-alt {
 .portaltype-object #slideshow-controls .btn.expand-btn .fa.fa-compress, 
 .portaltype-object #slideshow-controls .btn.play-btn .fa.fa-play,
 .portaltype-object #slideshow-controls .btn.play-btn .fa.fa-pause,
-.portaltype-object #slideshow-controls .btn.share-btn .fa.fa-share-alt {
+.portaltype-object #slideshow-controls .btn.share-btn .fa.fa-share-alt,
+.portaltype-object #slideshow-controls .btn.shop-btn .fa.fa-shopping-cart {
     line-height: 60px;
     color: #ffffff;
     font-size: 1.250em;
@@ -4762,11 +4765,15 @@ body.template-content_view #slideshow-controls .btn {
     border-right: 0px solid #2b2b2b;
 }
 
+.portaltype-object #slideshow-controls .btn {
+    width: 25%;
+}
+
 body.template-multiple_view #slideshow-controls .btn {
     display: none;
     height: 100%;
     background-color: #242424;
-    width: 25%;
+    width: 18%;
     float: right;
     border: 0px;
     border-left: 0px solid #2b2b2b;
@@ -4775,9 +4782,12 @@ body.template-multiple_view #slideshow-controls .btn {
 
 .portaltype-object #slideshow-controls .btn.info-btn,
 body.portaltype-portlet-page #slideshow-controls .btn.info-btn,
-body.portaltype-portlet-page #slideshow-controls .btn.share-btn {
+body.portaltype-portlet-page #slideshow-controls .btn.share-btn,
+.portaltype-object #slideshow-controls .btn.shop-btn {
     display: block;
 }
+
+
 
 body.template-multiple_view #slideshow-controls .btn.play-btn,
 body.template-multiple_view #slideshow-controls .btn.pause-btn {
@@ -4810,7 +4820,8 @@ body.template-content_view header {
 .portaltype-object #slideshow-controls .btn.info-btn:hover .fa, 
 .portaltype-object #slideshow-controls .btn.expand-btn:hover .fa,
 .portaltype-object #slideshow-controls .btn.play-btn:hover .fa,
-.portaltype-object #slideshow-controls .btn.share-btn:hover .fa {
+.portaltype-object #slideshow-controls .btn.share-btn:hover .fa,
+.portaltype-object #slideshow-controls .btn.shop-btn:hover .fa {
     opacity: 1;
 }
 
@@ -4994,6 +5005,7 @@ header.fullscreen {
 
 #slickslideshow.fullscreen .slick-list, #slickslideshow.fullscreen .slick-track, #slickslideshow.fullscreen .slick-slide {
     overflow: hidden;
+    margin: 0px;
 }
 
 
@@ -5044,10 +5056,10 @@ header.fullscreen {
 
 @media (max-width: 480px) {
     .wrap-next, .wrap-prev {
-        width: 60px;
-        height: 60px;
+        width: 40px;
+        height: 40px;
         top: 50%;
-        margin-top: -40px;
+        margin-top: -20px;
     }
 }
 
@@ -5346,8 +5358,10 @@ body.template-content_view .slick-slideshow {
 
 .slideshow-loader {
     position: absolute;
-    top: 42%;
-    left: 44%;
+    top: 50%;
+    left: 50%;
+    margin-top: -60px;
+    margin-left: -60px;
     z-index: 0;
 }
 
@@ -5411,16 +5425,16 @@ body.template-portlets .documentFirstHeading {
 
     #content-core .portletCollection .portletHeader {
         padding-top: 25px;
-        padding-bottom: 0px;
+        padding-bottom: 25px;
     }
 
     body.portaltype-portlet-page #content-core .portletCollection .portletHeader h2 {
         font-family: 'Merriweather', serif;
         font-weight: 400;
-        font-size: 1.125em;
+        font-size: 2.188em;
         color: #d75745;
         margin: 0px;
-        line-height: 30px;
+        line-height: 50px;
         margin-top: 5px;
         text-transform: none !important;
     }
@@ -5479,10 +5493,10 @@ body.template-portlets .documentFirstHeading {
     body.portaltype-portlet-page #content-core .portletCollection .portletHeader h2 {
         font-family: 'Merriweather', serif;
         font-weight: 400;
-        font-size: 1.125em;
+        font-size: 3.125em;
         color: #d75745;
         margin: 0px;
-        line-height: 30px;
+        line-height: 75px;
         margin-top: 5px;
         text-transform: none !important;
     }
@@ -5532,10 +5546,10 @@ body.template-portlets .documentFirstHeading {
     body.portaltype-portlet-page #content-core .portletCollection .portletHeader h2 {
         font-family: 'Merriweather', serif;
         font-weight: 400;
-        font-size: 1.125em;
+        font-size: 3.125em;
         color: #d75745;
         margin: 0px;
-        line-height: 30px;
+        line-height: 75px;
         margin-top: 5px;
         text-transform: none !important;
     }
@@ -6902,6 +6916,45 @@ body.template-sharing #content-core {
 body.template-sharing #sharing-search-button {
     margin-top: -3px;
 }
+
+/* FULLSCREEN SLIDESHOW */
+.col-lg-12, .col-md-12 {
+    min-height: 0px !important;
+}
+
+/* START NON FULLSCREEN SLIDESHOW */
+.double-container img, body.template-multiple_view .slideshow img {
+    display: none;
+}
+
+body.template-multiple_view .slideshow img.loaded {
+    display: block;
+}
+
+.double-container img.loaded {
+    display: block;
+}
+
+body.mobile .overlay-image {
+    display: none !important;
+}
+
+.label {
+    padding: .2em 0em .3em;
+}
+
+.help-block {
+    text-align: left;
+}
+
+/* MOBILE IMPROVEMENTS */
+
+
+@media (max-width: 480px) {
+
+}
+
+
 
 /* @group Data tables */
 

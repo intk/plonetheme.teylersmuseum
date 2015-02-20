@@ -194,7 +194,7 @@ class get_nav_objects(BrowserView):
 		schema = getUtility(IDexterityFTI, name='Object').lookupSchema()
 
 		for name, field in getFieldsInOrder(schema):
-			if name not in ["text", "title"]:
+			if name not in ["text", "title", "object_tags"]:
 				value = getattr(object, name, '')
 				if value != None and value != '':
 					if name in ['technique', 'artist', 'material', 'object_type']:

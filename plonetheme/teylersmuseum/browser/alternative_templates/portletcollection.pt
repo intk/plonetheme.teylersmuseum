@@ -108,7 +108,7 @@
                       </tal:buyable-info>
                     </p>
                     <p tal:condition="not:item_is_buyable">
-                      <span tal:condition="python:item.description != '' " tal:replace="python:view.trimText(item.description, 200, strip=False)"></span>
+                      <span tal:condition="python:item.description != ''" tal:replace="python:view.trimText(item.description, 200, strip=False)"></span>
                       
                       <tal:bodyfallback condition="python:item.description == '' and item_type != 'Image' and item_type != 'File' and item_type != 'Folder' and item_type != 'Press Kit'">
                       <span tal:condition="python: getattr(item.getObject(), 'text', False)" tal:replace="python:view.trimText(item.getObject().text, 200, strip=True)"></span>
