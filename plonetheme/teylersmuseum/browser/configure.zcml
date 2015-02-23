@@ -154,6 +154,16 @@
       permission="zope2.View"
     />
 
+    <browser:page
+      name="get_image_resolution"
+      for="*"
+      class=".views.get_image_resolution"
+      template="templates/get_image_resolution.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope2.View"
+    />
+
+
     <!-- Navigation feature -->
     <browser:page
       name="get_nav_objects"

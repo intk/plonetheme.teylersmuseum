@@ -561,6 +561,23 @@ class NumberOfResults(CommonBrowserView):
         if callback is not None:
             return callback +'(' + jsonStr + ')'
         else:
-            return jsonStr  
+            return jsonStr
 
+class get_image_resolution(BrowserView):
+    """
+    Called by AJAX to know original resolution of image.
+    """
+    def get_image_resolution(self):
+        result = {"success": False}
+
+        if self.context.portal_type == "Image":
+            ob = self.context
+            if ob.image != None:
+                result["success"] = True
+                w, h = ob.image.getImageSize()
+                result["w"] = w
+                result["h"] = h
+        
+        jsonStr = json.dumps(result)
+        return jsonStr
 

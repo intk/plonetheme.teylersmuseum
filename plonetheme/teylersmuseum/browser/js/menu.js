@@ -237,6 +237,36 @@ $(document).ready(function() {
     slickSlideshow.$obj.attr("style", "height:"+(h-gap)+"px;");
   });
 
+  $(".zoom-btn").click(function() {
+    if ($(".actions-div .zoom-btn i").hasClass("fa-search-plus")) {
+      $(".actions-div .zoom-btn i").removeClass('fa-search-plus');
+      $(".actions-div .zoom-btn i").addClass('fa-search-minus');
+
+      /* Ask for full resolution image */
+      var currentSlide = slickSlideshow.$obj.slickCurrentSlide();
+      var $slide = $(slickSlideshow.$obj.getSlick().$slides[currentSlide]);
+
+      var $img = $($slide.find('img')[0]);
+      var img_src = $img.attr("src");
+
+      var url = img_src.replace('@@images/image/large', '');
+
+      var request_url = url + 'get_image_resolution';
+
+      $.getJSON(request_url, function(data) {
+        var h = data.h;
+        var w = data.w;
+        $(".slideshow").addClass('zoomed');
+        $img.addClass("zoomed");
+        $img.attr("style", "height: "+h+"px; width:"+w+"px;");
+      });
+
+    } else {
+      $(".actions-div .zoom-btn i").removeClass("fa-search-minus");
+      $(".actions-div .zoom-btn i").addClass("fa-search-plus");
+    }
+  });
+
   /* HIDDEN STRUCTS */
   $("header h5.hiddenStructure").html('');
   $("#portal-personaltools-wrapper p.hiddenStructure").html('');

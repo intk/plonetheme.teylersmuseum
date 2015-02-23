@@ -3976,7 +3976,7 @@ body.portaltype-portlet-page .slick-prev:hover, body.portaltype-portlet-page .sl
     }
 
     .slick-next {
-        background: url("++resource++plonetheme.bootstrapModern.css/arrow-right.svg") no-repeat 10px !important;
+        background: url("++resource++plonetheme.bootstrapModern.css/arrow-right.svg") no-repeat 10ipx !important;
         background-position: 50% 50%;
         background-size: 20px 20px;
     }
@@ -4748,6 +4748,14 @@ body.template-content_view #slideshow-controls .btn.share-btn .fa.fa-share-alt {
     opacity: 0.6;
 }
 
+body.template-book_view #slideshow-controls .btn.zoom-btn .fa.fa-search-plus,
+body.template-book_view #slideshow-controls .btn.zoom-btn .fa.fa-search-minus {
+    line-height: 60px;
+    color: #ffffff;
+    font-size: 1.250em;
+    opacity: 0.6;
+}
+
 .portaltype-object #slideshow-controls {
     display: none;
 }
@@ -4763,6 +4771,10 @@ body.template-content_view #slideshow-controls .btn {
     border: 0px;
     border-left: 0px solid #2b2b2b;
     border-right: 0px solid #2b2b2b;
+}
+
+body.template-book_view #slideshow-controls .btn {
+    width: 20% !important;
 }
 
 .portaltype-object #slideshow-controls .btn {
@@ -4784,6 +4796,10 @@ body.template-multiple_view #slideshow-controls .btn {
 body.portaltype-portlet-page #slideshow-controls .btn.info-btn,
 body.portaltype-portlet-page #slideshow-controls .btn.share-btn,
 .portaltype-object #slideshow-controls .btn.shop-btn {
+    display: block;
+}
+
+body.template-book_view #slideshow-controls .btn.zoom-btn {
     display: block;
 }
 
@@ -4821,7 +4837,12 @@ body.template-content_view header {
 .portaltype-object #slideshow-controls .btn.expand-btn:hover .fa,
 .portaltype-object #slideshow-controls .btn.play-btn:hover .fa,
 .portaltype-object #slideshow-controls .btn.share-btn:hover .fa,
-.portaltype-object #slideshow-controls .btn.shop-btn:hover .fa {
+.portaltype-object #slideshow-controls .btn.shop-btn:hover .fa,
+.portaltype-object #slideshow-controls .btn.zoom-btn:hover .fa {
+    opacity: 1;
+}
+
+body.template-book_view #slideshow-controls .btn.zoom-btn:hover .fa {
     opacity: 1;
 }
 
@@ -6945,6 +6966,15 @@ body.mobile .overlay-image {
 
 .help-block {
     text-align: left;
+}
+
+
+/* BOOK VIEW */
+
+body.template-book_view .slideshow img.zoomed {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 /* MOBILE IMPROVEMENTS */
