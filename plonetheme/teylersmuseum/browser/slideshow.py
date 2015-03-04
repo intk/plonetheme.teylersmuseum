@@ -194,29 +194,51 @@ class get_nav_objects(BrowserView):
 		schema = getUtility(IDexterityFTI, name='Object').lookupSchema()
 
 		for name, field in getFieldsInOrder(schema):
-			if name not in ["text", "title", "object_tags"]:
+			if name not in ["text", "object_tags"]:
 				value = getattr(object, name, '')
 				if value != None and value != '':
-					if name in ['technique', 'artist', 'material', 'object_type']:
+					if name in ['technique', 'artist', 'material', 'object_type', 'object_category', 'publisher', 'author']:
 						# check materials link
-						if name == 'material':
+						if (name == 'artist') or (name == 'author'):
+							name_split = value.split('(')
+							name_artist = name_split[0][:-1]
+							name_artist_link = '<a href="/'+self.context.language+'/search?SearchableText=%s">%s</a>' % (name_artist, name_artist)
+							name_split[0] = name_artist_link + " "
+							_value = '('.join(name_split)
+
+							value = _value
+
+						elif name == 'material':
 							materials = value.split(',')
 							_value = ""
 							for i, mat in enumerate(materials):
 								if i == (len(materials)-1):
-									_value += '<a href="search?SearchableText=%s">%s</a>' % (mat, mat)
+									_value += '<a href="/'+self.context.language+'/search?SearchableText=%s">%s</a>' % (mat, mat)
 								else:
-									_value += '<a href="search?SearchableText=%s">%s</a>, ' % (mat, mat)
+									_value += '<a href="/'+self.context.language+'/search?SearchableText=%s">%s</a>, ' % (mat, mat)
 
 							value = _value
 						else:
-							_value = '<a href="search?SearchableText=%s">%s</a>' % (value, value)
+							_value = '<a href="/'+self.context.language+'/search?SearchableText=%s">%s</a>' % (value, value)
 							value = _value
 
 					_title = MessageFactory(field.title)
 					new_attr = {"title": self.context.translate(_title), "value": value}
+					
+					if name in ['artist']:
+						object_schema.insert(0, new_attr)
+					else:
+						object_schema.append(new_attr)
+		
+		object_title = getattr(object, 'title', '')
+		new_attr = {'title': self.context.translate('Title'), "value": object_title}
 
-					object_schema.append(new_attr)
+		if len(object_schema) > 1 and object_schema[0]['title'] == "Vervaardiger":
+			object_schema.insert(1, new_attr)
+		elif len(object_schema) > 1 and object_schema[0]['title'] != "Vervaardiger":
+			object_schema.insert(0, new_attr)
+		else:
+			object_schema.append(new_attr)
 
 		return object_schema
 
@@ -470,32 +492,54 @@ class get_fields(BrowserView):
 		object_schema = []
 		schema = getUtility(IDexterityFTI, name='Object').lookupSchema()
 
+		#print getFieldsInOrder(schema)
+
 		for name, field in getFieldsInOrder(schema):
-			if name not in ["text", "title"]:
+			#print name
+			if name not in ["text", "object_tags"]:
 				value = getattr(object, name, '')
 				if value != None and value != '':
-					if name in ['technique', 'artist', 'material', 'object_type']:
+					if name in ['technique', 'artist', 'material', 'object_type', 'object_category', 'publisher', 'author']:
 						# check materials link
-						if name == 'material':
+						if (name == 'artist') or (name == 'author'):
+							name_split = value.split('(')
+							name_artist = name_split[0][:-1]
+							name_artist_link = '<a href="/'+self.context.language+'/search?SearchableText=%s">%s</a>' % (name_artist, name_artist)
+							name_split[0] = name_artist_link + " "
+							_value = '('.join(name_split)
+
+							value = _value
+						elif name == 'material':
 							materials = value.split(',')
 							_value = ""
 							for i, mat in enumerate(materials):
 								if i == (len(materials)-1):
-									_value += '<a href="search?SearchableText=%s">%s</a>' % (mat, mat)
+									_value += '<a href="/'+self.context.language+'/search?SearchableText=%s">%s</a>' % (mat, mat)
 								else:
-									_value += '<a href="search?SearchableText=%s">%s</a>, ' % (mat, mat)
+									_value += '<a href="/'+self.context.language+'/search?SearchableText=%s">%s</a>, ' % (mat, mat)
 
 							value = _value
 						else:
-							_value = '<a href="search?SearchableText=%s">%s</a>' % (value, value)
+							_value = '<a href="/'+self.context.language+'/search?SearchableText=%s">%s</a>' % (value, value)
 							value = _value
 
 					_title = MessageFactory(field.title)
 					new_attr = {"title": self.context.translate(_title), "value": value}
-
+					
 					object_schema.append(new_attr)
+		
+		object_title = getattr(object, 'title', '')
+		new_attr = {'title': self.context.translate('Title'), "value": object_title}
+
+		if len(object_schema) > 1 and object_schema[0]['title'] == "Vervaardiger":
+			object_schema.insert(1, new_attr)
+		elif len(object_schema) > 1 and object_schema[0]['title'] != "Vervaardiger":
+			object_schema.insert(0, new_attr)
+		else:
+			object_schema.append(new_attr)
 
 		return object_schema
+
 
 	def getJSON(self):
 		schema = []

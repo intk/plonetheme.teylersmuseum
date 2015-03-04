@@ -39,6 +39,7 @@
                                 linkRemote item/getRemoteUrl;
                                 isCurrent  node/currentItem;
                                 liLevel    level;
+                                excluded_from_nav python: getattr(item, 'exclude_from_nav', False);
                                 main_menu  python:liLevel == 1;
                                 show_lower python:children and level+3 < bottomLevel;
                                 item_type_class string:itemtype-${item/portal_type};
@@ -48,7 +49,7 @@
                                 css_class_submenu python:not main_menu and css_class_submenu or css_class_dropdown;
                                 css_class_to_show python:(css_class_active + css_class_submenu).strip() or None"
                     tal:attributes="class css_class_to_show"
-                    tal:condition="python: bottomLevel &lt;= 0 or level &lt; bottomLevel-1">
+                    tal:condition="python: bottomLevel &lt;= 0 or level &lt; bottomLevel-1 and not excluded_from_nav">
 
                     <tal:level define="item_wf_state_class python: 'state-' + normalizeString(item.review_state);
                                     ">
@@ -73,7 +74,7 @@
                 </tal:navitem>
                 </metal:main>
             </ul>
-             <form class="navbar-form" role="search" action="@@search">
+             <form class="navbar-form" role="search" action="/@@search">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search" name="SearchableText" id="srch-term" 
                         i18n:attributes="title title_search_site;

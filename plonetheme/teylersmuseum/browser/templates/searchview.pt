@@ -43,7 +43,7 @@
         <input type="hidden" name="sort_on" value="" />
         
             <div id="search-page-header">
-                            
+
                             <h1 class="documentFirstHeading"
                                 i18n:translate=""
                                 tal:condition="st">

@@ -5,6 +5,7 @@ function supportsSvg() {
 
 function slideMouseMove() {
   if (slickSlideshow.$obj.getSlick() != undefined) {
+
     if ($("#slickslideshow").hasClass("fullscreen")) {
       $("#portal-header-wrapper").fadeIn();
 
@@ -121,8 +122,12 @@ $(document).ready(function() {
     }
   }
 
+  $("#sort_on").on('change', function(e) {
+    var optionSelected = $("option:selected", this);
+    $("#form-widgets-sort_on").val(this.value);
+  });
 
-  $(".shop-btn").click(function() {
+  $(".shop-btn, .buy-item").click(function() {
     var currentSlide = slickSlideshow.$obj.slickCurrentSlide();
     var slides = slickSlideshow.$obj.getSlick().$slides;
     var currentLocation = document.location.origin;
@@ -193,8 +198,10 @@ $(document).ready(function() {
 
   
   $(".play-btn").click(function() {
-    var currentSlide = slickSlideshow.$obj.slickCurrentSlide();
-    var $slide = $(slickSlideshow.$obj.getSlick().$slides[currentSlide]);
+    /*var currentSlide = slickSlideshow.$obj.slickCurrentSlide();*/
+    /*var $slide = $(slickSlideshow.$obj.getSlick().$slides[currentSlide]);*/
+    $slide = slickSlideshow.$obj;
+
     var $playBtn = $(this);
 
     if ($playBtn.hasClass('playing')) {
@@ -203,12 +210,16 @@ $(document).ready(function() {
       $playBtn.addClass('paused');
       $(".actions-div .play-btn i").removeClass("fa-pause");
       $(".actions-div .play-btn i").addClass("fa-play");
+      $(".slideshow").removeClass('playing');
+      $(".slideshow").addClass('paused');
     } else {
       $slide.slickPlay();
       $playBtn.removeClass('paused');
       $playBtn.addClass('playing');
       $(".actions-div .play-btn i").removeClass("fa-play");
       $(".actions-div .play-btn i").addClass("fa-pause");
+      $(".slideshow").removeClass('paused');
+      $(".slideshow").addClass('playing');
     }
   });
 

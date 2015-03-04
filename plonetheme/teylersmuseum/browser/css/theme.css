@@ -3976,7 +3976,7 @@ body.portaltype-portlet-page .slick-prev:hover, body.portaltype-portlet-page .sl
     }
 
     .slick-next {
-        background: url("++resource++plonetheme.bootstrapModern.css/arrow-right.svg") no-repeat 10ipx !important;
+        background: url("++resource++plonetheme.bootstrapModern.css/arrow-right.svg") no-repeat 10px !important;
         background-position: 50% 50%;
         background-size: 20px 20px;
     }
@@ -4571,12 +4571,24 @@ body.template-double_view header {
     background-color: #ffffff !important;
 }
 
+body.template-book_view header {
+    background-color: #000000 !important;
+}
+
 body.template-double_view {
     background-color: #ffffff !important;
 }
 
+body.template-book_view {
+    background-color: #000000 !important;
+}
+
 body.template-double_view .slideshow {
     background-color: #ffffff !important;
+}
+
+body.template-book_view .slideshow {
+    background-color: #000000 !important;
 }
 
 body.template-double_view #portal-logo img {
@@ -4781,7 +4793,8 @@ body.template-book_view #slideshow-controls .btn {
     width: 25%;
 }
 
-body.template-multiple_view #slideshow-controls .btn {
+body.template-multiple_view #slideshow-controls .btn,
+body.template-instrument_view #slideshow-controls .btn {
     display: none;
     height: 100%;
     background-color: #242424;
@@ -4806,7 +4819,9 @@ body.template-book_view #slideshow-controls .btn.zoom-btn {
 
 
 body.template-multiple_view #slideshow-controls .btn.play-btn,
-body.template-multiple_view #slideshow-controls .btn.pause-btn {
+body.template-multiple_view #slideshow-controls .btn.pause-btn,
+body.template-instrument_view #slideshow-controls .btn.play-btn,
+body.template-instrument_view #slideshow-controls .btn.pause-btn, {
     display: block;
 }
 
@@ -4861,6 +4876,8 @@ body.template-content_view  #slideshow-controls .btn.share-btn:hover .fa {
 
 body.template-multiple_view.portaltype-object #slideshow-controls .btn.play-btn,
 body.template-multiple_view.portaltype-object #slideshow-controls .btn.pause-btn,
+body.template-instrument_view.portaltype-object #slideshow-controls .btn.play-btn,
+body.template-instrument_view.portaltype-object #slideshow-controls .btn.pause-btn
 {
     display: block;
 }
@@ -5418,11 +5435,13 @@ body.template-portlets .documentFirstHeading {
     }
 
     body.template-content_view #content .documentFirstHeading {
-        top: 100px;
+        top: 70px;
+        padding-left: 50px;
     }
 
     body.template-content_view #content .documentDescription.description, body.template-content_view #content .documentDescription {
-        top: 170px;
+        top: 110px;
+        padding-left: 50px;
     }
 
     body.portaltype-portlet-page #content .documentDescription.description,
@@ -5480,10 +5499,12 @@ body.template-portlets .documentFirstHeading {
 
     body.template-content_view #content .documentFirstHeading {
         top: 100px;
+        padding-left: 80px;
     }
 
     body.template-content_view #content .documentDescription.description, body.template-content_view #content .documentDescription {
         top: 170px;
+        padding-left: 80px;
     }
 
     body.portaltype-portlet-page #content .documentDescription.description,
@@ -5534,10 +5555,12 @@ body.template-portlets .documentFirstHeading {
 
     body.template-content_view #content .documentFirstHeading {
         top: 100px;
+        left: 60px;
     }
 
     body.template-content_view #content .documentDescription.description, body.template-content_view #content .documentDescription {
-        top: 170px;
+        top: 150px;
+        left: 60px;
     }
 
     body.portaltype-portlet-page #content .documentDescription.description,
@@ -5659,7 +5682,8 @@ body.template-content_view .contentsListing {
 }
 
 body.template-content_view .slick-prev, body.template-content_view .slick-next,
-body.template-book_view .slick-prev, body.template-book_view .slick-next {
+body.template-book_view .slick-prev, body.template-book_view .slick-next,
+body.template-instrument_view .slick-prev, body.template-instrument_view .slick-next {
     opacity: 0.6;
 }
 
@@ -5860,14 +5884,27 @@ body.template-search #portal-logo img {
 body.template-search #search-page-header .documentFirstHeading, body.template-search .documentDescription {
     background:transparent !important;
     color: #ffffff !important;
+    position: relative;
 }
 
 #search-page-header {
+    position: relative;
     background-image: url('++resource++plonetheme.bootstrapModern.css/bibliotheek_large.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
+
+#search-page-header:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.2);
+}
+
 
 .video-iframe.without-overlay {
     display: block !important;
@@ -6691,6 +6728,15 @@ div.cart_item_alert {
     width: auto !important;
 }
 
+.template-event #formfield-form-widgets-attendees,
+.template-event #formfield-form-widgets-location,
+.template-event #formfield-form-widgets-contact_name,
+.template-event #formfield-form-widgets-contact_email,
+.template-event #formfield-form-widgets-contact_phone,
+.template-event #formfield-form-widgets-event_url {
+    display: none;
+}
+
 /*.template-usergroup-groupprefs td.listingCheckbox {
     padding: 1px;
 }
@@ -6971,19 +7017,97 @@ body.mobile .overlay-image {
 
 /* BOOK VIEW */
 
-body.template-book_view .slideshow img.zoomed {
+body.template-book_view .slideshow img.zoomed,
+body.template-instrument_view .slideshow img.zoomed {
     position: absolute;
     top: 0;
     left: 0;
 }
 
 /* MOBILE IMPROVEMENTS */
+body.template-content_view .slick-slideshow {
+    height: 100% !important;
+}
 
 
 @media (max-width: 480px) {
+    #slickslideshow.fullscreen .slick-slide img {
+        height: auto !important;
+    }
 
+    body.template-content_view .slideshow {
+        height: 274px;
+    }
+
+    #search-results {
+        padding-top: 30px;
+    }
 }
 
+@media (min-width: 481px) and (max-width: 767px) {
+    body.template-content_view .slideshow {
+        height: 438px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    body.template-content_view .slideshow {
+        height: 565px;
+    }
+}
+
+@media (max-width: 991px) {
+    #slideshow-controls .count-description {
+        display:none !important;
+    }
+
+    .portaltype-object #slideshow-controls .btn {
+        width: 25%;
+        opacity: 1 !important;
+    }
+
+    body.portaltype-portlet-page #slideshow-controls .btn {
+        width: 33%;
+        opacity: 1 !important;
+    }
+
+    body.template-content_view #slideshow-controls .btn {
+        width: 33%;
+        opacity: 1 !important;
+    }
+
+    body.template-content_view .slick-slideshow {
+        height: 100% !important;
+    }
+
+    body.template-content_view #parent-fieldname-text-dates {
+        padding-top: 35px;
+    }
+
+    body.template-content_view #parent-fieldname-text {
+        padding-top: 10px;
+    }
+    
+    .slideshowWrapper:not(.moved) .slick-next, .slideshowWrapper:not(.moved) .slick-prev, .slideshowWrapper:not(.moved) .wrap-next, .slideshowWrapper:not(.moved) .wrap-prev {
+        display: block;
+        opacity: 1 !important;
+    }
+
+    body.template-content_view #slideshow-controls, body.portaltype-portlet-page #slideshow-controls {
+        height: 50px;
+    }
+
+    body.template-content_view #slideshow-controls .actions-div a .fa,
+    body.portaltype-portlet-page #slideshow-controls .actions-div a .fa  {
+        font-size: 1.000em !important;
+        line-height: 36px !important;
+    }
+    
+}
+
+body.template-instrument_view .actions-div {
+    display: block !important;
+}
 
 
 /* @group Data tables */
