@@ -198,9 +198,12 @@ $(document).ready(function() {
 
   
   $(".play-btn").click(function() {
-    /*var currentSlide = slickSlideshow.$obj.slickCurrentSlide();*/
-    /*var $slide = $(slickSlideshow.$obj.getSlick().$slides[currentSlide]);*/
-    $slide = slickSlideshow.$obj;
+    if (!$("body").hasClass('template-instrument_view')) {
+      var currentSlide = slickSlideshow.$obj.slickCurrentSlide();
+      var $slide = $(slickSlideshow.$obj.getSlick().$slides[currentSlide]);
+    } else {
+      $slide = slickSlideshow.$obj;
+    }
 
     var $playBtn = $(this);
 
