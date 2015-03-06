@@ -3,6 +3,7 @@
     tal:define="collection_url view/collection_url;
                 plone_view context/@@plone;
                 collection_item view/collection;
+                collection_id collection_item/UID;
                 toLocalizedTime nocall:plone_view/toLocalizedTime;
                 viewActions here/portal_properties/site_properties/typesUseViewActionInListings|python:();
                 "
@@ -20,8 +21,6 @@
     <div class="container-fluid" id="row-items">
         <tal:collection tal:repeat="item view/results">
         
-       
-
         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"
             tal:define="oddrow repeat/item/odd;
                         useView python:item.portal_type in viewActions;
@@ -41,9 +40,8 @@
 
             <div class="thumbnail">
                   <div class="thumb-wrapper">
-                    
                     <!-- IMAGE -->
-                    <a class="thumb-image" tal:condition="python: (item.hasMedia or item.portal_type == 'Image')" href="" tal:attributes="href item_link"
+                    <a class="thumb-image" tal:condition="python: (item.hasMedia or item.portal_type == 'Image')" href="" tal:attributes="href python: item_link+'?collection_id='+collection_id if collection_item != None and item_type == 'Object' else item_link"
                       tal:define="item_img python:view.getImageObject(item)">
                       <img tal:define="images item_img/@@images;
                                          scale python: images.scale('image', scale='mini')"

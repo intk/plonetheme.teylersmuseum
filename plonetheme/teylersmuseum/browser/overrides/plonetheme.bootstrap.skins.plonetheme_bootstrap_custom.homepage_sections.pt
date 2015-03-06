@@ -74,7 +74,7 @@
                 </tal:navitem>
                 </metal:main>
             </ul>
-             <form class="navbar-form" role="search" action="/@@search">
+             <form class="navbar-form" role="search" tal:attributes="action python: '/'+context.language+'/@@search'">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search" name="SearchableText" id="srch-term" 
                         i18n:attributes="title title_search_site;

@@ -295,16 +295,19 @@ class CommonBrowserView(BrowserView):
             return None
     
     def trimText(self, text, limit, strip=False):
-        if strip:
-            text = self.stripTags(text)
-    
-        if len(text) > limit: 
-            res = text[0:limit]
-            lastspace = res.rfind(" ")
-            res = res[0:lastspace] + " ..."
-            return res
+        if text != None:
+            if strip:
+                text = self.stripTags(text)
+        
+            if len(text) > limit: 
+                res = text[0:limit]
+                lastspace = res.rfind(" ")
+                res = res[0:lastspace] + " ..."
+                return res
+            else:
+                return text
         else:
-            return text
+            return ""
             
     def stripTags(self, text):
         return re.sub('<[^<]+?>', '', text)

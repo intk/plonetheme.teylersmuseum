@@ -305,11 +305,11 @@
                                                             </a>
                                                         </h2>
                                                         
-                                                        <div class="effectiveDate" tal:condition="python: item.portal_type == 'Press Kit' and item.getObject().getEffectiveDate() is not None">
+                                                        <!--<div class="effectiveDate" tal:condition="python: item.portal_type == 'Press Kit' and item.getObject().getEffectiveDate() is not None">
                                                             <span tal:content="python:item.getObject().getEffectiveDate().strftime('%A %d %B %Y')" tal:omit-tag="">Thursday 10 January</span>
                                                         </div>
-                                                        
-                                                      <div tal:replace="structure python: view.getFormattedEventDate(item.getObject())"></div>
+                                                      
+                                                      <div tal:replace="structure python: view.getFormattedEventDate(item.getObject())"></div>-->
                                                     
                                                       <div class="description">
                                                             <span tal:condition="python:item.Description() != '' " tal:replace="python:item.Description()"></span>
