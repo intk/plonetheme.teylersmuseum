@@ -807,6 +807,21 @@ body.portaltype-portlet-page #content-core .thumbnail a {
     line-height: 35px;
 }
 
+body:not(.template-folder_contents):not(.template-sharing):not(.template-usergroup-groupprefs) .portletSearch dt.portletHeader {
+    font-size: 1.000em !important;
+}
+
+#content-core .portletHeader .tile {
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.250em;
+    color: #999999;
+    margin: 0px;
+    letter-spacing: 0.05em;
+    line-height: 35px;
+}
+
 #content-core .portletMailChimp input {
     border: 0px;
     padding-left: 20px;
@@ -959,6 +974,14 @@ body.portaltype-portlet-page #portlet_bodytext .get-in-contact {
     padding-bottom: 95px;
 }
 
+#content div[id*='parent-fieldname-formEpilogue'], .pfg-form {
+    padding-top: 30px;
+    padding-left: 370px;
+    padding-right: 370px;
+    line-height: 30px;
+    padding-bottom: 95px;
+}
+
 #content-core div[id*='parent-fieldname-text'] ul, #content-core div[id*='parent-fieldname-text'] ol {
     margin-bottom: 30px;
     font-size: 1.125em !important;
@@ -986,6 +1009,18 @@ body.portaltype-portlet-page #portlet_bodytext .get-in-contact {
     color: #D75745 !important;
 }
 
+#content div[id*='parent-fieldname-formEpilogue'] h2, .pfg-form h2 {
+    font-family: 'Merriweather', serif !important;
+    font-weight: 700;
+    font-size: 1.875em;
+    text-transform: none !important;
+    letter-spacing: 0.05em;
+    margin-bottom: 25px;
+    color: #D75745 !important;
+}
+
+
+
 #content-core div[id*='parent-fieldname-text'] h3, #content div[id*='parent-fieldname-formPrologue'] h3, .pfg-form h3,
 #content-core dd.portletItem h3 {
     letter-spacing: 0.05em;
@@ -999,6 +1034,26 @@ body.portaltype-portlet-page #portlet_bodytext .get-in-contact {
 
 #content-core div[id*='parent-fieldname-text'] h4, #content div[id*='parent-fieldname-formPrologue'] h4, .pfg-form h4,
 #content-core dd.portletItem h4 {
+    letter-spacing: 0.05em;
+    font-family: 'Merriweather', serif !important;
+    font-weight: 700;
+    font-size: 1.260em !important;
+    color: #D75745 !important;
+    margin-bottom: 25px;
+    text-transform: none !important;
+}
+
+#content div[id*='parent-fieldname-formEpilogue'] h3, .pfg-form h3 {
+    letter-spacing: 0.05em;
+    font-family: 'Merriweather', serif !important;
+    font-weight: 700;
+    font-size: 1.500em !important;
+    color: #D75745 !important;
+    margin-bottom: 25px;
+    text-transform: none !important;
+}
+
+#content div[id*='parent-fieldname-formEpilogue'] h4 {
     letter-spacing: 0.05em;
     font-family: 'Merriweather', serif !important;
     font-weight: 700;
@@ -1161,11 +1216,19 @@ body.template-login_form #content-core {
 
 /* CONTACT PAGE */
 
-#content div[id*='parent-fieldname-formPrologue'] {
+#content div[id*='parent-fieldname-formEpilogue'] {
     background-color: #ffffff;
 }
 
-#content div[id*='parent-fieldname-formPrologue'] {
+#content div[id*='parent-fieldname-formEpilogue'] {
+    padding-bottom: 35px !important;
+}
+
+#content div[id*='parent-fieldname-formEpilogue'] {
+    background-color: #ffffff;
+}
+
+#content div[id*='parent-fieldname-formEpilogue'] {
     padding-bottom: 35px !important;
 }
 
@@ -1246,6 +1309,20 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 #content div[id*='parent-fieldname-formPrologue'] h3 ~ p {
+    margin-bottom: 0px;
+}
+
+
+
+#content div[id*='parent-fieldname-formEpilogue'] p {
+    font-size: 1.000em;
+}
+
+#content div[id*='parent-fieldname-formEpilogue'] h3 {
+    margin-top: 35px !important;
+}
+
+#content div[id*='parent-fieldname-formEpilogue'] h3 ~ p {
     margin-bottom: 0px;
 }
 
@@ -2744,6 +2821,16 @@ body.portaltype-media-person .social-viewlet {
         padding-bottom: 35px;
         font-size: 1.000em;
     }
+
+    
+    #content div[id*='parent-fieldname-formEpilogue'] {
+        padding-left: 20px;
+        padding-right: 20px;
+        line-height: 30px;
+        padding-bottom: 35px;
+        font-size: 1.000em;
+    }
+
     #content-core div[id*='parent-fieldname-text'] p, #content-core dd.portletItem p {
         width: 100%;
     }
@@ -2771,7 +2858,7 @@ body.portaltype-media-person .social-viewlet {
 @media (min-width: 481px) and (max-width: 767px) {
 
     #content-core div[id*='parent-fieldname-text'], #content div[id*='parent-fieldname-formPrologue'], .pfg-form,
-    #content-core dd.portletItem {
+    #content-core dd.portletItem, #content div[id*='parent-fieldname-formEpilogue'] {
         padding-left: 40px;
         padding-right: 40px;
         line-height: 30px;
@@ -2804,7 +2891,7 @@ body.portaltype-media-person .social-viewlet {
 @media (min-width: 768px) and (max-width: 991px) {
 
     #content-core div[id*='parent-fieldname-text'], #content div[id*='parent-fieldname-formPrologue'], .pfg-form,
-    #content-core dd.portletItem {
+    #content-core dd.portletItem, #content div[id*='parent-fieldname-formEpilogue'] {
         padding-left: 40px;
         padding-right: 40px;
         line-height: 30px;
@@ -2847,7 +2934,7 @@ body.portaltype-media-person .social-viewlet {
 
 @media (min-width: 992px) and (max-width: 1199px) {
 
-    #content div[id*='parent-fieldname-formPrologue'], .pfg-form {
+    #content div[id*='parent-fieldname-formPrologue'], .pfg-form, #content div[id*='parent-fieldname-formEpilogue'] {
         padding-top: 50px;
         padding-left: 26%;
         padding-right: 26%;
@@ -2912,6 +2999,14 @@ body.portaltype-media-person .social-viewlet {
 
     #content div[id*='parent-fieldname-formPrologue'], .pfg-form {
         padding-top: 50px;
+        padding-left: 26%;
+        padding-right: 26%;
+        line-height: 30px;
+        padding-bottom: 65px;
+    }
+
+    #content div[id*='parent-fieldname-formEpilogue'] {
+        padding-top: 0px;
         padding-left: 26%;
         padding-right: 26%;
         line-height: 30px;
@@ -3187,6 +3282,81 @@ body.portaltype-media-person .social-viewlet {
     font-weight: 400;
 }
 
+#content-core .portletItem input {
+    border: 2px solid #f5f5f5;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-family: "Merriweather", serif;
+    font-size: 1.00em;
+    line-height: 26px;
+    color: #666666;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+#content-core .portletItem .btn {
+    background: #D75745;
+    font-family: "Raleway", sans-serif !important;
+    font-weight: 700;
+    color: #ffffff !important;
+    font-size: 1.000em !important;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #D75745;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 30px;
+    padding: 10px 18px;
+    -webkit-font-smoothing: antialiased;
+}
+
+#content-core .portletItem .btn:hover {
+    background: #000000;
+    font-family: "Raleway", sans-serif !important;
+    font-weight: 700;
+    color: #ffffff !important;
+    font-size: 1.000em !important;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 30px;
+    -webkit-font-smoothing: antialiased;
+    padding: 10px 18px;
+}
+
+#content-core .portletItem .searchField {
+    width: 68%;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+#content-core .portletItem .searchButton {
+    display: block;
+    margin: 0 auto;
+}
+
+#content-core .portletSearch .portletFooter {
+    display: none;
+}
+
+#content-core .portletSearch .portletItem {
+    padding-bottom: 0px;
+}
+
+dl.portletSearch {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+#content-core dl.portletSearch dt.portletHeader {
+    padding-top: 60px;
+    margin-top: 0px;
+}
+
+
 /* SLIDESHOW MARGINS */
 @media (max-width: 480px) {
     
@@ -3201,6 +3371,24 @@ body.portaltype-media-person .social-viewlet {
     #portal-languageselector {
         padding-left: 0px;
     }
+
+    #content-core .portletItem .searchField {
+        width: 100%;
+        padding-left: 5%;
+        padding-right: 0px;
+        margin-left: 0px;
+    }
+
+    #content-core .portletItem .searchButton {
+        margin: 0;
+    }
+
+    #content-core .portletItem .searchField {
+        width: 100%;
+        padding-left: 5%;
+        padding-right: 0px;
+        margin-left: 0px;
+    }
 }
 /* TABLET */
 
@@ -3208,17 +3396,33 @@ body.portaltype-media-person .social-viewlet {
     #portal-languageselector {
         padding-left: 0px;
     }
+
+    #content-core .portletSearch dt.portletHeader {
+        text-align: center !important;
+    }
+
+    
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
     #portal-languageselector {
         padding-left: 0px;
     }
+
+    #content-core .LSBox {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
 }
 
 @media (min-width: 1200px) {
     #portal-languageselector {
         padding-left: 0px;
+    }
+
+    #content-core .LSBox {
+        padding-left: 100px;
+        padding-right: 100px;
     }
 }
 
@@ -5097,11 +5301,11 @@ header.fullscreen {
         opacity: 1 !important;
     }
 
-    #content-core div[id*='parent-fieldname-text'], #content div[id*='parent-fieldname-formPrologue'], .pfg-form {
+    #content-core div[id*='parent-fieldname-text'], #content div[id*='parent-fieldname-formPrologue'], .pfg-form, #content div[id*='parent-fieldname-formEpilogue'] {
         padding-top: 180px;
     }
 
-    body.portaltype-product #content-core div[id*='parent-fieldname-text'], #content div[id*='parent-fieldname-formPrologue'], .pfg-form {
+    body.portaltype-product #content-core div[id*='parent-fieldname-text'], #content div[id*='parent-fieldname-formPrologue'], .pfg-form, #content div[id*='parent-fieldname-formEpilogue'] {
         padding-top: 20px;
     }
 }
@@ -6632,6 +6836,10 @@ div.buyable {
     padding-bottom: 60px;
 }
 
+#fieldset-default {
+    height: auto !important;
+}
+
 /* BACKEND */
 .field.pfgHidden {
     margin-bottom: 0px !important;
@@ -7107,6 +7315,11 @@ body.template-edit.portaltype-object #content-core {
 
 body.template-edit.portaltype-object #portal-logo img {
     content: url('++resource++plonetheme.bootstrapModern.css/teylers_black.png');
+}
+
+
+.slideshow .first-slide {
+    display: none;
 }
 
 /* BOOK VIEW */
