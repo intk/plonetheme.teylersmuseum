@@ -11,6 +11,10 @@ function slideMouseMove() {
 
       if (slickSlideshow.$obj.slickCurrentSlide() == 0) {
         $("body.portaltype-portlet-page .documentDescription, body.template-content_view .documentDescription, body.template-content_view .documentFirstHeading").fadeIn();
+        
+        if (slickSlideshow.playing != true) {
+          $(".video-play-btn").css("opacity", 0.75);
+        }
         if ($(".slideshowWrapper").hasClass("moved")) {
           $(".slideshowWrapper").removeClass("moved");
         }
@@ -65,7 +69,7 @@ $(document).ready(function() {
   $("#portal-languageselector").show(100);
 
   /* Ignores initial popstate */
-  if (slickSlideshow.$obj != undefined) {
+  /*if (slickSlideshow.$obj != undefined) {
     if (slickSlideshow.isCollection == false) {
       setTimeout(function () {
         window.addEventListener( 'popstate', function() {
@@ -79,7 +83,7 @@ $(document).ready(function() {
         }, false );
       }, 10000);
     }
-  }
+  }*/
   
   /* FASTCLICK */
   $(function() {
@@ -118,9 +122,15 @@ $(document).ready(function() {
       if ($("#slickslideshow").hasClass("fullscreen")) {
         $("#slideshow-controls").fadeOut();
         $(".wrap-prev, .wrap-next").css("opacity", 0);
+        $(".video-play-btn").css("opacity", 0);
       }
     });
   }
+
+  $(".video-play-btn").click(function() {
+    $(".slick-active.video-slide img.overlay-image").hide();
+    $(".video-play-btn").hide();
+  });
 
   $("#sort_on").on('change', function(e) {
     var optionSelected = $("option:selected", this);
@@ -208,6 +218,7 @@ $(document).ready(function() {
     var $playBtn = $(this);
 
     if ($playBtn.hasClass('playing')) {
+      console.log("pause");
       $slide.slickPause();
       $playBtn.removeClass('playing');
       $playBtn.addClass('paused');
@@ -216,6 +227,7 @@ $(document).ready(function() {
       $(".slideshow").removeClass('playing');
       $(".slideshow").addClass('paused');
     } else {
+      console.log("play");
       $slide.slickPlay();
       $playBtn.removeClass('paused');
       $playBtn.addClass('playing');

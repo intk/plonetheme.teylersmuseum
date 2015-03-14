@@ -180,7 +180,6 @@ ol {
     clear: both;
 }
 
-
 body:not(.template-folder_contents) #content table,
 body:not(.template-sharing) #content table,
 body:not(.template-usergroup-groupprefs) #content table {
@@ -193,7 +192,6 @@ body:not(.template-usergroup-groupprefs) #content table {
     font-size: 1.000em;
     color: #242424;
     line-height: 33px;
-    text-decoration: underline;
     -moz-text-decoration-color: #242424; /* Code for Firefox */
     text-decoration-color: #242424;
 }
@@ -204,7 +202,6 @@ body:not(.template-usergroup-groupprefs) #content table {
     font-size: 1.000em;
     color: #242424;
     line-height: 30px;
-    text-decoration: underline;
     -moz-text-decoration-color: #242424; /* Code for Firefox */
     text-decoration-color: #242424;
 }
@@ -353,8 +350,8 @@ body.portaltype-portlet-page #parent-fieldname-description {
     padding-top: 40px;
 }
 
-#content a:link {
-    text-decoration: none;
+.portletHeader a:link {
+    text-decoration: none !important;
 }
 
 #parent-fieldname-title, .documentFirstHeading {
@@ -363,8 +360,6 @@ body.portaltype-portlet-page #parent-fieldname-description {
     padding-top: 198px;
     margin-bottom: 7px;
 }
-
-
 
 #parent-fieldname-description, .documentDescription {
     padding-left: 20px;
@@ -972,6 +967,7 @@ body.portaltype-portlet-page #portlet_bodytext .get-in-contact {
     padding-right: 370px;
     line-height: 30px;
     padding-bottom: 95px;
+    /*background-color: #ffffff;*/
 }
 
 #content div[id*='parent-fieldname-formEpilogue'], .pfg-form {
@@ -1276,17 +1272,34 @@ input[type="radio"], input[type="checkbox"] {
 #content legend {
     padding-left: 0px;
     font-family: 'Merriweather', serif;
-    font-weight: 700;
+    font-weight: 400;
     font-size: 1em;
     margin-bottom: 0;
 }
 
-#content .pfg-form select.form-control {
+#content div:not(.plone_jscalendar) .pfg-form select.form-control {
     margin-left: 20px;
 }
 
 #content .pfg-form .formControls {
     margin-left: 0;
+}
+
+.ArchetypesMultiSelectionValue label,
+.ArchetypesSelectionWidget label {
+    font-weight: normal;
+}
+
+.label:not(.formQuestion) {
+    font-weight: normal !important;
+}
+
+label {
+    font-weight: normal;
+}
+
+.formQuestion label {
+    font-weight: bold;
 }
 
 #content .pfg-form textarea {
@@ -3003,6 +3016,7 @@ body.portaltype-media-person .social-viewlet {
         padding-right: 26%;
         line-height: 30px;
         padding-bottom: 65px;
+        /*background-color: #ffffff;*/
     }
 
     #content div[id*='parent-fieldname-formEpilogue'] {
@@ -3277,7 +3291,7 @@ body.portaltype-media-person .social-viewlet {
     box-shadow: none;
     font-family: "Merriweather", serif;
     font-size: 1.00em;
-    line-height: 26px;
+    line-height: 30px;
     color: #666666;
     font-weight: 400;
 }
@@ -3288,7 +3302,7 @@ body.portaltype-media-person .social-viewlet {
     box-shadow: none;
     font-family: "Merriweather", serif;
     font-size: 1.00em;
-    line-height: 26px;
+    line-height: 30px;
     color: #666666;
     font-weight: 400;
     margin-bottom: 20px;
@@ -3306,7 +3320,7 @@ body.portaltype-media-person .social-viewlet {
     text-transform: uppercase;
     letter-spacing: 0.05em;
     border-radius: 30px;
-    padding: 10px 18px;
+    padding: 10px 28px;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -3323,7 +3337,7 @@ body.portaltype-media-person .social-viewlet {
     letter-spacing: 0.05em;
     border-radius: 30px;
     -webkit-font-smoothing: antialiased;
-    padding: 10px 18px;
+    padding: 10px 28px;
 }
 
 #content-core .portletItem .searchField {
@@ -3702,6 +3716,10 @@ body.portaltype-formthankspage #content blockquote > * {
 }
 
 #content-core div[id*='parent-fieldname-text'] a:hover {
+    color: #666666 !important;
+}
+
+a:hover {
     color: #666666 !important;
 }
 
@@ -6186,7 +6204,20 @@ body.template-search #search-page-header .documentFirstHeading, body.template-se
   outline: none !important;
 }
 
+input[type="submit"]:focus {
+    border-color: none !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    outline: none !important;
+}
+
 .btn-default:focus {
+    border-color: none !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+}
+
+.btn:focus {
     border-color: none !important;
     box-shadow: none !important;
     -webkit-box-shadow: none !important;
@@ -6651,8 +6682,6 @@ div.buyable {
     text-decoration: none !important;
 }
 
-
-
 /* WEBSHOP SUCCESS PAGE */
 #content a.payment_button {
     background: #D75745;
@@ -6838,6 +6867,35 @@ div.buyable {
 
 #fieldset-default {
     height: auto !important;
+}
+
+#formfield-form-widgets-IVersionable-changeNote {
+    top: 0px !important;
+}
+
+div[id='IVersionable.changeNote'] {
+    display: none !important;
+}
+
+div[id='IVersionable.changeNote'] .translator-widget {
+    display: none !important;
+}
+
+#babel-edit #text .value {
+    height: 918px !important;
+}
+
+#babel-edit #text .value .richTextWidget {
+    height: 100% !important;
+    overflow: scroll;
+}
+
+.slideshow img.first-image {
+    display: none;
+}
+
+.slideshow img.first-loaded {
+    display: block !important;
 }
 
 /* BACKEND */
@@ -7418,6 +7476,60 @@ body.template-content_view .slick-slideshow {
 
 body.template-instrument_view .actions-div {
     display: block !important;
+}
+
+
+body:not(.userrole-authenticated) .slick-init .video-slide {
+    position: relative;
+}
+
+body:not(.userrole-authenticated) .slick-init .video-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    background: url("++resource++plonetheme.bootstrapModern.css/play.svg") no-repeat;
+    background-size: 100% 100%;
+    z-index: 10;
+    margin-left: -50px;
+    margin-top: -50px;
+    opacity: 0.75;
+    transition: opacity 0.2s ease-in;
+    cursor: pointer;
+}
+
+body:not(.userrole-authenticated) .slick-init .video-play-btn:hover {
+    opacity: 1 !important;
+    transition: opacity 0.2s ease-in;
+    cursor: pointer;
+}
+
+body.userrole-authenticated .video-play-btn {
+    display: none;
+}
+
+body.template-collective-portlet-customsearch-search #portal-columns,
+body.template-portlets-search #portal-columns {
+    padding-top: 160px;
+}
+
+body.template-collective-portlet-customsearch-search .documentFirstHeading,
+body.template-portlets-search .documentFirstHeading {
+    display: none;
+}
+
+body.template-collective-portlet-customsearch-search .documentDescription,
+body.template-portlets-search .documentDescription {
+    display: none;
+}
+
+.portaltype-formfolder #content a:link {
+    text-decoration: underline !important;
+}
+
+.portaltype-formfolder #content a {
+    text-decoration: underline !important;
 }
 
 
