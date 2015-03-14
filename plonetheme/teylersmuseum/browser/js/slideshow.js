@@ -158,7 +158,12 @@ slickSlideshow.change_height = function(img) {
 	img.attr("style", "height:100%; width: auto;");
 	img_elem = img[0];
 
-	var w = img_elem.clientWidth;
+	if (img_elem != undefined) {
+		var w = img_elem.clientWidth;
+	} else {
+		var w = img.width();
+	}
+	
 	return w;
 }
 
@@ -166,7 +171,12 @@ slickSlideshow.change_width = function(img) {
 	img.attr("style", "width:100%; height: auto;");
 	var img_elem = img[0];
 
-	var h = img_elem.clientHeight;
+	if (img_elem != undefined) {
+		var h = img_elem.clientHeight;
+	} else {
+		var h = img.height();
+	}
+
 	return h;
 }
 
