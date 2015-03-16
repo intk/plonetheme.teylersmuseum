@@ -33,8 +33,26 @@
         <viewlet name="plonetheme.bootstrapModern.footer" insert-after="*"/>
     </order>
 
-    <order manager="plone.portalheader" skinname="*">
-        <viewlet name="plonetheme.bootstrapModern.sections" insert-before="*"/>
+    <hidden manager="plone.contentviews" skinname="*">
+        <viewlet name="plone.contentviews" />
+        <viewlet name="plone.contentactions" />
+    </hidden>
+
+    <hidden manager="plone.abovecontentbody" skinname="*">
+        <viewlet name="bda.plone.shop.buyable" />
+    </hidden>
+    
+    <order manager="plone.abovecontentbody" skinname="*">
+        <viewlet name="plone.contentviews" />
+        <viewlet name="plone.contentactions" />
+    </order>
+
+    <order manager="plone.belowcontentbody" skinname="*">
+         <viewlet name="bda.plone.shop.buyable" insert-before="*"/>
+    </order>
+
+    <order manager="plone.abovecontenttitle" skinname="*">
+         <viewlet name="plone.path_bar" insert-before="*"/>
     </order>
 
 </object>

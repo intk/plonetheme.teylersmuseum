@@ -25,6 +25,9 @@ from plone.multilingual.interfaces import ITG
 from plone.multilingual.interfaces import NOTG
 from plone.app.multilingual.browser.selector import getPostPath, addQuery
 
+from zope.component import getUtility
+from plone.registry.interfaces import IRegistry
+
 SHOP_AVAILABLE = True
 
 try:
@@ -447,6 +450,23 @@ class SearchView(CommonBrowserView, Search):
     """
     Adding to Search view
     """
+
+    def getSearchFilters(self):
+        searchFilters = []
+        registry = getUtility(IRegistry)
+        searchFiltersRecord = registry['searchfilters.folders']
+        filters = list(searchFiltersRecord)
+
+        catalog = getToolByName(self.context, 'portal_catalog')
+
+        for uid in filters:
+            search_results = catalog.queryCatalog({'UID':uid})
+            if len(search_results) > 0:
+                search_filter = search_results[0]
+                item = search_filter.getObject()
+                searchFilters.append({"name": item.Title(), "path": '/'.join(item.getPhysicalPath())})
+
+        return searchFilters
     
 class PagePortletView(ViewletBase):
     """

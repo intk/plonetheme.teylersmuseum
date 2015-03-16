@@ -121,8 +121,9 @@
 
                                   <div class="field"
                                        tal:define="portal_types portal/portal_types;
+                                                   searchfilters view/getSearchFilters;
                                                    types_list view/types_list;
-                                                   all_checked python:(len(types_list) == len(request.get('portal_type', []))) or first_call;
+                                                   all_checked python:(len(searchfilters) == len(request.get('path', []))) or first_call;
                                                    toggle_select_state python:all_checked and 'true' or 'false';">
 
                                       <div class="formHelp"></div>
@@ -136,7 +137,7 @@
                                                  class="noborder"
                                                  checked="checked"
                                                  tal:attributes="checked python:all_checked and 'checked' or '';
-                                                                 onchange string:javascript:toggleSelect(this, 'portal_type:list', ${toggle_select_state});"/>
+                                                                 onchange string:javascript:toggleSelect(this, 'path:list', ${toggle_select_state});"/>
 
                                           <label for="pt_toggle"
                                                  i18n:translate="label_toggle"
@@ -144,10 +145,12 @@
                                           </label>
                                       </span>
                                       <br />
-                                      <div style="float:left; margin-right: 2em;"
+                                      
+                                      <!-- <div style="float:left; margin-right: 2em;"
                                            tal:define="typeLists python:context.createMultiColumnList(types_list, numCols=2, sort_on='self');"
                                            tal:attributes="style python:isRTL and 'float: right;; margin-left: 2em;;' or 'float: left;; margin-right: 2em;;';"
                                            tal:repeat="sublist typeLists">
+                                          
                                           <tal:items repeat="type sublist">
                                               <input type="checkbox"
                                                      name="portal_type:list"
@@ -164,12 +167,26 @@
                                                      />
                                               <br />
                                           </tal:items>
+
+                                      </div>-->
+
+                                      <div style="float:left; margin-right: 2em;">
+                                          <tal:items repeat="filter searchfilters">
+                                            <input type="checkbox" name="path:list" checked="checked" tal:attributes="value filter/path;
+                                              id string:folder_${filter/name};
+                                              checked python:((filter.get('path') in request.get('path', [])) or first_call) and 'checked' or '';"/>
+                                            <label for=""
+                                                tal:attributes="for string:folder_${filter/name}"
+                                                tal:content="filter/name"
+                                              />
+                                              <br/>
+                                          </tal:items>
                                       </div>
                                       <div class="visualClear"><!-- --></div>
                                   </div>
                               </fieldset>
 
-                              <fieldset class="noborder">
+                              <!--<fieldset class="noborder">
 
                                   <legend i18n:translate="label_new_items_since">New items since</legend>
 
@@ -227,8 +244,8 @@
                                              i18n:attributes="value label_search;"/>
                                   </div>
 
-                                  <div class="clearfix"><!-- --></div>
-                              </fieldset>
+                                  <div class="clearfix"></div>
+                              </fieldset>-->
 
                           </div>
                       </dd>

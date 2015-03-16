@@ -92,6 +92,9 @@ body.template-search #ajax-spinner {
     margin-left: -33px !important;
     width: 66px !important;
     height: 66px !important;
+    z-index: 10000;
+    background-position: center center;
+    left: 50%;
 }
 
 h1 {
@@ -1436,7 +1439,7 @@ label {
 }
 
 #search-page-header #search-term {
-    color: #000000;
+    color: #ffffff;
     text-decoration: underline;
     -moz-text-decoration-color: #000000; /* Code for Firefox */
     text-decoration-color: #000000;
