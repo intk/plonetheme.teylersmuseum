@@ -27,6 +27,7 @@ from plone.app.multilingual.browser.selector import getPostPath, addQuery
 
 from zope.component import getUtility
 from plone.registry.interfaces import IRegistry
+from collective.leadmedia.interfaces import ICanContainMedia
 
 SHOP_AVAILABLE = True
 
@@ -555,6 +556,33 @@ class CollectionPortlet(base.Renderer, FolderListing):
     _template = ViewPageTemplateFile("alternative_templates/portletcollection.pt")
     render = _template
 
+class ContentView(BrowserView):
+    def getFBdetails(self):
+        item = self.context
+        
+        state = getMultiAdapter(
+                (item, self.request),
+                name=u'plone_context_state')
+
+        obj = ICanContainMedia(item)
+
+        details = {}    
+        details["title"] = item.Title()
+        details["type"] = "article"
+        details["site_name"] = "Teylers Museum"
+        details["url"] = item.absolute_url()
+        details["description"] = item.Description()
+        details["double_image"] = ""
+        details["image"] = ""
+
+        if obj.hasMedia():
+            image = obj.getLeadMedia()
+            details["image"] = image.absolute_url()
+        else:
+            details["image"] = ""
+
+        return details
+
 
 class NumberOfResults(CommonBrowserView):
     """
@@ -601,4 +629,5 @@ class get_image_resolution(BrowserView):
         
         jsonStr = json.dumps(result)
         return jsonStr
+
 

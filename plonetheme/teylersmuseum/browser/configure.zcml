@@ -129,6 +129,7 @@
       name="content_view"
       for="*"
       layer=".interfaces.IThemeSpecific"
+      class=".views.ContentView"
       template="templates/content_view.pt"
       permission="zope2.View"
       menu="plone_displayviews"
@@ -184,6 +185,15 @@
     />
 
     <browser:page
+      name="get_collection_items"
+      for="*"
+      class=".slideshow.CollectionSlideshow"
+      template="templates/get_collection_items.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope2.View"
+    />
+
+    <browser:page
       name="get_next_objects"
       for="*"
       class=".slideshow.get_nav_objects"
@@ -197,6 +207,15 @@
       for="*"
       class=".slideshow.get_nav_objects"
       template="templates/get_prev_objects.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope2.View"
+    />
+
+    <browser:page
+      name="get_slideshow_items"
+      for="*"
+      class=".slideshow.get_nav_objects"
+      template="templates/get_slideshow_items.pt"
       layer=".interfaces.IThemeSpecific"
       permission="zope2.View"
     />
