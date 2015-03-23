@@ -269,7 +269,7 @@ class get_nav_objects(BrowserView):
 
         if object.portal_type == 'Object':
             for name, field in getFieldsInOrder(schema):
-                if name not in ["text", "object_tags"]:
+                if name not in ["text", "object_tags", "book_title"]:
                     value = getattr(object, name, '')
                     if value != None and value != '':
                         if name in ['technique', 'artist', 'material', 'object_type', 'object_category', 'publisher', 'author']:
@@ -284,9 +284,9 @@ class get_nav_objects(BrowserView):
                                 value = _value
 
                         _title = MessageFactory(field.title)
-                        new_attr = {"title": self.context.translate(_title), "value": value}
+                        new_attr = {"title": self.context.translate(_title), "value": value, "name": name}
                         
-                        if name in ['artist']:
+                        if name in ['artist', 'author']:
                             object_schema.insert(0, new_attr)
                         else:
                             object_schema.append(new_attr)
@@ -294,12 +294,23 @@ class get_nav_objects(BrowserView):
             object_title = getattr(object, 'title', '')
             new_attr = {'title': self.context.translate('Title'), "value": object_title}
 
-            if len(object_schema) > 1 and object_schema[0]['title'] == "Vervaardiger":
+            if len(object_schema) > 1 and object_schema[0]['name'] == "author":
+                if object_schema[1]['name'] == "illustrator":
+                    if object.book_title != '':
+                        new_attr = {'title': self.context.translate('Title'), "value": object.book_title}
+                        object_schema.insert(2, new_attr)
+                else:
+                    if object.book_title != '':
+                        new_attr = {'title': self.context.translate('Title'), "value": object.book_title}
+                        object_schema.insert(1, new_attr)
+
+            if len(object_schema) > 1 and object_schema[0]['name'] == "artist":
                 object_schema.insert(1, new_attr)
-            elif len(object_schema) > 1 and object_schema[0]['title'] != "Vervaardiger":
+            elif len(object_schema) > 1 and object_schema[0]['name'] != "artist" and object_schema[0]['name'] != "author":
                 object_schema.insert(0, new_attr)
-            else:
-                object_schema.append(new_attr)
+
+            obj_body = self.get_object_body(object)
+            object_schema.append({"title": "body", "value":obj_body})
         else:
             object_schema = []
 
@@ -561,6 +572,12 @@ class get_fields(BrowserView):
     Utils
     """
 
+    def get_object_body(self, object):
+        if hasattr(object, 'text') and object.text != None:
+            return object.text.output
+        else:
+            return ""
+
     def trim_white_spaces(self, text):
         if text != "" and text != None:
             if len(text) > 0:
@@ -615,7 +632,7 @@ class get_fields(BrowserView):
 
         if object.portal_type == 'Object':
             for name, field in getFieldsInOrder(schema):
-                if name not in ["text", "object_tags"]:
+                if name not in ["text", "object_tags", "book_title"]:
                     value = getattr(object, name, '')
                     if value != None and value != '':
                         if name in ['technique', 'artist', 'material', 'object_type', 'object_category', 'publisher', 'author']:
@@ -630,20 +647,33 @@ class get_fields(BrowserView):
                                 value = _value
 
                         _title = MessageFactory(field.title)
-                        new_attr = {"title": self.context.translate(_title), "value": value}
+                        new_attr = {"title": self.context.translate(_title), "value": value, "name": name}
                         
-                        object_schema.append(new_attr)
+                        if name in ['artist', 'author']:
+                            object_schema.insert(0, new_attr)
+                        else:
+                            object_schema.append(new_attr)
             
             object_title = getattr(object, 'title', '')
             new_attr = {'title': self.context.translate('Title'), "value": object_title}
 
-            if len(object_schema) > 1 and (object_schema[0]['title'] == "Vervaardiger" or object_schema[0]['title'] == "Auteur"):
-                object_schema.insert(1, new_attr)
-            elif len(object_schema) > 1 and (object_schema[0]['title'] != "Vervaardiger" or object_schema[0]['title'] != "Auteur"):
-                object_schema.insert(0, new_attr)
-            else:
-                object_schema.append(new_attr)
+            if len(object_schema) > 1 and object_schema[0]['name'] == "author":
+                if object_schema[1]['name'] == "illustrator":
+                    if object.book_title != '':
+                        new_attr = {'title': self.context.translate('Title'), "value": object.book_title}
+                        object_schema.insert(2, new_attr)
+                else:
+                    if object.book_title != '':
+                        new_attr = {'title': self.context.translate('Title'), "value": object.book_title}
+                        object_schema.insert(1, new_attr)
 
+            if len(object_schema) > 1 and object_schema[0]['name'] == "artist":
+                object_schema.insert(1, new_attr)
+            elif len(object_schema) > 1 and object_schema[0]['name'] != "artist" and object_schema[0]['name'] != "author":
+                object_schema.insert(0, new_attr)
+
+            obj_body = self.get_object_body(object)
+            object_schema.append({"title": "body", "value":obj_body})
         else:
             object_schema = []
 
@@ -673,7 +703,6 @@ class CollectionSlideshow(BrowserView):
 
     def get_collection_items(self):
         collection_items = []
-        print ""
         if self.context.portal_type == "Collection":
             collection_obj = self.context
             brains = collection_obj.queryCatalog(batch=False)

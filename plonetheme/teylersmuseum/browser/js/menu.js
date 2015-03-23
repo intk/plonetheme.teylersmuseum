@@ -1,7 +1,7 @@
 /* SVG SUPPORT */
 function supportsSvg() {
     return document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Shape", "1.1");
-}
+};
 
 function slideMouseMove() {
   if (slickSlideshow.$obj.getSlick() != undefined) {
@@ -38,7 +38,7 @@ function slideMouseMove() {
       }
     }
   }
-}
+};
 
 $(document).ready(function() {
   if ($("body.site-nl").length > 0) {
@@ -323,7 +323,7 @@ $(document).ready(function() {
         slickSlideshow.pauseCurrentSlide();
       }
     }
-  }
+  };
 
   $(".menu_wrapper").click(function() {
     toggleOverlay();

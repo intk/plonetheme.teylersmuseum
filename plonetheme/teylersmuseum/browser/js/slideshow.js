@@ -32,12 +32,12 @@ function isElementInViewport (el) {
     return (
         Math.abs(rect.top) <= $(el).height()
     );
-}
+};
 
 
 /* Slideshow specific */
 
-slickSlideshow.players = {}
+slickSlideshow.players = {};
 slickSlideshow.playing = false;
 slickSlideshow.youtube_ready = false;
 slickSlideshow.initiated_youtube = false;
@@ -69,7 +69,7 @@ slickSlideshow.onPlayerStateChange = function(iframeID) {
 			slickSlideshow.$obj.slickNext();
 		}
 	}
-}
+};
 
 slickSlideshow.createYTEvent = function(iframeID, first_slide) {
 	return function(event) {
@@ -81,7 +81,7 @@ slickSlideshow.createYTEvent = function(iframeID, first_slide) {
 			}
 		}
 	}
-}
+};
 
 slickSlideshow.pauseCurrentSlide = function() {
 	var curr = slickSlideshow.$obj.slickCurrentSlide();
@@ -94,11 +94,11 @@ slickSlideshow.pauseCurrentSlide = function() {
 			slide_player.pauseVideo();
 		}
 	}
-}
+};
 
 slickSlideshow.changeWrapperOpacity = function() {
 	$(".slideshowWrapper:before").css('opacity', 0);
-}
+};
 
 slickSlideshow.YT_ready = function() {
 	if (slickSlideshow.$obj.getSlick() != undefined) { 
@@ -114,7 +114,7 @@ slickSlideshow.YT_ready = function() {
 			});
 		});
 	}
-}
+};
 
 
 function onYouTubePlayerAPIReady() {
@@ -124,7 +124,7 @@ function onYouTubePlayerAPIReady() {
 			slickSlideshow.YT_ready();
 		}
 	}
-}
+};
 
 
 /* Responsive storytelling enhancement */
@@ -157,7 +157,7 @@ _logger.log = function(text) {
 	if (_logger.debug) {
 		console.log(text);
 	}
-}
+};
 
 slickSlideshow.change_height = function(img) {
 	img.attr("style", "height:100%; width: auto;");
@@ -174,7 +174,7 @@ slickSlideshow.change_height = function(img) {
 	}
 
 	return w;
-}
+};
 
 slickSlideshow.change_width = function(img) {
 	img.attr("style", "width:100%; height: auto;");
@@ -191,7 +191,7 @@ slickSlideshow.change_width = function(img) {
 	}
 
 	return h;
-}
+};
 
 slickSlideshow.resizeSlide = function() {
 	h = slickSlideshow.$obj.height();
@@ -251,7 +251,7 @@ slickSlideshow.resizeSlide = function() {
 			});
 		}
 	});
-}
+};
 
 slickSlideshow.resizeImages = function() {
 
@@ -317,12 +317,12 @@ slickSlideshow.resizeImages = function() {
 			});
 		}
 	});
-}
+};
 
 slickSlideshow.startPlayInstrument = function(currSlide) {
 	/*var slide = currSlide;
 	setTimeout(function() { currSlide.slickPlay(); }, 3000);*/
-}
+};
 
 slickSlideshow.resizeImage = function(current) {
 	var gap = slickSlideshow.gap;
@@ -392,7 +392,7 @@ slickSlideshow.resizeImage = function(current) {
 			}
 		});
 	}
-}
+};
 
 slickSlideshow.addSlideInIndex = function(slides, index) {
 	_logger.log("Add new bulk on index: "+index);
@@ -422,7 +422,7 @@ slickSlideshow.addSlideInIndex = function(slides, index) {
 	}
 
 	slickSlideshow.resizeSlide();
-}
+};
 
 slickSlideshow.toggle_play = function(playBtn, slide) {
     if (playBtn.hasClass('playing')) {
@@ -512,7 +512,7 @@ slickSlideshow.addNavigationSlides = function() {
 	}
 
 	return;
-}
+};
 
 slickSlideshow.getNavigationContent = function(query, object_id, init) {
 	var request_url = "get_nav_objects";
@@ -622,19 +622,19 @@ slickSlideshow.getNavigationContent = function(query, object_id, init) {
 		}
 	});
 
-}
+};
 
 slickSlideshow.updateFacebook = function(url) {
 	$(".fb-like").attr("data-href", url);
 	FB.XFBML.parse();
-}
+};
 
 slickSlideshow.updateTwitter = function(url, document_title) {
 	$(".twitter-row").html('');
 	var structure = '<a href="https://twitter.com/share" class="twitter-share-button" data-url="'+url+'" data-text="'+document_title+'">Tweet</a>';
 	$(".twitter-row").html(structure);
 	$.getScript("http://platform.twitter.com/widgets.js");
-}
+};
 
 slickSlideshow.updatePinterest = function(current) {
 	// TODO
@@ -648,14 +648,14 @@ slickSlideshow.updatePinterest = function(current) {
 	var pinterest_href = $("#pinterest-btn").attr("href");
 	var pinterest_url = pinterest_href + url;
 	$("#pinterest-btn").attr("href", pinterest_url);
-}
+};
 
 slickSlideshow.updateSocialButtons = function(current, document_title) {
 	var browser_url = window.location.href;
 	slickSlideshow.updatePinterest(current);
 	slickSlideshow.updateFacebook(browser_url);
 	slickSlideshow.updateTwitter(browser_url, document_title);
-}
+};
 
 slickSlideshow.findHashSlide = function(location_hash)  {
 
@@ -671,7 +671,7 @@ slickSlideshow.findHashSlide = function(location_hash)  {
 	};
 
 	return 0;
-}
+};
 
 slickSlideshow.findHashCollectionSlide = function(location_hash) {
 	var hash = location_hash.split("#")[1]
@@ -688,7 +688,7 @@ slickSlideshow.findHashCollectionSlide = function(location_hash) {
 	};
 
 	return 0;
-}
+};
 
 slickSlideshow.initSlick = function(object_idx) {
 	
@@ -824,7 +824,7 @@ slickSlideshow.initSlick = function(object_idx) {
 			});
 		}
 	}
-}
+};
 
 
 slickSlideshow.setLoadingProperties = function() {
@@ -853,7 +853,7 @@ slickSlideshow.setLoadingProperties = function() {
 		slickSlideshow.bulk = 5;
 		slickSlideshow.buffer = 1;
 	}
-}
+};
 
 slickSlideshow.resizeWindow = function() {
 	var w = $(window).width();
@@ -862,7 +862,7 @@ slickSlideshow.resizeWindow = function() {
 
 	$(".slideshow").css("height", h+"px");
 	$("#slickslideshow").css("height", h+"px");
-}
+};
 
 slickSlideshow.startVideoFromSlide = function(slide) {
 
@@ -887,7 +887,7 @@ slickSlideshow.startVideoFromSlide = function(slide) {
 
 		}
 	}
-}
+};
 
 slickSlideshow.startFirstVideo = function(slide) {
 	if (!slickSlideshow.editingMode && !isMobile.any()) {
@@ -910,7 +910,7 @@ slickSlideshow.startFirstVideo = function(slide) {
 			$(".video-play-btn").hide();
 		}
 	}
-}
+};
 
 slickSlideshow.addCollectionItems = function(data) {
 	for (i = 0; i < data.length; i++) {
@@ -942,7 +942,7 @@ slickSlideshow.addCollectionItems = function(data) {
 			slickSlideshow.$obj.slickAdd(slide);
 		}
 	}
-}
+};
 
 slickSlideshow.addNextSlidesCollection = function(data_url) {
 	var request_url = "/get_collection_items";
@@ -954,7 +954,7 @@ slickSlideshow.addNextSlidesCollection = function(data_url) {
 			slickSlideshow.addCollectionItems(data);
 		}
 	})
-}
+};
 
 slickSlideshow.initCollection = function() {
 	slickSlideshow.$obj = $($('.slick-slideshow')[0]);
@@ -1026,7 +1026,7 @@ slickSlideshow.initCollection = function() {
 		}
 	});
 
-}
+};
 
 slickSlideshow.init = function() {
 	var query = location.search;
@@ -1167,9 +1167,7 @@ slickSlideshow.init = function() {
 	    slickSlideshow.$obj.attr("style", "height:"+(h-gap)+"px;");
 		slickSlideshow.getContentListing("");
 	}
-
-
-}
+};
 
 slickSlideshow.addBulkElements = function(index) {
 	var request_url = "get_next_objects";
@@ -1199,7 +1197,7 @@ slickSlideshow.addBulkElements = function(index) {
 			slickSlideshow.addSlideInIndex(data.list, index);
 		}
 	});
-}
+};
 
 slickSlideshow.resetSlideshow = function(item) {
 	var slide_count = slickSlideshow.slideCount;
@@ -1212,7 +1210,7 @@ slickSlideshow.resetSlideshow = function(item) {
 	slickSlideshow.reseted = true;
 	slickSlideshow.slideCount = slide_count;
 	slickSlideshow.getContentListing(object_id);
-}
+};
 
 slickSlideshow.updateSlideshowLoading = function(current) {
 	var reset = false;
@@ -1238,7 +1236,7 @@ slickSlideshow.updateSlideshowLoading = function(current) {
 	}
 
 	return reset;
-}
+};
 
 slickSlideshow.updateSchema = function(schema) {
 	if ($("body").hasClass('template-book_view')) {
@@ -1249,33 +1247,52 @@ slickSlideshow.updateSchema = function(schema) {
 	_logger.log("[Update schema] try to update");
 	$(".object-fieldset").html('');
 
-	var html = ""
+	var html = "";
+	var body = "";
 
 	for (var i = 0; i < schema.length; i++) {
-		html += "<div class='col-lg-5 col-md-5 col-sm-5 col-xs-12 object-label' style='padding-left:0px;'><span>"+schema[i].title+"</span></div><div class='col-lg-7 col-md-7 col-sm-7 col-xs-12 object-value'><p>"+schema[i].value+"</p></div>";
+		if (schema[i].title != "body") {
+			html += "<div class='col-lg-5 col-md-5 col-sm-5 col-xs-12 object-label' style='padding-left:0px;'><span>"+schema[i].title+"</span></div><div class='col-lg-7 col-md-7 col-sm-7 col-xs-12 object-value'><p>"+schema[i].value+"</p></div>";
+		} else {
+			body = schema[i].value;
+		}
 	}
 	
 	var no_lt = html.replace(/&lt;/g, "<");
 	var res = no_lt.replace(/&gt;/g, ">");
 	
+	var jsBody = $($.parseHTML(body));
+	var htmlBody = $.parseHTML(jsBody.text());
+	$("#body-text").html('');
+	$("#body-text").html(htmlBody);
 	$(".object-fieldset").html(res);
-}
+};
 
 slickSlideshow.updateSchemaSlide = function(schema) {
 	_logger.log("[Update schema] try to update");
 	$(".object-fieldset").html('');
 
-	var html = ""
+	var html = "";
+	var body = "";
 
 	for (var i = 0; i < schema.length; i++) {
-		html += "<div class='col-lg-5 col-md-5 col-sm-5 col-xs-12 object-label' style='padding-left:0px;'><span>"+schema[i].title+"</span></div><div class='col-lg-7 col-md-7 col-sm-7 col-xs-12 object-value'><p>"+schema[i].value+"</p></div>";
+		if (schema[i].title != "body") {
+			html += "<div class='col-lg-5 col-md-5 col-sm-5 col-xs-12 object-label' style='padding-left:0px;'><span>"+schema[i].title+"</span></div><div class='col-lg-7 col-md-7 col-sm-7 col-xs-12 object-value'><p>"+schema[i].value+"</p></div>";
+		} else {
+			body = schema[i].value;
+		}
 	}
 	
 	var no_lt = html.replace(/&lt;/g, "<");
 	var res = no_lt.replace(/&gt;/g, ">");
+
+	var jsBody = $($.parseHTML(body));
+	var htmlBody = $.parseHTML(jsBody.text());
 	
+	$("#body-text").html('');
+	$("#body-text").html(htmlBody);
 	$(".object-fieldset").html(res);
-}
+};
 
 slickSlideshow.getSchemaSlide = function(currentSlide) {
 	var URL = "";
@@ -1295,7 +1312,7 @@ slickSlideshow.getSchemaSlide = function(currentSlide) {
 			slickSlideshow.updateSchemaSlide(data.schema);
 		}
 	});
-}
+};
 
 
 slickSlideshow.updateSchemaCollection = function(currentSlide) {
@@ -1311,7 +1328,7 @@ slickSlideshow.updateSchemaCollection = function(currentSlide) {
 			slickSlideshow.updateSchema(data.schema);
 		}
 	});
-}
+};
 
 slickSlideshow.beforeChange = function(event) {
 	if (!$(".slideshowWrapper").hasClass("moved")) {
@@ -1338,7 +1355,7 @@ slickSlideshow.beforeChange = function(event) {
 			slide_player.pauseVideo();
 		}
 	}
-}
+};
 
 slickSlideshow.updateDOMTitle = function(body, title) {
 	/* Update title */
@@ -1347,14 +1364,11 @@ slickSlideshow.updateDOMTitle = function(body, title) {
 	document_title[0] = title;
 
 	document.title = document_title.join('—');
-	var jsBody = $($.parseHTML(body));
-	var htmlBody = $.parseHTML(jsBody.text());
+	
 
 	// Change title
 	$("#content h1.documentFirstHeading").html(title);
-	$("#body-text").html('');
-	$("#body-text").html(htmlBody);
-}
+};
 
 slickSlideshow.updateSlideDescriptionBar = function(title, description) {
 	if (title == undefined) {
@@ -1386,7 +1400,7 @@ slickSlideshow.updateSlideDescriptionBar = function(title, description) {
 	} else {
 		$("#slideshow-controls #slide-description").html(title);
 	}
-}
+};
 
 slickSlideshow.updateSlideDetails = function(curr, currentSlide, title, description) {
 	var $currentSlideObj = currentSlide;
@@ -1446,12 +1460,12 @@ slickSlideshow.updateSlideDetails = function(curr, currentSlide, title, descript
 		}
 	}
 
-}
+};
 
 slickSlideshow.updateDOMProperties = function(curr, currentSlide, title, description, body) {
 	slickSlideshow.updateDOMTitle(body, title);
 	slickSlideshow.updateSlideDetails(curr, currentSlide, title, description);
-}
+};
 
 slickSlideshow.contentAJAXrefresh = function(curr, currentObject) {
 	var $currentSlideObj = currentObject;
@@ -1476,7 +1490,7 @@ slickSlideshow.contentAJAXrefresh = function(curr, currentObject) {
 	if ($currentSlideObj.hasClass('video-slide')) {
 		slickSlideshow.startVideoFromSlide($currentSlideObj);
 	}
-}
+};
 
 slickSlideshow.updateSlideCount = function(currentSlide) {
 
@@ -1542,20 +1556,20 @@ slickSlideshow.updateSlideCount = function(currentSlide) {
     	}
     	slickSlideshow.moved = true;
 	}
-}
+};
 
 slickSlideshow.updateSlideURLFragment = function(slide) {
 	if (!slickSlideshow.isCollection) {
 		var url = slide.relative_path;
 		window.location.hash = url;
 	}
-}
+};
 
 slickSlideshow.updateSlideCollectionURL = function(slide) {
 	var url = slide.attr("data-url");
 	var real_url = url.split("/").slice(3).join("/");
 	window.location.hash = "/"+real_url;
-}
+};
 
 slickSlideshow.afterChange = function(event) {
 
@@ -1639,7 +1653,7 @@ slickSlideshow.afterChange = function(event) {
 
 		}
 	} 
-}
+};
 
 slickSlideshow.getRegularContent = function() {
 	_logger.log('[Content listing : regular]')
@@ -1673,7 +1687,7 @@ slickSlideshow.getRegularContent = function() {
 	}
 
 	var slickInited = true;
-	if (window.location.hash != "") {
+	if (window.location.hash != "" || $("body").hasClass("template-book_view")) {
 		slickInited = false;
 	}
 
@@ -1711,7 +1725,7 @@ slickSlideshow.getRegularContent = function() {
 			}
 		});
 	});
-}
+};
 
 /***** 
 	GET CONTENT TYPE
@@ -1794,9 +1808,10 @@ slickSlideshow.getContentListing = function(object_number) {
 			slickSlideshow.getNavigationContent(query, object_number, false);
 		}
 	} else if (object_number == "regular") {
+		console.log("get regular");
 		slickSlideshow.getRegularContent();
 	}
-}
+};
 
 slickSlideshow.getSlideDetails = function(item, last, slickInited) {
 	var URL = "";
@@ -1823,7 +1838,7 @@ slickSlideshow.getSlideDetails = function(item, last, slickInited) {
 	if (last) {
 		slickSlideshow.addSlides(slickInited);
 	}
-}
+};
 
 slickSlideshow.addSlides = function(slickInited) {
 	if (slickInited) {
@@ -1849,6 +1864,6 @@ slickSlideshow.addSlides = function(slickInited) {
 
 	slickSlideshow.total_items = slickSlideshow.$obj.getSlick().$slides.length;
 	$("#slideshow-controls #slide-count").html((slickSlideshow.slideCount) + "/" + slickSlideshow.total_items);
-}
+};
 
 

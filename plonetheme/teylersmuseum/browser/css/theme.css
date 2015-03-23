@@ -3757,7 +3757,7 @@ dd.portletItem h3 {
 body:not(.template-folder_contents):not(.template-sharing):not(.template-usergroup-groupprefs) dt.portletHeader {
     font-size: 1.250em !important;
 }
-body:not(.template-folder_contents):not(.template-sharing):not(.template-usergroup-groupprefs) dt.portletHeader span {
+body:not(.template-folder_contents):not(.template-sharing):not(.template-usergroup-groupprefs):not(.portaltype-portlet-page) dt.portletHeader span {
     font-family: "Merriweather", serif;
     font-weight: 700;
     text-transform: uppercase;
@@ -7780,7 +7780,22 @@ div.buyable {
     display: none !important;
 }
 
+#content-core .portletStaticText dd.portletItem p {
+    margin-bottom: 0px;
+    color: #666666 !important;
+}
 
+#content-core .portletStaticText dd.portletItem p:not(:first-child) {
+    padding-top: 30px;
+}
+
+#content-core .portletStaticText .portletItem {
+  padding-bottom: 0px;
+}
+
+dl.portletStaticText {
+    margin-bottom: 0px;
+}
 
 
 
