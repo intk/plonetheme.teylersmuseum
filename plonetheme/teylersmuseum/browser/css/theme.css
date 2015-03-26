@@ -149,10 +149,6 @@ ol {
     margin: 0 0 40px 25px;
 }
 
-#portal-languageselector {
-
-}
-
 #portal-languageselector ul {
     list-style-type: none;
 }
@@ -292,7 +288,6 @@ dl.portlet a:hover {
     margin-top: 0px;
     margin-left: 0px;
     margin-bottom: 0px;
-    content: url('++resource++plonetheme.bootstrapModern.css/teylers_black.png');
 }
 
 body.portaltype-portlet-page #parent-fieldname-title, body.portaltype-portlet-page #parent-fieldname-title {
@@ -2119,12 +2114,6 @@ body.portaltype-media-person .social-viewlet {
     #portal-logo img {
         margin-top: 25px;
     }
-
-    #portal-languageselector {
-    }
-
-    #portal-languageselector {
-    }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -2134,12 +2123,6 @@ body.portaltype-media-person .social-viewlet {
     }
     #portal-logo img {
         margin-top: 25px;
-    }
-    
-    #portal-languageselector {
-    }
-
-    #portal-languageselector {
     }
 }
 
@@ -2151,12 +2134,6 @@ body.portaltype-media-person .social-viewlet {
 
     #portal-logo img {
         margin-top: 25px;
-    }
-
-    #portal-languageselector {
-    }
-
-    #portal-languageselector {
     }
 }
 
@@ -3207,15 +3184,6 @@ body.portaltype-media-person .social-viewlet {
         font-size: 0.875em;
     }
 
-    /*.template-folder_contents #content {
-        background-color: #ffffff;
-        padding-left: 100px;
-        padding-right: 100px;
-        padding-bottom: 50px;
-        padding-top: 50px;
-        font-size: 1.000em;
-    }*/
-
     .template-croppingeditor #content {
         background-color: #ffffff;
         padding-left: 100px;
@@ -3462,8 +3430,6 @@ dl.portletSearch {
 a.get-in-contact:visited {
     color: #ffffff !important;
 }
-
-/* FANCY TABLE */
 
 /* 404 Page */
 
@@ -3976,9 +3942,6 @@ body:not(.template-folder_contents):not(.template-sharing):not(.template-usergro
         margin: 0 auto;
     }
 
-    .slideshowContent .slick-slide {
-    }
-
     .slideshowContent .slick-slide img, .slideshowContent .slick-slide iframe {
         max-width: 100%;
         margin: 0 auto;
@@ -4008,9 +3971,6 @@ body:not(.template-folder_contents):not(.template-sharing):not(.template-usergro
     .slideshowDetails {
         width: 640px;
         margin: 0 auto;
-    }
-
-    .slideshowContent .slick-slide {
     }
 
     .slideshowWrapper .slick-slide img, .slideshowContent .slick-slide iframe {
@@ -4131,23 +4091,6 @@ body.portaltype-portlet-page .slick-prev:hover, body.portaltype-portlet-page .sl
 }
 
 /* TWEAKS for slideshow */
-@media (min-width: 992px) and (max-width: 1199px) {
-    /*.slick-slideshow.double-view .slick-slide img {
-        height: 480px !important;
-    }
-    .slick-slideshow.coins .slick-slide img {
-        height: 480px !important;
-    }*/
-}
-
-@media (min-width: 1200px) {
-    /*.slick-slideshow.double-view .slick-slide img {
-        height: 480px !important;
-    }
-    .slick-slideshow.coins .slick-slide img {
-        height: 480px !important;
-    }*/
-}
 
 @media (min-width: 1439px) { 
     .slick-slideshow.double-view .slick-slide img {
@@ -4230,8 +4173,6 @@ body.portaltype-portlet-page .slick-prev:hover, body.portaltype-portlet-page .sl
         top: 50%;
         margin-top: -20px !important;
     }
-
-
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
@@ -4845,14 +4786,6 @@ body.template-double_view #portal-logo img {
     content: url('++resource++plonetheme.bootstrapModern.css/teylers_black.png') !important;
 }
 
-
-
-.portaltype-object #edit-content-views {
-}
-
-.portaltype-object #editing-bar {
-}
-
 .portaltype-object #slickslideshow,
 body.template-collection_view #slickslideshow,
 .portletSlideshow #slickslideshow,
@@ -4900,7 +4833,7 @@ body.portaltype-object {
 body.template-collection_view #portal-logo img,
 body.portaltype-portlet-page #portal-logo img,
 body.template-content_view #portal-logo img {
-    content: url('++resource++plonetheme.bootstrapModern.css/teylers.png');
+    
 }
 
 .portaltype-object #parent-fieldname-text {
@@ -5159,15 +5092,6 @@ body.template-instruments_view.portaltype-object #slideshow-controls .btn.pause-
     body.template-content_view .slide-description #slide-count {
         font-size: 1.000em !important;
     }
-}
-
-
-body.portaltype-object {
-
-}
-
-.portaltype-object #slickslideshow {
-       
 }
 
 .portaltype-object .slick-list, .portaltype-object .slick-track,
@@ -5830,12 +5754,6 @@ body.template-portlets .documentFirstHeading {
         color: #ffffff;
     }
 
-    body.template-collection_view .slick-slideshow,
-    .portletSlideshow .slick-slideshow,
-    body.template-content_view .slick-slideshow {
-        
-    }
-
     #content-core .portletCollection .portletHeader {
         padding-top: 25px;
         padding-bottom: 0px;
@@ -6137,7 +6055,6 @@ body.template-search #portal-logo img {
 }
 
 body.template-search #portal-logo img {
-    content: url('++resource++plonetheme.bootstrapModern.css/teylers.png');
 }
 
 body.template-search #search-page-header .documentFirstHeading, body.template-search .documentDescription {
@@ -6288,14 +6205,6 @@ input[type="submit"]:focus {
     font-size: 1.125em;
     margin: 0 0;
     letter-spacing: 0.05em;
-}
-
-#tag-checkout-payment_selection-heading {
-    /*display: none;*/
-}
-
-#field-checkout-payment_selection-payment {
-    /*display: none;*/
 }
 
 #viewlet-below-content-body {
@@ -7083,18 +6992,6 @@ div.cart_item_alert {
     display: none;
 }
 
-/*.template-usergroup-groupprefs td.listingCheckbox {
-    padding: 1px;
-}
-
-.template-usergroup-groupprefs th,
-.template-usergroup-groupprefs td,
-.template-usergroup-groupprefs td,
-.template-usergroup-groupprefs tbody {
-    padding: 1px !important;
-    font-size: 0.850em;
-}*/
-
 /* folder contents */
 
 .template-folder_contents #content a {
@@ -7797,6 +7694,9 @@ dl.portletStaticText {
     margin-bottom: 0px;
 }
 
+body.portaltype-portlet-page {
+    overflow-y: auto !important;
+}
 
 
 

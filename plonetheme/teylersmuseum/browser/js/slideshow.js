@@ -3,23 +3,24 @@
 --------------------------------------------------------------------------------- */
 
 // Load YouTube Frame API
-(function(){ //Closure, to not leak to the scope
+/*(function(){ //Closure, to not leak to the scope
   var s = document.createElement("script");
-  s.src = "http://www.youtube.com/iframe_api"; /* Load iFrame API*/
+  s.src = "http://www.youtube.com/iframe_api"; 
   var before = document.getElementsByTagName("script")[0];
   before.parentNode.insertBefore(s, before);
-})();
+})();*/
 
 // Pinterest
-(function(){ //Closure, to not leak to the scope
+/*(function(){ //Closure, to not leak to the scope
   var s = document.createElement("script");
-  s.src = "//assets.pinterest.com/js/pinit.js"; /* Load Pinterest */
+  s.src = "//assets.pinterest.com/js/pinit.js"; 
   var before = document.getElementsByTagName("script")[0];
   before.parentNode.insertBefore(s, before);
-})();
+})();*/
 
 // Twitter
-!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+/*!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+*/
 
 function isElementInViewport (el) {
     //special bonus for those using jQuery
@@ -42,6 +43,43 @@ slickSlideshow.playing = false;
 slickSlideshow.youtube_ready = false;
 slickSlideshow.initiated_youtube = false;
 
+slickSlideshow.slideMouseMove = function() {
+  if (slickSlideshow.$obj.getSlick() != undefined) {
+
+    if ($("#slickslideshow").hasClass("fullscreen")) {
+      $("#portal-header-wrapper").fadeIn();
+
+      if (slickSlideshow.$obj.slickCurrentSlide() == 0) {
+        $("body.portaltype-portlet-page .documentDescription, body.template-content_view .documentDescription, body.template-content_view .documentFirstHeading").fadeIn();
+        
+        if (slickSlideshow.playing != true) {
+          $(".video-play-btn").css("opacity", 0.75);
+        }
+        if ($(".slideshowWrapper").hasClass("moved")) {
+          $(".slideshowWrapper").removeClass("moved");
+        }
+      }
+
+      if (slickSlideshow.playing != true) {
+        $(".wrap-prev, .wrap-next").css("opacity", 1);
+      }
+
+      if (slickSlideshow.moved) {
+        if (slickSlideshow.playing != true) {
+          $("#slideshow-controls").fadeIn();
+        }
+      } else {
+        if (slickSlideshow.$obj.slickCurrentSlide() == 0) {
+          $("body.portaltype-portlet-page .documentDescription, body.template-content_view .documentDescription, body.template-content_view .documentFirstHeading").fadeIn();
+          if ($(".slideshowWrapper").hasClass("moved")) {
+            $(".slideshowWrapper").removeClass("moved");
+          }
+        }
+      }
+    }
+  }
+};
+
 slickSlideshow.onPlayerStateChange = function(iframeID) {
 	return function(event) {
 		if (event.data == 1) {
@@ -60,6 +98,7 @@ slickSlideshow.onPlayerStateChange = function(iframeID) {
 		} else if (event.data == 2) {
 			$("#slideshow-controls").fadeIn();
 			$(".wrap-prev, .wrap-next").css("opacity", 1);
+			$("#portal-header-wrapper").fadeIn();
 			slickSlideshow.playing = false;
 		}
 

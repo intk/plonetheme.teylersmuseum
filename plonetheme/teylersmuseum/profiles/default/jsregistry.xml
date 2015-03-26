@@ -5,53 +5,58 @@
 <object name="portal_javascripts">
 
   <javascript
-    id="++resource++plonetheme.bootstrapModern.js/vendor/jasny-bootstrap.min.js"
-    cacheable="False" compression="safe" cookable="False"
+    id="++resource++plonetheme.bootstrapModern.js/modernizr.custom.js"
+    cacheable="True" compression="safe" cookable="False"
+    enabled="True" expression=""  inline="False"/>
+
+   <javascript
+    id="++resource++plonetheme.bootstrapModern.js/vendor/youtube.js"
+    cacheable="True" compression="safe" cookable="False"
+    enabled="True" expression=""  inline="False"/>
+
+  <!--<javascript
+    id="++resource++plonetheme.bootstrapModern.js/vendor/facebook.js"
+    cacheable="True" compression="safe" cookable="False"
+    enabled="True" expression=""  inline="False"/>-->
+
+  <javascript
+    id="++resource++plonetheme.bootstrapModern.js/vendor/twitter.js"
+    cacheable="True" compression="safe" cookable="False"
     enabled="True" expression=""  inline="False"/>
 
   <javascript
-    id="++resource++plonetheme.bootstrapModern.js/respond.min.js"
-    cacheable="False" compression="safe" cookable="False"
+    id="++resource++plonetheme.bootstrapModern.js/vendor/pinit_main.js"
+    cacheable="True" compression="safe" cookable="False"
+    enabled="True" expression=""  inline="False"/>
+
+  <javascript
+    id="++resource++plonetheme.bootstrapModern.js/vendor/jasny-bootstrap.min.js"
+    cacheable="True" compression="safe" cookable="False"
     enabled="True" expression=""  inline="False"/>
 
   <javascript
     id="++resource++plonetheme.bootstrapModern.js/classie.js"
-    cacheable="False" compression="safe" cookable="False"
-    enabled="True" expression=""  inline="False"/>
-
-  <javascript
-    id="++resource++plonetheme.bootstrapModern.js/modernizr.custom.js"
-    cacheable="False" compression="safe" cookable="False"
+    cacheable="True" compression="safe" cookable="False"
     enabled="True" expression=""  inline="False"/>
 
   <javascript
     id="++resource++plonetheme.bootstrapModern.js/fastclick.js"
-    cacheable="False" compression="safe" cookable="False"
-    enabled="True" expression=""  inline="False"/>
-
-  <javascript
-    id="++resource++plonetheme.bootstrapModern.js/vendor/jplayer/jquery.jplayer.js"
-    cacheable="False" compression="safe" cookable="False"
-    enabled="True" expression=""  inline="False"/>
-
-  <javascript
-    id="++resource++plonetheme.bootstrapModern.js/jquery.audioslideshow.js"
-    cacheable="False" compression="safe" cookable="False"
+    cacheable="True" compression="safe" cookable="False"
     enabled="True" expression=""  inline="False"/>
 
   <javascript
     id="++resource++plonetheme.bootstrapModern.js/vendor/slick.js"
-    cacheable="False" compression="safe" cookable="False"
+    cacheable="True" compression="safe" cookable="False"
     enabled="True" expression=""  inline="False"/>
 
   <javascript
     id="++resource++plonetheme.bootstrapModern.js/menu.js"
-    cacheable="False" compression="safe" cookable="False"
+    cacheable="True" compression="safe" cookable="False"
     enabled="True" expression=""  inline="False"/>
 
   <javascript
     id="++resource++plonetheme.bootstrapModern.js/slideshow.js"
-    cacheable="False" compression="safe" cookable="False"
+    cacheable="True" compression="safe" cookable="False"
     enabled="True" expression=""  inline="False"/>
 
 </object>

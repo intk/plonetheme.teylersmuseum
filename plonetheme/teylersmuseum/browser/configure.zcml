@@ -290,7 +290,4 @@
         addview=".extendedMailchimp.AddForm"
         editview=".extendedMailchimp.EditForm"
       />
-
-  
-
 </configure>

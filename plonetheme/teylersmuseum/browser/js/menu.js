@@ -3,43 +3,6 @@ function supportsSvg() {
     return document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Shape", "1.1");
 };
 
-function slideMouseMove() {
-  if (slickSlideshow.$obj.getSlick() != undefined) {
-
-    if ($("#slickslideshow").hasClass("fullscreen")) {
-      $("#portal-header-wrapper").fadeIn();
-
-      if (slickSlideshow.$obj.slickCurrentSlide() == 0) {
-        $("body.portaltype-portlet-page .documentDescription, body.template-content_view .documentDescription, body.template-content_view .documentFirstHeading").fadeIn();
-        
-        if (slickSlideshow.playing != true) {
-          $(".video-play-btn").css("opacity", 0.75);
-        }
-        if ($(".slideshowWrapper").hasClass("moved")) {
-          $(".slideshowWrapper").removeClass("moved");
-        }
-      }
-
-      if (slickSlideshow.playing != true) {
-        $(".wrap-prev, .wrap-next").css("opacity", 1);
-      }
-
-      if (slickSlideshow.moved) {
-        if (slickSlideshow.playing != true) {
-          $("#slideshow-controls").fadeIn();
-        }
-      } else {
-        if (slickSlideshow.$obj.slickCurrentSlide() == 0) {
-          $("body.portaltype-portlet-page .documentDescription, body.template-content_view .documentDescription, body.template-content_view .documentFirstHeading").fadeIn();
-          if ($(".slideshowWrapper").hasClass("moved")) {
-            $(".slideshowWrapper").removeClass("moved");
-          }
-        }
-      }
-    }
-  }
-};
-
 $(document).ready(function() {
   if ($("body.site-nl").length > 0) {
     (function(d, s, id) {
@@ -104,8 +67,8 @@ $(document).ready(function() {
   });
 
   if (slickSlideshow.$obj != undefined) {
-    slickSlideshow.$obj.mousemove(slideMouseMove);
-    $("iframe").mouseover(slideMouseMove);
+    slickSlideshow.$obj.mousemove(slickSlideshow.slideMouseMove);
+    $("iframe").mouseover(slickSlideshow.slideMouseMove);
 
     $(".portlet-gap, #row-items, body.template-content_view #parent-fieldname-text, .object-fields").mouseenter(function() {
       if ($("#slickslideshow").hasClass("fullscreen")) {
