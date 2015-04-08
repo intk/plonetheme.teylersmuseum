@@ -5513,19 +5513,19 @@ body.template-collection_view #content .documentFirstHeading,
 body.portaltype-portlet-page #content .documentFirstHeading,
 body.template-content_view #content .documentFirstHeading {
     background: transparent;
-    position: absolute;
-    top: 260px;
+    /*position: absolute;*/
+    /*top: 260px;*/
     width: 100%;
     z-index: 3;
-    padding-top: 0px !important;
-    margin-bottom: 0px !important;
+    padding-top: 260px !important;
+    margin-bottom: 20px !important;
     color: #ffffff !important;
 }
 
 body.portaltype-portlet-page #content .documentDescription.description,
 body.portaltype-portlet-page #content .documentDescription {
-    position: absolute;
-    top: 170px;
+    /*position: absolute;*/
+    /*top: 170px;*/
     left: calc(50% - 425px);
     background: none;
     z-index: 3;
@@ -5536,8 +5536,8 @@ body.portaltype-portlet-page #content .documentDescription {
 
 body.template-collection_view #content .documentDescription.description, 
 body.template-collection_view #content .documentDescription {
-    position: absolute;
-    top: 330px;
+    /*position: absolute;*/
+    /*top: 330px;*/
     width: 100%;
     background: none;
     z-index: 3;
@@ -5548,8 +5548,8 @@ body.template-collection_view #content .documentDescription {
 
 body.template-content_view #content .documentDescription.description, 
 body.template-content_view #content .documentDescription {
-    position: absolute;
-    top: 330px;
+    /*position: absolute;*/
+    /*top: 330px;*/
     width: 100%;
     background: none;
     z-index: 3;
@@ -5605,32 +5605,32 @@ body.template-portlets .documentFirstHeading {
 
 @media (max-width: 480px) {
     body.template-collection_view #content .documentFirstHeading, body.portaltype-portlet-page #content .documentFirstHeading {
-        top: 100px;
+        padding-top: 100px !important;
     }
 
     body.template-collection_view #content .documentDescription.description, body.template-collection_view #content .documentDescription {
-        top: 170px;
+        /*margin-top: 170px;*/
     }
 
     body.template-content_view #content .documentFirstHeading {
-        top: 70px;
+        padding-top: 70px !important;
         padding-left: 50px;
     }
 
     body.template-content_view #content .documentDescription.description, body.template-content_view #content .documentDescription {
-        top: 110px;
+        /*margin-top: 110px;*/
         padding-left: 50px;
     }
 
     body.portaltype-portlet-page #content .documentDescription.description,
     body.portaltype-portlet-page #content .documentDescription {
-        position: absolute;
-        top: 20px;
+        /*position: absolute;*/
+        /*top: 20px;*/
         width: 100%;
         left: 0;
         background: none;
         z-index: 3;
-        margin-top: 0px !important;
+        margin-top: 20px !important;
         padding-bottom: 0px !important;
         color: #ffffff;
     }
@@ -5668,27 +5668,27 @@ body.template-portlets .documentFirstHeading {
 @media (min-width: 481px) and (max-width: 767px) {
 
     body.template-collection_view #content .documentFirstHeading, body.portaltype-portlet-page #content .documentFirstHeading {
-        top: 100px;
+        padding-top: 100px !important;
     }
 
     body.template-collection_view #content .documentDescription.description, body.template-collection_view #content .documentDescription {
-        top: 170px;
+        /*margin-top: 170px;*/
     }
 
     body.template-content_view #content .documentFirstHeading {
-        top: 100px;
+        padding-top: 100px !important;
         padding-left: 80px;
     }
 
     body.template-content_view #content .documentDescription.description, body.template-content_view #content .documentDescription {
-        top: 170px;
+        /*top: 170px;*/
         padding-left: 80px;
     }
 
     body.portaltype-portlet-page #content .documentDescription.description,
     body.portaltype-portlet-page #content .documentDescription {
-        position: absolute;
-        top: 20px;
+        /*position: absolute;
+        top: 20px;*/
         width: 100%;
         left: 0;
         background: none;
@@ -5724,27 +5724,27 @@ body.template-portlets .documentFirstHeading {
 
 @media (min-width: 768px) and (max-width: 991px) {
     body.template-collection_view #content .documentFirstHeading, body.portaltype-portlet-page #content .documentFirstHeading {
-        top: 160px;
+        padding-top: 160px !important;
     }
 
     body.template-collection_view #content .documentDescription.description, body.template-collection_view #content .documentDescription {
-        top: 250px;
+        /*top: 250px;*/
     }
 
     body.template-content_view #content .documentFirstHeading {
-        top: 100px;
-        left: 60px;
+        padding-top: 100px !important;
+        padding-left: 60px;
     }
 
     body.template-content_view #content .documentDescription.description, body.template-content_view #content .documentDescription {
-        top: 150px;
-        left: 60px;
+        /*margin-top: 150px;*/
+        padding-left: 60px;
     }
 
     body.portaltype-portlet-page #content .documentDescription.description,
     body.portaltype-portlet-page #content .documentDescription {
-        position: absolute;
-        top: 80px;
+        /*position: absolute;
+        top: 80px;*/
         width: 100%;
         left: 0;
         background: none;
@@ -5768,6 +5768,21 @@ body.template-portlets .documentFirstHeading {
         line-height: 75px;
         margin-top: 5px;
         text-transform: none !important;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    body.template-collection_view #content .documentFirstHeading,
+    body.portaltype-portlet-page #content .documentFirstHeading,
+    body.template-content_view #content .documentFirstHeading {
+        background: transparent;
+        /*position: absolute;*/
+        /*top: 260px;*/
+        width: 100%;
+        z-index: 3;
+        padding-top: 198px !important;
+        margin-bottom: 20px !important;
+        color: #ffffff !important;
     }
 }
 
@@ -7698,6 +7713,15 @@ body.portaltype-portlet-page {
     overflow-y: auto !important;
 }
 
+
+#content div.title-description-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+}
 
 
 

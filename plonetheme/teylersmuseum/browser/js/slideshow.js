@@ -1600,14 +1600,18 @@ slickSlideshow.updateSlideCount = function(currentSlide) {
 slickSlideshow.updateSlideURLFragment = function(slide) {
 	if (!slickSlideshow.isCollection) {
 		var url = slide.relative_path;
-		window.location.hash = url;
+		var original_path = window.location.href.split(/\?|#/)[0];
+		var absolute_path = original_path + "#" + url;
+		history.replaceState(null, null, absolute_path);
 	}
 };
 
 slickSlideshow.updateSlideCollectionURL = function(slide) {
 	var url = slide.attr("data-url");
 	var real_url = url.split("/").slice(3).join("/");
-	window.location.hash = "/"+real_url;
+	var original_path = window.location.href.split(/\?|#/)[0];
+	var absolute_path = original_path + "#/" + real_url;
+	history.replaceState(null, null, absolute_path);
 };
 
 slickSlideshow.afterChange = function(event) {

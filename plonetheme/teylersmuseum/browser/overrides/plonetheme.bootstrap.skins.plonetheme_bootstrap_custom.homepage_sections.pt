@@ -6,7 +6,8 @@
                     plone_view context/@@plone">
 
 
-<tal:sections i18n:domain="plone">
+<tal:sections i18n:domain="plone"
+    tal:define="lang python: context.language">
     
     <div class="page-overlay"></div>
     
@@ -20,31 +21,53 @@
                 <a class="bt-menu-trigger"><span>Menu</span></a>
             </div>
 
-            <ul class="nav navmenu-nav main-menu">
-                <li>
-                    <a href="http://teylersmuseum-soft.intk.com:10083/NewTeylers/nl/bezoek-het-museum" title="">
-                        Bezoek het museum
-                    </a>
+            <tal:nl tal:condition="python: lang == 'nl'">
+                <ul class="nav navmenu-nav main-menu">
+                
 
-                    <ul class="nav navmenu-nav submenu"> 
-                <li>
-                    <a href="http://teylersmuseum-soft.intk.com:10083/NewTeylers/nl/bezoek-het-museum/praktische-informatie" title="">
-                        Praktische informatie
-                    </a>
-                </li>
-                
                 
                 <li>
-                        <a href="http://teylersmuseum-soft.intk.com:10083/NewTeylers/nl/bezoek-het-museum/wat-is-er-te-zien-en-te-doen" title="">
-                            Wat is er te zien en te doen?
+
+                    
+                        <a href="http://www.teylersmuseum.nl/nl/bezoek-het-museum" title="">
+                            Bezoek het museum
                         </a>
+
+                    <ul class="nav navmenu-nav submenu">
+
+                        
+
+                
+                <li>
+
+                    
+                        <a href="http://www.teylersmuseum.nl/nl/bezoek-het-museum/praktische-informatie" title="">
+                            Praktische informatie
+                        </a>
+
+                    
+
+                    
                 </li>
                 
                 
                 <li>
 
                     
-                        <a href="http://teylersmuseum-soft.intk.com:10083/NewTeylers/nl/bezoek-het-museum/scholen-kinderen-en-groepen" title="">
+                        <a href="http://www.teylersmuseum.nl/nl/bezoek-het-museum/wat-is-er-te-zien-en-te-doen" title="">
+                            Wat is er te zien en te doen?
+                        </a>
+
+                    
+
+                    
+                </li>
+                
+                
+                <li>
+
+                    
+                        <a href="http://www.teylersmuseum.nl/nl/bezoek-het-museum/scholen-kinderen-en-groepen" title="">
                             Scholen, kinderen en groepen
                         </a>
 
@@ -64,7 +87,7 @@
                 <li>
 
                     
-                        <a href="http://teylersmuseum-soft.intk.com:10083/NewTeylers/nl/collectie" title="">
+                        <a href="http://www.teylersmuseum.nl/nl/collectie" title="">
                             Ontdek het museum
                         </a>
 
@@ -76,7 +99,7 @@
                 <li>
 
                     
-                        <a href="http://teylersmuseum-soft.intk.com:10083/NewTeylers/nl/collectie/kunst" title="  ">
+                        <a href="http://www.teylersmuseum.nl/nl/collectie/kunst" title="  ">
                             Kunst
                         </a>
 
@@ -89,7 +112,7 @@
                 <li>
 
                     
-                        <a href="http://teylersmuseum-soft.intk.com:10083/NewTeylers/nl/collectie/boeken" title="50 topstukken uit onze collectie">
+                        <a href="http://www.teylersmuseum.nl/nl/collectie/boeken" title="50 topstukken uit onze collectie">
                             Boeken
                         </a>
 
@@ -102,7 +125,7 @@
                 <li>
 
                     
-                        <a href="http://teylersmuseum-soft.intk.com:10083/NewTeylers/nl/collectie/instrumenten-overzicht" title="">
+                        <a href="http://www.teylersmuseum.nl/nl/collectie/instrumenten-overzicht" title="">
                             Instrumenten
                         </a>
 
@@ -115,7 +138,7 @@
                 <li>
 
                     
-                        <a href="http://teylersmuseum-soft.intk.com:10083/NewTeylers/nl/collectie/munten-en-penningen-overzicht" title="">
+                        <a href="http://www.teylersmuseum.nl/nl/collectie/munten-en-penningen-overzicht" title="">
                             Munten en Penningen
                         </a>
 
@@ -128,7 +151,7 @@
                 <li>
 
                     
-                        <a href="http://teylersmuseum-soft.intk.com:10083/NewTeylers/nl/collectie/fossielen-en-mineralen-overzicht" title="">
+                        <a href="http://www.teylersmuseum.nl/nl/collectie/fossielen-en-mineralen-overzicht" title="">
                             Fossielen en Mineralen
                         </a>
 
@@ -141,7 +164,7 @@
                 <li>
 
                     
-                        <a href="http://teylersmuseum-soft.intk.com:10083/NewTeylers/nl/collectie/gebouw-en-geschiedenis" title="">
+                        <a href="http://www.teylersmuseum.nl/nl/collectie/gebouw-en-geschiedenis" title="">
                             Gebouw en geschiedenis
                         </a>
 
@@ -161,7 +184,7 @@
                 <li>
 
                     
-                        <a href="http://teylersmuseum-soft.intk.com:10083/NewTeylers/nl/over-het-museum" title="">
+                        <a href="http://www.teylersmuseum.nl/nl/over-het-museum" title="">
                             Over het museum
                         </a>
 
@@ -173,7 +196,7 @@
                 <li>
 
                     
-                        <a href="http://teylersmuseum-soft.intk.com:10083/NewTeylers/nl/over-het-museum/organisatie" title="">
+                        <a href="http://www.teylersmuseum.nl/nl/over-het-museum/organisatie" title="">
                             Organisatie
                         </a>
 
@@ -186,7 +209,7 @@
                 <li>
 
                     
-                        <a href="http://teylersmuseum-soft.intk.com:10083/NewTeylers/nl/over-het-museum/steun-teylers-museum" title="">
+                        <a href="http://www.teylersmuseum.nl/nl/over-het-museum/steun-teylers-museum" title="">
                             Steun Teylers Museum
                         </a>
 
@@ -199,7 +222,7 @@
                 <li>
 
                     
-                        <a href="http://teylersmuseum-soft.intk.com:10083/NewTeylers/nl/over-het-museum/verhuur" title="">
+                        <a href="http://www.teylersmuseum.nl/nl/over-het-museum/verhuur" title="">
                             Verhuur
                         </a>
 
@@ -212,7 +235,7 @@
                 <li>
 
                     
-                        <a href="http://teylersmuseum-soft.intk.com:10083/NewTeylers/nl/over-het-museum/pers-beeldmateriaal" title="">
+                        <a href="http://www.teylersmuseum.nl/nl/over-het-museum/pers-beeldmateriaal" title="">
                             Pers/Beeldmateriaal
                         </a>
 
@@ -229,50 +252,259 @@
                 </li>
                 
                 
-                <li>
+            </ul>
+            </tal:nl>
+
+            <tal:en tal:condition="python: lang == 'en'">
+                <ul class="nav navmenu-nav main-menu">
+                    <li>
+
+                        
+                            <a href="http://www.teylersmuseum.nl/en/visiting-the-museum" title="">
+                                Visiting the Museum
+                            </a>
+
+                        <ul class="nav navmenu-nav submenu">
+
+                            
 
                     
-                        <a href="http://teylersmuseum-soft.intk.com:10083/NewTeylers/nl/webwinkel" title="Uit de museumwinkel">
-                            Webwinkel
-                        </a>
+                    <li>
 
-                    <ul class="nav navmenu-nav submenu">
+                        
+                            <a href="http://www.teylersmuseum.nl/en/visiting-the-museum/practical-information" title="">
+                                Practical Information
+                            </a>
 
                         
 
-                
-                <li>
+                        
+                    </li>
+                    
+                    
+                    <li>
+
+                        
+                            <a href="http://www.teylersmuseum.nl/en/visiting-the-museum/children-families-and-groups" title="">
+                                Children, Families and Groups
+                            </a>
+
+                        
+
+                        
+                    </li>
+                    
+                    
+                    <li>
+
+                        
+                            <a href="http://www.teylersmuseum.nl/en/visiting-the-museum/what-is-there-to-see-and-do" title="">
+                                What is there to see and do?
+                            </a>
+
+                        
+
+                        
+                    </li>
+                    
+                    
+
+                        </ul>
+
+                        
+                    </li>
+                    
+                    
+                    <li>
+
+                        
+                            <a href="http://www.teylersmuseum.nl/en/collection" title="">
+                                Explore the collection
+                            </a>
+
+                        <ul class="nav navmenu-nav submenu">
+
+                            
 
                     
-                        <a href="http://teylersmuseum-soft.intk.com:10083/NewTeylers/nl/webwinkel/vogels-van-formaat" title="">
-                            Vogels van formaat
-                        </a>
+                    <li>
 
+                        
+                            <a href="http://www.teylersmuseum.nl/en/collection/paintings" title="">
+                                Paintings
+                            </a>
+
+                        
+
+                        
+                    </li>
+                    
+                    
+                    <li>
+
+                        
+                            <a href="http://www.teylersmuseum.nl/en/collection/instruments" title="">
+                                Instruments
+                            </a>
+
+                        
+
+                        
+                    </li>
+                    
+                    
+                    <li>
+
+                        
+                            <a href="http://www.teylersmuseum.nl/en/collection/fossils-and-minerals" title="">
+                                Fossils and Minerals
+                            </a>
+
+                        
+
+                        
+                    </li>
+                    
+                    
+                    <li>
+
+                        
+                            <a href="http://www.teylersmuseum.nl/en/collection/coins-and-medals" title="">
+                                Coins and Medals
+                            </a>
+
+                        
+
+                        
+                    </li>
+                    
+                    
+                    <li>
+
+                        
+                            <a href="http://www.teylersmuseum.nl/en/collection/drawings" title="">
+                                Drawings and prints
+                            </a>
+
+                        
+
+                        
+                    </li>
+                    
+                    
+                    <li>
+
+                        
+                            <a href="http://www.teylersmuseum.nl/en/collection/books" title="">
+                                Books
+                            </a>
+
+                        
+
+                        
+                    </li>
+                    
                     
 
+                        </ul>
+
+                        
+                    </li>
                     
-                </li>
-                
-                
+                    
+                    <li>
 
-                    </ul>
+                        
+                            <a href="http://www.teylersmuseum.nl/en/about-the-museum" title="">
+                                About the Museum
+                            </a>
+
+                        <ul class="nav navmenu-nav submenu">
+
+                            
 
                     
-                </li>
-                
-                
-            </ul>
+                    <li>
 
-             <form class="navbar-form" role="search" action="/nl/@@search">
+                        
+                            <a href="http://www.teylersmuseum.nl/en/about-the-museum/organisation" title="">
+                                Organisation
+                            </a>
+
+                        
+
+                        
+                    </li>
+                    
+                    
+                    <li>
+
+                        
+                            <a href="http://www.teylersmuseum.nl/en/about-the-museum/support-teylers-museum" title="">
+                                Support Teylers Museum
+                            </a>
+
+                        
+
+                        
+                    </li>
+                    
+                    
+                    <li>
+
+                        
+                            <a href="http://www.teylersmuseum.nl/en/about-the-museum/hiring-space-in-the-museum" title="">
+                                Hiring space in the museum
+                            </a>
+
+                        
+
+                        
+                    </li>
+                    
+                    
+                    <li>
+
+                        
+                            <a href="http://www.teylersmuseum.nl/en/about-the-museum/press-visual-material" title="">
+                                Press/visual material
+                            </a>
+
+                        
+
+                        
+                    </li>
+                    
+                    
+
+                        </ul>
+                    </li>
+                </ul>
+            </tal:en>
+
+
+            <form class="navbar-form" role="search" tal:attributes="action python: '/'+lang+'/@@search'">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Website doorzoeken" name="SearchableText" id="srch-term" title="Website doorzoeken" />
+                    <input type="text" class="form-control" placeholder="Search" name="SearchableText" id="srch-term" 
+                        i18n:attributes="title title_search_site;
+                        placeholder title_search_site"/>
                         <i class="fa fa-search"></i>
-                    <input type="submit" value="" id="input-search-menu" class="submit-search" />
+                    <input type="submit" value="" id="input-search-menu" class="submit-search"/>
                         
                         
                         <label for="searchbox_currentfolder_only" style="cursor: pointer">
-                        alleen binnen huidige sectie
-                        <input id="searchbox_currentfolder_only" class="noborder checkbox" type="checkbox" name="path" value="/NewTeylers/nl/teylers-museum" />
+                        <span
+                            i18n:translate="label_searchbox_currentfolder_only"
+                            tal:omit-tag="">
+                            only in current section
+                        </span>
+                        <input id="searchbox_currentfolder_only"
+                             class="noborder checkbox"
+                             type="checkbox"
+                             name="path"
+                             tal:attributes="value python: '/'.join(context.getPhysicalPath());
+                                             checked request/form/path|nothing"
+                        />
                         </label>
 
                     </div>
