@@ -201,7 +201,6 @@
 
                          <div class="clearfix"></div>
 
-
                          <!-- SEARCH RESULTS -->
                          <metal:searchresults define-macro="search_results">
 

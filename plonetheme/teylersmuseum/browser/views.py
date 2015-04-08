@@ -6,8 +6,6 @@ from Products.Five import BrowserView
 from AccessControl import getSecurityManager
 from Products.CMFPlone.PloneBatch import Batch
 
-from plone.batching.batch import QuantumBatch
-
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.portlets.interfaces import IColumn
@@ -72,12 +70,6 @@ class CommonBrowserView(BrowserView):
     
                 if i > 0:
                     self.prv = results[i -1]
-    
-    """Base class for index page views
-    """
-    @memoize
-    def plone_view(self):
-        return getMultiAdapter((self.context, self.request), name=u"plone")
 
     def getNextEvent(self):
         """
@@ -220,9 +212,16 @@ class CommonBrowserView(BrowserView):
                 lead = item.getURL()
             else:
                 lead = item.absolute_url()
+        
+        elif hasattr(item, 'leadMedia'):
+            leadUID = item.leadMedia
+            leadBrain = catalog.queryCatalog({"UID": leadUID})
+            if len(leadBrain) != 0:
+                lead = leadBrain[0].getURL()
+            else:
+                lead = None
         else:
-            brains = catalog.queryCatalog({"UID": item.leadMedia})
-            #print brains
+            brains = catalog.queryCatalog({"UID": item.UID()})
             if len(brains) != 0:
                 leadUID = brains[0].leadMedia
                 leadBrain = catalog.queryCatalog({"UID": leadUID})
@@ -232,31 +231,6 @@ class CommonBrowserView(BrowserView):
                     lead = None
             else:
                 lead = None
-
-        if lead == None:
-            #
-            # Language Fix 
-            #
-            item_obj = item.getObject()
-            item_obj.reindexObject()
-            item_obj.reindexObject(idxs=['hasMedia'])
-            item_obj.reindexObject(idxs=['leadMedia'])
-            item_obj.reindexObject(idxs=['getLeadMediaTag'])
-            item_obj.reindexObject(idxs=['getLeadImageTag'])
-
-            folder_contents = item_obj.getFolderContents()
-            slideshow = None
-            for f in folder_contents:
-                if f.id == "slideshow":
-                    slideshow = f.getObject()
-                    break
-
-            if slideshow != None:
-                slideshow_content = slideshow.getFolderContents()
-                for slide in slideshow_content:
-                    if slide.portal_type == "Image":
-                        lead = slide.getURL()
-                        break
 
         if lead is not None:
             crop = ""
@@ -510,7 +484,7 @@ class FolderListing(CommonBrowserView):
             else:
                 final_res = list(brains)
             if batch:
-                results = QuantumBatch(final_res, pagesize, start=b_start, quantumleap=1)
+                results = Batch(final_res, pagesize, start=b_start)
             else:
                 return final_res
 
@@ -577,7 +551,7 @@ class ContentView(BrowserView):
 
         if obj.hasMedia():
             image = obj.getLeadMedia()
-            details["image"] = image.absolute_url()
+            details["image"] = image.absolute_url()+'/@@images/image/large'
         else:
             details["image"] = ""
 

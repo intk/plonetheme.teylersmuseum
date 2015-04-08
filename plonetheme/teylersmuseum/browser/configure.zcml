@@ -56,7 +56,7 @@
     <!-- Viewlets -->
 
     <browser:viewlet
-      name="plonetheme.bootstrapModern.footer"
+      name="plone.footer"
       manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
       layer=".interfaces.IThemeSpecific"
       class=".views.FooterView"

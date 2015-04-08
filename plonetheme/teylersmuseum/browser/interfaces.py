@@ -1,7 +1,6 @@
 from zope.interface import Interface
 from plone.theme.interfaces import IDefaultPloneLayer
 from zope.viewlet.interfaces import IViewletManager
-from zope import schema
 from plone.portlets.interfaces import IPortletManager
 from plone.app.portlets.interfaces import IColumn
 
