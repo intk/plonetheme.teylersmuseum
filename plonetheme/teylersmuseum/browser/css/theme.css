@@ -7723,6 +7723,10 @@ body.portaltype-portlet-page {
     z-index: 1;
 }
 
+body.template-folder_contents #content div.title-description-wrapper {
+    position: initial !important;
+}
+
 
 
 
