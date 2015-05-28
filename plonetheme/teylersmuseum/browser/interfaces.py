@@ -29,13 +29,17 @@ class IFooterPortlet(IColumn):
     """
 
 class IPagePortlet(IColumn):
-    """we need our own portlet manager for the footer.
+    """we need our own portlet manager for the page.
     """
 
 class ICollectionPortletManager(IColumn):
-    """we need our own portlet manager for the footer.
+    """we need our own portlet manager for the collection.
+    """
+
+class IFolderPortletManager(IColumn):
+    """we need our own portlet manager for the folder.
     """
 
 class ISearchPortletManager(IColumn):
-    """we need our own portlet manager for the footer.
+    """we need our own portlet manager for the search.
     """

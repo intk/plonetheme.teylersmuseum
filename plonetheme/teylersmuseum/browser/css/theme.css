@@ -4242,7 +4242,7 @@ body.portaltype-portlet-page .slick-prev:hover, body.portaltype-portlet-page .sl
 }
 
 .menu_wrapper {
-    position: absolute;
+    position: fixed;
     width: 80px;
     height: 80px;
     background-color: #D75745;
@@ -7727,6 +7727,210 @@ body.template-folder_contents #content div.title-description-wrapper {
     position: initial !important;
 }
 
+body.template-image_view #content div.title-description-wrapper {
+    position: initial !important;
+}
+
+div.folder-portlet .managePortletsLink {
+    display: none !important;
+}
+
+#folder-manager-button .managePortletsFallback {
+    width: 25%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+body:not(.portaltype-folder) div.folder-portlet,
+body:not(.portaltype-folder) div.folder-portlet,
+body:not(.portaltype-folder) #folder-manager-button {
+    display: none !important;
+}
+
+body.template-folder_contents #viewlet-below-content-body dl.details {
+    display: none !important;
+}
+
+body.template-folder_contents ol.breadcrumb {
+    display: none !important;
+}
+
+/* WEBSHOP BACKEND */
+
+div.bdaorders_wrapper {
+    background-color: #ffffff;
+}
+
+#bdaploneorders_wrapper {
+    width: 880px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#bdaploneorders_wrapper table#bdaploneorders {
+    width: 100% !important;
+}
+
+#bdaploneorders_wrapper .notify_customers {
+    text-decoration: none !important;
+    line-height: 16px !important;
+}
+
+#bdaploneorders_wrapper .contenttype-document {
+    background: no-repeat transparent 2px 9px url(++resource++plonetheme.bootstrapModern.css/contenttypes-sprite.png);
+    line-height: 2em !important;
+    display: inline-block;
+    padding-left: 20px !important;
+    text-decoration: none !important;
+}
+
+
+@media (max-width: 991px) {
+    #bdaploneorders_wrapper {
+        width: 100%;
+        margin: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+#bdaploneorders_length {
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    font-size: 1.000em;
+    color: #242424;
+    line-height: 33px;
+    -moz-text-decoration-color: #242424;
+    text-decoration-color: #242424;
+}
+
+#bdaploneorders_info,
+#bdaploneorders_filter {
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    font-size: 1.000em;
+    color: #242424;
+    line-height: 33px;
+    -moz-text-decoration-color: #242424;
+    text-decoration-color: #242424;
+}
+
+#bdaploneorders_length select, #bdaploneorders_filter input {
+    font-size: 1.00em !important;
+    height: 100%;
+    vertical-align: middle;
+}
+
+#bdaploneorders_filter input {
+    font-family: 'Merriweather', serif !important;
+    font-weight: 400 !important;
+    font-size: 1.000em !important;
+    color: #000000 !important;
+    background-color: #f5f5f5 !important;
+    border: 0 !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+#bdaploneorders_paginate a:hover {
+  color: #242424 !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover, .dataTables_paginate .paginate_button.current {
+    background: none !important;
+    border: 1px solid #ffffff !important;
+}
+
+#content .dataTables_paginate a {
+    color: #666666 !important;
+}
+
+#bdaploneorders_paginate a:hover {
+  color: #242424 !important;
+}
+
+#content .dataTables_paginate .paginate_button.current  {
+    color: #242424 !important;
+}
+
+body.template-orders #portal-logo img {
+    content: url('++resource++plonetheme.bootstrapModern.css/teylers_black.png') !important;
+}
+
+label[for='input-checkout-payment_method_selection-payment_method-ideal'] {
+    height: 40px;
+    background-image: url('++resource++plonetheme.bootstrapModern.css/payment_icons.png');
+    background-repeat: no-repeat;
+    background-position: 25px -69px;
+}
+
+label[for='input-checkout-payment_method_selection-payment_method-creditcard'] {
+    height: 40px;
+    background-image: url('++resource++plonetheme.bootstrapModern.css/payment_icons.png');
+    background-repeat: no-repeat;
+    background-position: 25px -227px;;
+}
+
+#input-checkout-payment_method_selection-payment_method-ideal {
+    margin-right: 65px !important;
+    vertical-align: middle;
+    height: 40px;
+    margin-bottom: 8px;
+}
+
+#input-checkout-payment_method_selection-payment_method-creditcard {
+    margin-right: 65px !important;
+    vertical-align: middle;
+    height: 40px;
+    margin-bottom: 8px;
+}
+
+#archetypes-fieldname-limit_subscriptions input {
+    display: none !important;
+}
+
+
+#archetypes-fieldname-limit_subscriptions label {
+    content: '';
+}
+
+#archetypes-fieldname-limit_subscriptions input[value='15'] {
+    display: none !important;
+}
+
+#archetypes-fieldname-limit_subscriptions label {
+    text-indent: -9999px;
+}
+
+#archetypes-fieldname-limit_subscriptions label #limit_subscriptions_help {
+    text-indent: 1px !important;
+}
+
+body[class^="portaltype-form"] div.title-description-wrapper {
+    position: initial !important;
+}
+
+body.portaltype-formthankspage #content blockquote dt:first-child {
+    display: none;
+}
+
+body.template-template-image_reference_view div.title-description-wrapper {
+    position: initital !important;
+}
+
+body.portaltype-formfolder #portal-logo img {
+    content: url('++resource++plonetheme.bootstrapModern.css/teylers_black.png') !important;
+}
+
+body.canvas-slid {
+    overflow-y: hidden !important;
+}
+
+body.portaltype-portlet-page.canvas-slid {
+    overflow-y: hidden !important;
+}
 
 
 

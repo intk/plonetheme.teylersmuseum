@@ -887,6 +887,7 @@ slickSlideshow.setLoadingProperties = function() {
 	slickSlideshow.moved = false;
 	slickSlideshow.editingMode = false;
 	slickSlideshow.initialSlide = 0;
+	slickSlideshow.alreadyScrolled = false;
 
 	if ($("body").hasClass('template-multiple_view')) {
 		slickSlideshow.bulk = 5;
@@ -935,7 +936,10 @@ slickSlideshow.startFirstVideo = function(slide) {
 		
 		if (player != undefined) {
 			if (player.playVideo) {
-				player.playVideo();
+				console.log(slickSlideshow.alreadyScrolled);
+				if (!slickSlideshow.alreadyScrolled) {
+					player.playVideo();
+				}
 			} else {
 				$(".slick-active.video-slide img.overlay-image").hide();
 				$(".video-play-btn").css("opacity", 0);
@@ -1061,7 +1065,11 @@ slickSlideshow.initCollection = function() {
 		if (!isvisible) {
 			if (slickSlideshow.playing) {
 				slickSlideshow.pauseCurrentSlide();
+			} else {
+				slickSlideshow.alreadyScrolled = true;
 			}
+		} else {
+			slickSlideshow.alreadyScrolled = true;
 		}
 	});
 

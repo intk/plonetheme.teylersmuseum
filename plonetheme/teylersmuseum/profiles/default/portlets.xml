@@ -15,6 +15,11 @@
  />
 
  <portletmanager 
+   name="plonetheme.bootstrapModern.folderPortletManager"
+   type="plonetheme.bootstrapModern.browser.interfaces.IFolderPortletManager"
+ />
+
+ <portletmanager 
    name="plonetheme.bootstrapModern.searchPortletManager"
    type="plonetheme.bootstrapModern.browser.interfaces.ISearchPortletManager"
  />

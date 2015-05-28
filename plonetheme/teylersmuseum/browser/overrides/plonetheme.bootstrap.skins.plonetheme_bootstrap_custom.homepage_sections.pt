@@ -23,6 +23,34 @@
 
             <tal:nl tal:condition="python: lang == 'nl'">
                 <ul class="nav navmenu-nav main-menu">
+
+
+                    <form class="navbar-form" role="search" tal:attributes="action python: '/'+lang+'/@@search'">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" name="SearchableText" id="srch-term" 
+                        i18n:attributes="title title_search_site;
+                        placeholder title_search_site"/>
+                        <i class="fa fa-search"></i>
+                    <input type="submit" value="" id="input-search-menu" class="submit-search"/>
+                        
+                        
+                        <!--<label for="searchbox_currentfolder_only" style="cursor: pointer">
+                        <span
+                            i18n:translate="label_searchbox_currentfolder_only"
+                            tal:omit-tag="">
+                            only in current section
+                        </span>
+                        <input id="searchbox_currentfolder_only"
+                             class="noborder checkbox"
+                             type="checkbox"
+                             name="path"
+                             tal:attributes="value python: '/'.join(context.getPhysicalPath());
+                                             checked request/form/path|nothing"
+                        />
+                        </label>-->
+
+                    </div>
+        </form>
                 
 
                 
@@ -250,6 +278,13 @@
 
                     
                 </li>
+                <li>
+
+                    
+                        <a href="http://www.teylersmuseum-soft.intk.com/nl/webwinkel" title="">
+                            Webwinkel
+                        </a>
+                    </li>
                 
                 
             </ul>
@@ -481,34 +516,6 @@
                     </li>
                 </ul>
             </tal:en>
-
-
-            <form class="navbar-form" role="search" tal:attributes="action python: '/'+lang+'/@@search'">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search" name="SearchableText" id="srch-term" 
-                        i18n:attributes="title title_search_site;
-                        placeholder title_search_site"/>
-                        <i class="fa fa-search"></i>
-                    <input type="submit" value="" id="input-search-menu" class="submit-search"/>
-                        
-                        
-                        <label for="searchbox_currentfolder_only" style="cursor: pointer">
-                        <span
-                            i18n:translate="label_searchbox_currentfolder_only"
-                            tal:omit-tag="">
-                            only in current section
-                        </span>
-                        <input id="searchbox_currentfolder_only"
-                             class="noborder checkbox"
-                             type="checkbox"
-                             name="path"
-                             tal:attributes="value python: '/'.join(context.getPhysicalPath());
-                                             checked request/form/path|nothing"
-                        />
-                        </label>
-
-                    </div>
-        </form>
     </div>
 </tal:sections>
 </tal:master>
